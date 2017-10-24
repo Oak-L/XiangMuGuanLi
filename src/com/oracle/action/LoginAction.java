@@ -31,8 +31,9 @@ public class LoginAction extends ActionSupport {
 				return "loginFail";
 			} else {
 				System.out.println("账号正确");
+				TbEmp emp = list.get(0);
 				// 向session里面放值
-				request.getSession().setAttribute("emp", list.get(0));
+				request.getSession().setAttribute("emp", emp);
 				return "loginSuccess";
 			}
 		}

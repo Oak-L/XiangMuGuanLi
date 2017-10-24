@@ -15,6 +15,7 @@ public class TaskAction extends ActionSupport {
 
 	public String add() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
+		
 		return "ok";
 	}
 }

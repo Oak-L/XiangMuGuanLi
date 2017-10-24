@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>项目管理系统 by www.eyingda.com</title>
 <link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
 
@@ -56,19 +58,23 @@
 											<tr>
 												<td nowrap align="right" width="15%">公司名称:</td>
 												<td width="35%"><input name='name' type="text" class="text" style="width: 154px"
-													value="" /> <span class="red">*</span></td>
+													value="<s:property value="company.companyname" />" /> <span class="red">*</span></td>
 												<td width="16%" align="right" nowrap="nowrap">联系人:</td>
-												<td width="34%"><input class="text" name="linkman" style="width: 154px" value=""></td>
+												<td width="34%"><input class="text" name="linkman" style="width: 154px"
+													value="<s:property value="company.linkman" />"></td>
 											</tr>
 											<tr>
 												<td nowrap="nowrap" align="right">联系电话:</td>
-												<td><input class="text" name='telephone' style="width: 154px" value="" /></td>
+												<td><input class="text" name='telephone' style="width: 154px"
+													value="<s:property value="company.tel" />" /></td>
 												<td align="right">联系地址:</td>
-												<td><input class="text" name='address' style="width: 154px" value="" /></td>
+												<td><input class="text" name='address' style="width: 154px"
+													value="${company.address }" />${company.address }</td>
 											</tr>
 											<tr>
 												<td align="right">公司背景:</td>
-												<td colspan="3"><textarea name="descript" cols="100" rows="8"></textarea></td>
+												<td colspan="3"><textarea name="descript" cols="100" rows="8"><s:property
+															value="company.descript" /></textarea></td>
 											</tr>
 										</table>
 										<br />
