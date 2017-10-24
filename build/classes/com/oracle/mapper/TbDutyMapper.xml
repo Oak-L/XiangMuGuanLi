@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oracle.mapper.TbDutyMapper">
+  <resultMap id="BaseResultMap" type="com.oracle.po.TbDuty">
+    <id column="DutyID" jdbcType="INTEGER" property="dutyid" />
+    <result column="DutyName" jdbcType="VARCHAR" property="dutyname" />
+    <result column="Descript" jdbcType="VARCHAR" property="descript" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    DutyID, DutyName, Descript
+  </sql>
+  <select id="selectByExample" parameterType="com.oracle.po.TbDutyExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_duty
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_duty
+    where DutyID = #{dutyid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_duty
+    where DutyID = #{dutyid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.oracle.po.TbDutyExample">
+    delete from tb_duty
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.oracle.po.TbDuty">
+    insert into tb_duty (DutyID, DutyName, Descript
+      )
+    values (#{dutyid,jdbcType=INTEGER}, #{dutyname,jdbcType=VARCHAR}, #{descript,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.oracle.po.TbDuty">
+    insert into tb_duty
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dutyid != null">
+        DutyID,
+      </if>
+      <if test="dutyname != null">
+        DutyName,
+      </if>
+      <if test="descript != null">
+        Descript,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dutyid != null">
+        #{dutyid,jdbcType=INTEGER},
+      </if>
+      <if test="dutyname != null">
+        #{dutyname,jdbcType=VARCHAR},
+      </if>
+      <if test="descript != null">
+        #{descript,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.oracle.po.TbDutyExample" resultType="java.lang.Long">
+    select count(*) from tb_duty
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_duty
+    <set>
+      <if test="record.dutyid != null">
+        DutyID = #{record.dutyid,jdbcType=INTEGER},
+      </if>
+      <if test="record.dutyname != null">
+        DutyName = #{record.dutyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.descript != null">
+        Descript = #{record.descript,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_duty
+    set DutyID = #{record.dutyid,jdbcType=INTEGER},
+      DutyName = #{record.dutyname,jdbcType=VARCHAR},
+      Descript = #{record.descript,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbDuty">
+    update tb_duty
+    <set>
+      <if test="dutyname != null">
+        DutyName = #{dutyname,jdbcType=VARCHAR},
+      </if>
+      <if test="descript != null">
+        Descript = #{descript,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DutyID = #{dutyid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbDuty">
+    update tb_duty
+    set DutyName = #{dutyname,jdbcType=VARCHAR},
+      Descript = #{descript,jdbcType=VARCHAR}
+    where DutyID = #{dutyid,jdbcType=INTEGER}
+  </update>
+</mapper>

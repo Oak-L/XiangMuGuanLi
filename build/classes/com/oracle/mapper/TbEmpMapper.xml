@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oracle.mapper.TbEmpMapper">
+  <resultMap id="BaseResultMap" type="com.oracle.po.TbEmp">
+    <id column="EmpID" jdbcType="INTEGER" property="empid" />
+    <result column="roleID" jdbcType="INTEGER" property="roleid" />
+    <result column="DutyID" jdbcType="INTEGER" property="dutyid" />
+    <result column="EmpNo" jdbcType="VARCHAR" property="empno" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="EmpName" jdbcType="VARCHAR" property="empname" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="birth" jdbcType="DATE" property="birth" />
+    <result column="idCard" jdbcType="VARCHAR" property="idcard" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="Tel" jdbcType="VARCHAR" property="tel" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="empType" jdbcType="VARCHAR" property="emptype" />
+    <result column="BankName" jdbcType="VARCHAR" property="bankname" />
+    <result column="BankNo" jdbcType="VARCHAR" property="bankno" />
+    <result column="Sal" jdbcType="INTEGER" property="sal" />
+    <result column="comm" jdbcType="INTEGER" property="comm" />
+    <result column="subsidy" jdbcType="INTEGER" property="subsidy" />
+    <result column="hiredate" jdbcType="DATE" property="hiredate" />
+    <result column="Descript" jdbcType="VARCHAR" property="descript" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    EmpID, roleID, DutyID, EmpNo, Password, EmpName, sex, birth, idCard, email, Tel, 
+    Address, empType, BankName, BankNo, Sal, comm, subsidy, hiredate, Descript
+  </sql>
+  <select id="selectByExample" parameterType="com.oracle.po.TbEmpExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_emp
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_emp
+    where EmpID = #{empid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_emp
+    where EmpID = #{empid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.oracle.po.TbEmpExample">
+    delete from tb_emp
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.oracle.po.TbEmp">
+    insert into tb_emp (EmpID, roleID, DutyID, 
+      EmpNo, Password, EmpName, 
+      sex, birth, idCard, email, 
+      Tel, Address, empType, 
+      BankName, BankNo, Sal, 
+      comm, subsidy, hiredate, 
+      Descript)
+    values (#{empid,jdbcType=INTEGER}, #{roleid,jdbcType=INTEGER}, #{dutyid,jdbcType=INTEGER}, 
+      #{empno,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{empname,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birth,jdbcType=DATE}, #{idcard,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{emptype,jdbcType=VARCHAR}, 
+      #{bankname,jdbcType=VARCHAR}, #{bankno,jdbcType=VARCHAR}, #{sal,jdbcType=INTEGER}, 
+      #{comm,jdbcType=INTEGER}, #{subsidy,jdbcType=INTEGER}, #{hiredate,jdbcType=DATE}, 
+      #{descript,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.oracle.po.TbEmp">
+    insert into tb_emp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        EmpID,
+      </if>
+      <if test="roleid != null">
+        roleID,
+      </if>
+      <if test="dutyid != null">
+        DutyID,
+      </if>
+      <if test="empno != null">
+        EmpNo,
+      </if>
+      <if test="password != null">
+        Password,
+      </if>
+      <if test="empname != null">
+        EmpName,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birth != null">
+        birth,
+      </if>
+      <if test="idcard != null">
+        idCard,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="tel != null">
+        Tel,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="emptype != null">
+        empType,
+      </if>
+      <if test="bankname != null">
+        BankName,
+      </if>
+      <if test="bankno != null">
+        BankNo,
+      </if>
+      <if test="sal != null">
+        Sal,
+      </if>
+      <if test="comm != null">
+        comm,
+      </if>
+      <if test="subsidy != null">
+        subsidy,
+      </if>
+      <if test="hiredate != null">
+        hiredate,
+      </if>
+      <if test="descript != null">
+        Descript,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="roleid != null">
+        #{roleid,jdbcType=INTEGER},
+      </if>
+      <if test="dutyid != null">
+        #{dutyid,jdbcType=INTEGER},
+      </if>
+      <if test="empno != null">
+        #{empno,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="empname != null">
+        #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null">
+        #{birth,jdbcType=DATE},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="emptype != null">
+        #{emptype,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankno != null">
+        #{bankno,jdbcType=VARCHAR},
+      </if>
+      <if test="sal != null">
+        #{sal,jdbcType=INTEGER},
+      </if>
+      <if test="comm != null">
+        #{comm,jdbcType=INTEGER},
+      </if>
+      <if test="subsidy != null">
+        #{subsidy,jdbcType=INTEGER},
+      </if>
+      <if test="hiredate != null">
+        #{hiredate,jdbcType=DATE},
+      </if>
+      <if test="descript != null">
+        #{descript,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.oracle.po.TbEmpExample" resultType="java.lang.Long">
+    select count(*) from tb_emp
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_emp
+    <set>
+      <if test="record.empid != null">
+        EmpID = #{record.empid,jdbcType=INTEGER},
+      </if>
+      <if test="record.roleid != null">
+        roleID = #{record.roleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.dutyid != null">
+        DutyID = #{record.dutyid,jdbcType=INTEGER},
+      </if>
+      <if test="record.empno != null">
+        EmpNo = #{record.empno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        Password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.empname != null">
+        EmpName = #{record.empname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birth != null">
+        birth = #{record.birth,jdbcType=DATE},
+      </if>
+      <if test="record.idcard != null">
+        idCard = #{record.idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null">
+        Tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        Address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emptype != null">
+        empType = #{record.emptype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankname != null">
+        BankName = #{record.bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankno != null">
+        BankNo = #{record.bankno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sal != null">
+        Sal = #{record.sal,jdbcType=INTEGER},
+      </if>
+      <if test="record.comm != null">
+        comm = #{record.comm,jdbcType=INTEGER},
+      </if>
+      <if test="record.subsidy != null">
+        subsidy = #{record.subsidy,jdbcType=INTEGER},
+      </if>
+      <if test="record.hiredate != null">
+        hiredate = #{record.hiredate,jdbcType=DATE},
+      </if>
+      <if test="record.descript != null">
+        Descript = #{record.descript,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_emp
+    set EmpID = #{record.empid,jdbcType=INTEGER},
+      roleID = #{record.roleid,jdbcType=INTEGER},
+      DutyID = #{record.dutyid,jdbcType=INTEGER},
+      EmpNo = #{record.empno,jdbcType=VARCHAR},
+      Password = #{record.password,jdbcType=VARCHAR},
+      EmpName = #{record.empname,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      birth = #{record.birth,jdbcType=DATE},
+      idCard = #{record.idcard,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      Tel = #{record.tel,jdbcType=VARCHAR},
+      Address = #{record.address,jdbcType=VARCHAR},
+      empType = #{record.emptype,jdbcType=VARCHAR},
+      BankName = #{record.bankname,jdbcType=VARCHAR},
+      BankNo = #{record.bankno,jdbcType=VARCHAR},
+      Sal = #{record.sal,jdbcType=INTEGER},
+      comm = #{record.comm,jdbcType=INTEGER},
+      subsidy = #{record.subsidy,jdbcType=INTEGER},
+      hiredate = #{record.hiredate,jdbcType=DATE},
+      Descript = #{record.descript,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbEmp">
+    update tb_emp
+    <set>
+      <if test="roleid != null">
+        roleID = #{roleid,jdbcType=INTEGER},
+      </if>
+      <if test="dutyid != null">
+        DutyID = #{dutyid,jdbcType=INTEGER},
+      </if>
+      <if test="empno != null">
+        EmpNo = #{empno,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        Password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="empname != null">
+        EmpName = #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null">
+        birth = #{birth,jdbcType=DATE},
+      </if>
+      <if test="idcard != null">
+        idCard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        Tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="emptype != null">
+        empType = #{emptype,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        BankName = #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankno != null">
+        BankNo = #{bankno,jdbcType=VARCHAR},
+      </if>
+      <if test="sal != null">
+        Sal = #{sal,jdbcType=INTEGER},
+      </if>
+      <if test="comm != null">
+        comm = #{comm,jdbcType=INTEGER},
+      </if>
+      <if test="subsidy != null">
+        subsidy = #{subsidy,jdbcType=INTEGER},
+      </if>
+      <if test="hiredate != null">
+        hiredate = #{hiredate,jdbcType=DATE},
+      </if>
+      <if test="descript != null">
+        Descript = #{descript,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where EmpID = #{empid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbEmp">
+    update tb_emp
+    set roleID = #{roleid,jdbcType=INTEGER},
+      DutyID = #{dutyid,jdbcType=INTEGER},
+      EmpNo = #{empno,jdbcType=VARCHAR},
+      Password = #{password,jdbcType=VARCHAR},
+      EmpName = #{empname,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=DATE},
+      idCard = #{idcard,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      Tel = #{tel,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      empType = #{emptype,jdbcType=VARCHAR},
+      BankName = #{bankname,jdbcType=VARCHAR},
+      BankNo = #{bankno,jdbcType=VARCHAR},
+      Sal = #{sal,jdbcType=INTEGER},
+      comm = #{comm,jdbcType=INTEGER},
+      subsidy = #{subsidy,jdbcType=INTEGER},
+      hiredate = #{hiredate,jdbcType=DATE},
+      Descript = #{descript,jdbcType=VARCHAR}
+    where EmpID = #{empid,jdbcType=INTEGER}
+  </update>
+</mapper>

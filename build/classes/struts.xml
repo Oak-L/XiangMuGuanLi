@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<package name="XiangMuGuanLi" extends="struts-default" namespace="/">
+		<!-- 1 声明拦截器 -->
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.oracle.interceptor.LoginInterceptor"></interceptor>
+		</interceptors>
+
+		<action name="loginAction" class="com.oracle.action.LoginAction">
+			<result name="loginSuccess">index.jsp</result>
+			<result name="loginFail">login.jsp</result>
+		</action>
+		<action name="randomCodeAction" class="com.oracle.action.RandomCodeAction" method="get"></action>
+		<action name="taskAction_*" class="com.oracle.action.TaskAction" method="{1}">
+			<result name="yes">index.jsp</result>
+		</action>
+		<!-- <action name="customer_*" class="com.oracle.action.CustomerAction" method="{1}"> 2 使用自定义的拦截器 <interceptor-ref 
+			name="loginInterceptor"></interceptor-ref> 3 使用默认拦截器 <interceptor-ref name="defaultStack"></interceptor-ref> 
+			<result name="loginFail">login.jsp</result> </action> -->
+	</package>
+</struts>

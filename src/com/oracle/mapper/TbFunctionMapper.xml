@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oracle.mapper.TbFunctionMapper">
+  <resultMap id="BaseResultMap" type="com.oracle.po.TbFunction">
+    <id column="FunctionID" jdbcType="INTEGER" property="functionid" />
+    <result column="moduleID" jdbcType="INTEGER" property="moduleid" />
+    <result column="FunctionName" jdbcType="VARCHAR" property="functionname" />
+    <result column="priority" jdbcType="INTEGER" property="priority" />
+    <result column="CreateDate" jdbcType="DATE" property="createdate" />
+    <result column="FunctionDesc" jdbcType="VARCHAR" property="functiondesc" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    FunctionID, moduleID, FunctionName, priority, CreateDate, FunctionDesc
+  </sql>
+  <select id="selectByExample" parameterType="com.oracle.po.TbFunctionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_function
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_function
+    where FunctionID = #{functionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_function
+    where FunctionID = #{functionid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.oracle.po.TbFunctionExample">
+    delete from tb_function
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.oracle.po.TbFunction">
+    insert into tb_function (FunctionID, moduleID, FunctionName, 
+      priority, CreateDate, FunctionDesc
+      )
+    values (#{functionid,jdbcType=INTEGER}, #{moduleid,jdbcType=INTEGER}, #{functionname,jdbcType=VARCHAR}, 
+      #{priority,jdbcType=INTEGER}, #{createdate,jdbcType=DATE}, #{functiondesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.oracle.po.TbFunction">
+    insert into tb_function
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="functionid != null">
+        FunctionID,
+      </if>
+      <if test="moduleid != null">
+        moduleID,
+      </if>
+      <if test="functionname != null">
+        FunctionName,
+      </if>
+      <if test="priority != null">
+        priority,
+      </if>
+      <if test="createdate != null">
+        CreateDate,
+      </if>
+      <if test="functiondesc != null">
+        FunctionDesc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="functionid != null">
+        #{functionid,jdbcType=INTEGER},
+      </if>
+      <if test="moduleid != null">
+        #{moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="functionname != null">
+        #{functionname,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="functiondesc != null">
+        #{functiondesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.oracle.po.TbFunctionExample" resultType="java.lang.Long">
+    select count(*) from tb_function
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_function
+    <set>
+      <if test="record.functionid != null">
+        FunctionID = #{record.functionid,jdbcType=INTEGER},
+      </if>
+      <if test="record.moduleid != null">
+        moduleID = #{record.moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.functionname != null">
+        FunctionName = #{record.functionname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priority != null">
+        priority = #{record.priority,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdate != null">
+        CreateDate = #{record.createdate,jdbcType=DATE},
+      </if>
+      <if test="record.functiondesc != null">
+        FunctionDesc = #{record.functiondesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_function
+    set FunctionID = #{record.functionid,jdbcType=INTEGER},
+      moduleID = #{record.moduleid,jdbcType=INTEGER},
+      FunctionName = #{record.functionname,jdbcType=VARCHAR},
+      priority = #{record.priority,jdbcType=INTEGER},
+      CreateDate = #{record.createdate,jdbcType=DATE},
+      FunctionDesc = #{record.functiondesc,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbFunction">
+    update tb_function
+    <set>
+      <if test="moduleid != null">
+        moduleID = #{moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="functionname != null">
+        FunctionName = #{functionname,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        priority = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        CreateDate = #{createdate,jdbcType=DATE},
+      </if>
+      <if test="functiondesc != null">
+        FunctionDesc = #{functiondesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FunctionID = #{functionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbFunction">
+    update tb_function
+    set moduleID = #{moduleid,jdbcType=INTEGER},
+      FunctionName = #{functionname,jdbcType=VARCHAR},
+      priority = #{priority,jdbcType=INTEGER},
+      CreateDate = #{createdate,jdbcType=DATE},
+      FunctionDesc = #{functiondesc,jdbcType=VARCHAR}
+    where FunctionID = #{functionid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oracle.mapper.TbWorkrecordMapper">
+  <resultMap id="BaseResultMap" type="com.oracle.po.TbWorkrecord">
+    <id column="recordID" jdbcType="INTEGER" property="recordid" />
+    <result column="EmpID" jdbcType="INTEGER" property="empid" />
+    <result column="workContent" jdbcType="VARCHAR" property="workcontent" />
+    <result column="CreateDate" jdbcType="DATE" property="createdate" />
+    <result column="WorkDate" jdbcType="DATE" property="workdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    recordID, EmpID, workContent, CreateDate, WorkDate
+  </sql>
+  <select id="selectByExample" parameterType="com.oracle.po.TbWorkrecordExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_workrecord
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_workrecord
+    where recordID = #{recordid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_workrecord
+    where recordID = #{recordid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.oracle.po.TbWorkrecordExample">
+    delete from tb_workrecord
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.oracle.po.TbWorkrecord">
+    insert into tb_workrecord (recordID, EmpID, workContent, 
+      CreateDate, WorkDate)
+    values (#{recordid,jdbcType=INTEGER}, #{empid,jdbcType=INTEGER}, #{workcontent,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=DATE}, #{workdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.oracle.po.TbWorkrecord">
+    insert into tb_workrecord
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recordid != null">
+        recordID,
+      </if>
+      <if test="empid != null">
+        EmpID,
+      </if>
+      <if test="workcontent != null">
+        workContent,
+      </if>
+      <if test="createdate != null">
+        CreateDate,
+      </if>
+      <if test="workdate != null">
+        WorkDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recordid != null">
+        #{recordid,jdbcType=INTEGER},
+      </if>
+      <if test="empid != null">
+        #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="workcontent != null">
+        #{workcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="workdate != null">
+        #{workdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.oracle.po.TbWorkrecordExample" resultType="java.lang.Long">
+    select count(*) from tb_workrecord
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_workrecord
+    <set>
+      <if test="record.recordid != null">
+        recordID = #{record.recordid,jdbcType=INTEGER},
+      </if>
+      <if test="record.empid != null">
+        EmpID = #{record.empid,jdbcType=INTEGER},
+      </if>
+      <if test="record.workcontent != null">
+        workContent = #{record.workcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null">
+        CreateDate = #{record.createdate,jdbcType=DATE},
+      </if>
+      <if test="record.workdate != null">
+        WorkDate = #{record.workdate,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_workrecord
+    set recordID = #{record.recordid,jdbcType=INTEGER},
+      EmpID = #{record.empid,jdbcType=INTEGER},
+      workContent = #{record.workcontent,jdbcType=VARCHAR},
+      CreateDate = #{record.createdate,jdbcType=DATE},
+      WorkDate = #{record.workdate,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbWorkrecord">
+    update tb_workrecord
+    <set>
+      <if test="empid != null">
+        EmpID = #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="workcontent != null">
+        workContent = #{workcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CreateDate = #{createdate,jdbcType=DATE},
+      </if>
+      <if test="workdate != null">
+        WorkDate = #{workdate,jdbcType=DATE},
+      </if>
+    </set>
+    where recordID = #{recordid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbWorkrecord">
+    update tb_workrecord
+    set EmpID = #{empid,jdbcType=INTEGER},
+      workContent = #{workcontent,jdbcType=VARCHAR},
+      CreateDate = #{createdate,jdbcType=DATE},
+      WorkDate = #{workdate,jdbcType=DATE}
+    where recordID = #{recordid,jdbcType=INTEGER}
+  </update>
+</mapper>

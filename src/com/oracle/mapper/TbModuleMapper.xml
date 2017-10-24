@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oracle.mapper.TbModuleMapper">
+  <resultMap id="BaseResultMap" type="com.oracle.po.TbModule">
+    <id column="moduleID" jdbcType="INTEGER" property="moduleid" />
+    <result column="projectid" jdbcType="INTEGER" property="projectid" />
+    <result column="moduleName" jdbcType="VARCHAR" property="modulename" />
+    <result column="priority" jdbcType="INTEGER" property="priority" />
+    <result column="CreateDate" jdbcType="DATE" property="createdate" />
+    <result column="identifier" jdbcType="VARCHAR" property="identifier" />
+    <result column="ModuleDesc" jdbcType="VARCHAR" property="moduledesc" />
+    <result column="requireDes" jdbcType="VARCHAR" property="requiredes" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    moduleID, projectid, moduleName, priority, CreateDate, identifier, ModuleDesc, requireDes
+  </sql>
+  <select id="selectByExample" parameterType="com.oracle.po.TbModuleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_module
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_module
+    where moduleID = #{moduleid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_module
+    where moduleID = #{moduleid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.oracle.po.TbModuleExample">
+    delete from tb_module
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.oracle.po.TbModule">
+    insert into tb_module (moduleID, projectid, moduleName, 
+      priority, CreateDate, identifier, 
+      ModuleDesc, requireDes)
+    values (#{moduleid,jdbcType=INTEGER}, #{projectid,jdbcType=INTEGER}, #{modulename,jdbcType=VARCHAR}, 
+      #{priority,jdbcType=INTEGER}, #{createdate,jdbcType=DATE}, #{identifier,jdbcType=VARCHAR}, 
+      #{moduledesc,jdbcType=VARCHAR}, #{requiredes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.oracle.po.TbModule">
+    insert into tb_module
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleid != null">
+        moduleID,
+      </if>
+      <if test="projectid != null">
+        projectid,
+      </if>
+      <if test="modulename != null">
+        moduleName,
+      </if>
+      <if test="priority != null">
+        priority,
+      </if>
+      <if test="createdate != null">
+        CreateDate,
+      </if>
+      <if test="identifier != null">
+        identifier,
+      </if>
+      <if test="moduledesc != null">
+        ModuleDesc,
+      </if>
+      <if test="requiredes != null">
+        requireDes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moduleid != null">
+        #{moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="projectid != null">
+        #{projectid,jdbcType=INTEGER},
+      </if>
+      <if test="modulename != null">
+        #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="identifier != null">
+        #{identifier,jdbcType=VARCHAR},
+      </if>
+      <if test="moduledesc != null">
+        #{moduledesc,jdbcType=VARCHAR},
+      </if>
+      <if test="requiredes != null">
+        #{requiredes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.oracle.po.TbModuleExample" resultType="java.lang.Long">
+    select count(*) from tb_module
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_module
+    <set>
+      <if test="record.moduleid != null">
+        moduleID = #{record.moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.projectid != null">
+        projectid = #{record.projectid,jdbcType=INTEGER},
+      </if>
+      <if test="record.modulename != null">
+        moduleName = #{record.modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priority != null">
+        priority = #{record.priority,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdate != null">
+        CreateDate = #{record.createdate,jdbcType=DATE},
+      </if>
+      <if test="record.identifier != null">
+        identifier = #{record.identifier,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moduledesc != null">
+        ModuleDesc = #{record.moduledesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requiredes != null">
+        requireDes = #{record.requiredes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_module
+    set moduleID = #{record.moduleid,jdbcType=INTEGER},
+      projectid = #{record.projectid,jdbcType=INTEGER},
+      moduleName = #{record.modulename,jdbcType=VARCHAR},
+      priority = #{record.priority,jdbcType=INTEGER},
+      CreateDate = #{record.createdate,jdbcType=DATE},
+      identifier = #{record.identifier,jdbcType=VARCHAR},
+      ModuleDesc = #{record.moduledesc,jdbcType=VARCHAR},
+      requireDes = #{record.requiredes,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbModule">
+    update tb_module
+    <set>
+      <if test="projectid != null">
+        projectid = #{projectid,jdbcType=INTEGER},
+      </if>
+      <if test="modulename != null">
+        moduleName = #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        priority = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        CreateDate = #{createdate,jdbcType=DATE},
+      </if>
+      <if test="identifier != null">
+        identifier = #{identifier,jdbcType=VARCHAR},
+      </if>
+      <if test="moduledesc != null">
+        ModuleDesc = #{moduledesc,jdbcType=VARCHAR},
+      </if>
+      <if test="requiredes != null">
+        requireDes = #{requiredes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where moduleID = #{moduleid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbModule">
+    update tb_module
+    set projectid = #{projectid,jdbcType=INTEGER},
+      moduleName = #{modulename,jdbcType=VARCHAR},
+      priority = #{priority,jdbcType=INTEGER},
+      CreateDate = #{createdate,jdbcType=DATE},
+      identifier = #{identifier,jdbcType=VARCHAR},
+      ModuleDesc = #{moduledesc,jdbcType=VARCHAR},
+      requireDes = #{requiredes,jdbcType=VARCHAR}
+    where moduleID = #{moduleid,jdbcType=INTEGER}
+  </update>
+</mapper>

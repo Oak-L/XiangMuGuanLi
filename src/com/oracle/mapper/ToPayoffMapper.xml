@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oracle.mapper.ToPayoffMapper">
+  <resultMap id="BaseResultMap" type="com.oracle.po.ToPayoff">
+    <id column="PayID" jdbcType="INTEGER" property="payid" />
+    <result column="EmpID" jdbcType="INTEGER" property="empid" />
+    <result column="TB__EmpID" jdbcType="INTEGER" property="tbEmpid" />
+    <result column="Sal" jdbcType="INTEGER" property="sal" />
+    <result column="comm" jdbcType="INTEGER" property="comm" />
+    <result column="deductSum" jdbcType="INTEGER" property="deductsum" />
+    <result column="payType" jdbcType="VARCHAR" property="paytype" />
+    <result column="year" jdbcType="INTEGER" property="year" />
+    <result column="month" jdbcType="INTEGER" property="month" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    PayID, EmpID, TB__EmpID, Sal, comm, deductSum, payType, year, month
+  </sql>
+  <select id="selectByExample" parameterType="com.oracle.po.ToPayoffExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from to_payoff
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from to_payoff
+    where PayID = #{payid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from to_payoff
+    where PayID = #{payid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.oracle.po.ToPayoffExample">
+    delete from to_payoff
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.oracle.po.ToPayoff">
+    insert into to_payoff (PayID, EmpID, TB__EmpID, 
+      Sal, comm, deductSum, 
+      payType, year, month
+      )
+    values (#{payid,jdbcType=INTEGER}, #{empid,jdbcType=INTEGER}, #{tbEmpid,jdbcType=INTEGER}, 
+      #{sal,jdbcType=INTEGER}, #{comm,jdbcType=INTEGER}, #{deductsum,jdbcType=INTEGER}, 
+      #{paytype,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, #{month,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.oracle.po.ToPayoff">
+    insert into to_payoff
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="payid != null">
+        PayID,
+      </if>
+      <if test="empid != null">
+        EmpID,
+      </if>
+      <if test="tbEmpid != null">
+        TB__EmpID,
+      </if>
+      <if test="sal != null">
+        Sal,
+      </if>
+      <if test="comm != null">
+        comm,
+      </if>
+      <if test="deductsum != null">
+        deductSum,
+      </if>
+      <if test="paytype != null">
+        payType,
+      </if>
+      <if test="year != null">
+        year,
+      </if>
+      <if test="month != null">
+        month,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="payid != null">
+        #{payid,jdbcType=INTEGER},
+      </if>
+      <if test="empid != null">
+        #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="tbEmpid != null">
+        #{tbEmpid,jdbcType=INTEGER},
+      </if>
+      <if test="sal != null">
+        #{sal,jdbcType=INTEGER},
+      </if>
+      <if test="comm != null">
+        #{comm,jdbcType=INTEGER},
+      </if>
+      <if test="deductsum != null">
+        #{deductsum,jdbcType=INTEGER},
+      </if>
+      <if test="paytype != null">
+        #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="month != null">
+        #{month,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.oracle.po.ToPayoffExample" resultType="java.lang.Long">
+    select count(*) from to_payoff
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update to_payoff
+    <set>
+      <if test="record.payid != null">
+        PayID = #{record.payid,jdbcType=INTEGER},
+      </if>
+      <if test="record.empid != null">
+        EmpID = #{record.empid,jdbcType=INTEGER},
+      </if>
+      <if test="record.tbEmpid != null">
+        TB__EmpID = #{record.tbEmpid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sal != null">
+        Sal = #{record.sal,jdbcType=INTEGER},
+      </if>
+      <if test="record.comm != null">
+        comm = #{record.comm,jdbcType=INTEGER},
+      </if>
+      <if test="record.deductsum != null">
+        deductSum = #{record.deductsum,jdbcType=INTEGER},
+      </if>
+      <if test="record.paytype != null">
+        payType = #{record.paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.year != null">
+        year = #{record.year,jdbcType=INTEGER},
+      </if>
+      <if test="record.month != null">
+        month = #{record.month,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update to_payoff
+    set PayID = #{record.payid,jdbcType=INTEGER},
+      EmpID = #{record.empid,jdbcType=INTEGER},
+      TB__EmpID = #{record.tbEmpid,jdbcType=INTEGER},
+      Sal = #{record.sal,jdbcType=INTEGER},
+      comm = #{record.comm,jdbcType=INTEGER},
+      deductSum = #{record.deductsum,jdbcType=INTEGER},
+      payType = #{record.paytype,jdbcType=VARCHAR},
+      year = #{record.year,jdbcType=INTEGER},
+      month = #{record.month,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.ToPayoff">
+    update to_payoff
+    <set>
+      <if test="empid != null">
+        EmpID = #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="tbEmpid != null">
+        TB__EmpID = #{tbEmpid,jdbcType=INTEGER},
+      </if>
+      <if test="sal != null">
+        Sal = #{sal,jdbcType=INTEGER},
+      </if>
+      <if test="comm != null">
+        comm = #{comm,jdbcType=INTEGER},
+      </if>
+      <if test="deductsum != null">
+        deductSum = #{deductsum,jdbcType=INTEGER},
+      </if>
+      <if test="paytype != null">
+        payType = #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        year = #{year,jdbcType=INTEGER},
+      </if>
+      <if test="month != null">
+        month = #{month,jdbcType=INTEGER},
+      </if>
+    </set>
+    where PayID = #{payid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.oracle.po.ToPayoff">
+    update to_payoff
+    set EmpID = #{empid,jdbcType=INTEGER},
+      TB__EmpID = #{tbEmpid,jdbcType=INTEGER},
+      Sal = #{sal,jdbcType=INTEGER},
+      comm = #{comm,jdbcType=INTEGER},
+      deductSum = #{deductsum,jdbcType=INTEGER},
+      payType = #{paytype,jdbcType=VARCHAR},
+      year = #{year,jdbcType=INTEGER},
+      month = #{month,jdbcType=INTEGER}
+    where PayID = #{payid,jdbcType=INTEGER}
+  </update>
+</mapper>
