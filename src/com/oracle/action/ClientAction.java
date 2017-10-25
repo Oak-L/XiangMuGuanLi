@@ -10,13 +10,9 @@ import com.oracle.service.TbCompanyService;
 public class ClientAction extends ActionSupport {
 	private List<TbCompany> list;
 	private String companyName;
-	private String name;
-	private String linkman;
-	private String telephone;
-	private String address;
-	private String descript;
 	private int id;
 	private TbCompany company;
+	private List<Integer> delid;
 	/**
 	 * 
 	 */
@@ -33,16 +29,23 @@ public class ClientAction extends ActionSupport {
 	}
 
 	public String add() throws Exception {
+		System.out.println(company.getCompanyid());
 		TbCompany tbCompany = new TbCompany();
-		tbCompany.setCompanyname(name);
-		tbCompany.setLinkman(linkman);
-		tbCompany.setTel(telephone);
-		tbCompany.setAddress(address);
+		int i = 0;
+		tbCompany.setCompanyname(company.getCompanyname());
+		tbCompany.setLinkman(company.getLinkman());
+		tbCompany.setTel(company.getTel());
+		tbCompany.setAddress(company.getAddress());
+		tbCompany.setDescript(company.getDescript());
 		tbCompany.setCreatedate(new Date());
-		tbCompany.setDescript(descript);
-		int i = new TbCompanyService().add(tbCompany);
+		if (company.getCompanyid() != null) {
+			tbCompany.setCompanyid(company.getCompanyid());
+			i = new TbCompanyService().updateByPrimaryKey(tbCompany);
+		} else {
+			i = new TbCompanyService().add(tbCompany);
+		}
 		System.out.println(i);
-		return "list";
+		return "listAgain";
 	}
 
 	public String msg() throws Exception {
@@ -51,10 +54,17 @@ public class ClientAction extends ActionSupport {
 	}
 
 	public String updateFind() throws Exception {
-		if (id != 0) {
-			company = new TbCompanyService().selectByPrimaryKey(id);
+		if (company.getCompanyid() != null) {
+			company = new TbCompanyService().selectByPrimaryKey(company.getCompanyid());
 		}
 		return "update";
+	}
+
+	public String delete() throws Exception {
+		System.out.println(delid);
+		int i = new TbCompanyService().deleteByExample(delid);
+		System.out.println(i);
+		return "listAgain";
 	}
 
 	public List<TbCompany> getList() {
@@ -73,46 +83,6 @@ public class ClientAction extends ActionSupport {
 		this.companyName = companyName;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getLinkman() {
-		return linkman;
-	}
-
-	public void setLinkman(String linkman) {
-		this.linkman = linkman;
-	}
-
-	public String getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getDescript() {
-		return descript;
-	}
-
-	public void setDescript(String descript) {
-		this.descript = descript;
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -127,6 +97,14 @@ public class ClientAction extends ActionSupport {
 
 	public void setCompany(TbCompany company) {
 		this.company = company;
+	}
+
+	public List<Integer> getDelid() {
+		return delid;
+	}
+
+	public void setDelid(List<Integer> delid) {
+		this.delid = delid;
 	}
 
 }

@@ -36,7 +36,8 @@
 </head>
 
 <body class="ContentBody">
-	<form action="client_add" method="post" enctype="multipart/form-data" name="form" target="sypost">
+	<form action="client_add.action" method="post" enctype="multipart/form-data" name="form"
+		target="_self">
 		<div class="MainDiv">
 			<table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
 				<tr>
@@ -57,23 +58,23 @@
 										<table border="0" cellpadding="2" cellspacing="1" style="width: 100%">
 											<tr>
 												<td nowrap align="right" width="15%">公司名称:</td>
-												<td width="35%"><input name='name' type="text" class="text" style="width: 154px"
-													value="<s:property value="company.companyname" />" /> <span class="red">*</span></td>
+												<td width="35%"><input name='company.companyname' type="text" class="text"
+													style="width: 154px" value="${company.companyname }" /> <span class="red">*</span></td>
 												<td width="16%" align="right" nowrap="nowrap">联系人:</td>
-												<td width="34%"><input class="text" name="linkman" style="width: 154px"
+												<td width="34%"><input class="text" name="company.linkman" style="width: 154px"
 													value="<s:property value="company.linkman" />"></td>
 											</tr>
 											<tr>
 												<td nowrap="nowrap" align="right">联系电话:</td>
-												<td><input class="text" name='telephone' style="width: 154px"
+												<td><input class="text" name='company.tel' style="width: 154px"
 													value="<s:property value="company.tel" />" /></td>
 												<td align="right">联系地址:</td>
-												<td><input class="text" name='address' style="width: 154px"
-													value="${company.address }" />${company.address }</td>
+												<td><input class="text" name='company.address' style="width: 154px"
+													value="${company.address }" /></td>
 											</tr>
 											<tr>
 												<td align="right">公司背景:</td>
-												<td colspan="3"><textarea name="descript" cols="100" rows="8"><s:property
+												<td colspan="3"><textarea name="company.descript" cols="100" rows="8"><s:property
 															value="company.descript" /></textarea></td>
 											</tr>
 										</table>
@@ -88,6 +89,10 @@
 					<td colspan="2" align="center" height="50px"><input type="submit" name="Submit" value="保存"
 						class="button" onclick="alert('保存成功！');" /> <input type="button" name="Submit2" value="返回"
 						class="button" onclick="window.history.go(-1);" /></td>
+				</tr>
+				<tr>
+					<%-- <td><input type="hidden" name="company.createdate" value="${company.createdate }" /></td> --%>
+					<td><input type="hidden" name="company.companyid" value="${company.companyid }" /></td>
 				</tr>
 			</table>
 		</div>

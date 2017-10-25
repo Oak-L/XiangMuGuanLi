@@ -87,14 +87,18 @@ html {
 	}
 
 	function link() {
-		document.getElementById("fom").action = ".\client\updateClient.jsp";
+		document.getElementById("fom").action = "client_updateFind.action?company.companyid=<s:property value="#company.companyid" />";
+		document.getElementById("fom").submit();
+	}
+
+	function deleteChoose() {
+		document.getElementById("fom").action = "client_delete.action?id=<s:property value="#company.companyid" />";
 		document.getElementById("fom").submit();
 	}
 </SCRIPT>
 
 <body>
 	<form name="fom" id="fom" action="client_find.action" method="post">
-		>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="30">
@@ -123,8 +127,9 @@ html {
 									<tr>
 										<td height="20"><span class="newfont07">选择：<a href="#" class="right-font08"
 												onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-											<input name="Submit" type="button" class="right-button08" value="删除所选人员信息" /> <input
-											name="Submit" type="button" class="right-button08" value="添加人员信息" onclick="link();" />
+											<input name="Submit" type="button" class="right-button08" value="删除所选人员信息"
+											onclick="deleteChoose();" /> <input name="Submit" type="button" class="right-button08"
+											value="添加人员信息" onclick="link();" />
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</td>
 									</tr>
@@ -148,7 +153,8 @@ html {
 												</tr>
 												<s:iterator value="list" id="company">
 													<tr>
-														<td bgcolor="#FFFFFF"><input type="checkbox" name="delid" /></td>
+														<td bgcolor="#FFFFFF"><input type="checkbox" name="delid"
+															value="${company.companyid}" /></td>
 														<td height="20" bgcolor="#FFFFFF"><a href="listyuangongmingxi.html"><s:property
 																	value="#company.companyname" /></a></td>
 														<td bgcolor="#FFFFFF"><a href="listyuangongmingxi.html"><s:property
@@ -158,7 +164,7 @@ html {
 														<td bgcolor="#FFFFFF"><s:property value="#company.descript" /></td>
 														<td bgcolor="#FFFFFF"><s:property value="#company.createdate" /></td>
 														<td bgcolor="#FFFFFF"><a
-															href="client_updateFind.action?uid=<s:property value="#company.companyid" />">编辑</a>&nbsp;|&nbsp;<a
+															href="client_updateFind.action?company.companyid=<s:property value="#company.companyid" />">编辑</a>&nbsp;|&nbsp;<a
 															href="client_msg.action?id=<s:property value="#company.companyid" />">查看</a></td>
 													</tr>
 												</s:iterator>

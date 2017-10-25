@@ -17,6 +17,7 @@
 		<action name="randomCodeAction" class="com.oracle.action.RandomCodeAction" method="get"></action>
 		<action name="client_*" class="com.oracle.action.ClientAction" method="{1}">
 			<result name="list">/client/listClient.jsp</result>
+			<result name="listAgain" type="redirectAction">client_list.action</result>
 			<result name="update">/client/updateClient.jsp</result>
 			<result name="msg">/client/msgClient.jsp</result>
 		</action>

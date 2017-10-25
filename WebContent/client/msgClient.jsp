@@ -94,13 +94,11 @@ html {
 <body>
 	<form name="fom" id="fom" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
-
 			<tr>
 				<td height="30">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td height="62" background="../images/nav04.gif">
-
 								<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 									<tr>
 										<td width="21">&nbsp;</td>
@@ -116,7 +114,6 @@ html {
 						cellpadding="0">
 						<tr>
 							<td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-
 									<tr>
 										<td height="40" class="font42"><table width="100%" border="0" cellpadding="4"
 												cellspacing="1" bgcolor="#464646" class="newfont03">
@@ -152,6 +149,10 @@ html {
 													<td colspan="2" bgcolor="#FFFFFF"><s:property value="company.descript" /></td>
 												</tr>
 											</table></td>
+									</tr>
+									<tr>
+										<td height="20" align="right"><input type="button" name="Submit2" value="返回" class="button"
+											onclick="window.history.go(-1);" /></td>
 									</tr>
 								</table></td>
 						</tr>

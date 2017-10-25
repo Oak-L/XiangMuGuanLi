@@ -1,5 +1,6 @@
 package com.oracle.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -44,8 +45,29 @@ public class TbCompanyService {
 		return tbCompany;
 	}
 
+	public int updateByPrimaryKey(TbCompany record) throws Exception {
+		SqlSession sqlSession = DBUtil.getSession();
+		TbCompanyMapper tbCompanyMapper = sqlSession.getMapper(TbCompanyMapper.class);
+		int i = tbCompanyMapper.updateByPrimaryKey(record);
+		sqlSession.commit();
+		return i;
+	}
+
+	public int deleteByExample(List<Integer> values) throws Exception {
+		SqlSession sqlSession = DBUtil.getSession();
+		TbCompanyMapper tbCompanyMapper = sqlSession.getMapper(TbCompanyMapper.class);
+		TbCompanyExample tbCompanyExample = new TbCompanyExample();
+		tbCompanyExample.createCriteria().andCompanyidIn(values);
+		int i = tbCompanyMapper.deleteByExample(tbCompanyExample);
+		sqlSession.commit();
+		return i;
+	}
+
 	public static void main(String[] args) throws Exception {
-		TbCompany list = new TbCompanyService().selectByPrimaryKey(9);
-		System.out.println(list);
+		List<Integer> values = new ArrayList<>();
+		values.add(11);
+		values.add(12);
+		int i = new TbCompanyService().deleteByExample(values);
+		System.out.println(i);
 	}
 }
