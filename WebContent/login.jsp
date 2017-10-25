@@ -15,9 +15,31 @@ body {
 -->
 </style>
 <script type="text/javascript">
+	function check() {
+		var username = document.getElementsByName("username");
+		var password = document.getElementsByName("password");
+		var randomCode = document.getElementsByName("randomCode");
+		var form = document.getElementById("form");
+		if (username[0].value == "" || password[0].value == "") {
+			alert("请输入用户名或密码");
+			return false;
+		} else if (randomCode[0].value == "") {
+			alert("请输入验证码");
+			return false;
+		} else {	
+			form.submit();
+			return true;
+		}
+	}
+
 	function reload() {
 		document.getElementById("code").src = "randomCodeAction?ma="
 				+ Math.random();
+	}
+
+	$
+	{
+		msg
 	}
 </script>
 <link href="css/css.css" rel="stylesheet" type="text/css" />
@@ -45,7 +67,7 @@ body {
 						<td><img src="images/line01.gif" width="5" height="292" /></td>
 					</tr>
 				</table></td>
-			<td><form action="loginAction.action" method="post">
+			<td><form id="form" action="loginAction_login.action" method="post">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="31%" height="35" class="login-text02">用户名称：<br /></td>
@@ -66,9 +88,12 @@ body {
 						</tr>
 						<tr>
 							<td height="35">&nbsp;</td>
-							<td><input name="Submit2" type="submit" class="right-button01" value="确认登陆"
-								onClick="window.location='index.html'" /> <input name="Submit232" type="submit"
-								class="right-button02" value="重 置" /></td>
+							<td><input name="Submit2" type="button" class="right-button01" value="确认登陆"
+								onclick="return check()" /> <input name="Submit232" type="submit" class="right-button02"
+								value="重 置" /></td>
+						</tr>
+						<tr>
+							<td height="35" colspan="2" align="center"><a style="color: red;">${error}</a></td>
 						</tr>
 					</table>
 				</form></td>

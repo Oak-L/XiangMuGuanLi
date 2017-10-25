@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>项目管理系统 by www.eyingda.com</title>
-<link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" rev="stylesheet" href="./css/style.css" type="text/css" media="all" />
 
 
 <script language="JavaScript" type="text/javascript">
@@ -46,11 +46,6 @@
 				<tr>
 					<td class="CPanel">
 						<table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
-							<tr>
-								<td align="left"><input type="submit" name="Submit" value="保存" class="button"
-									onclick="alert('保存成功！');" /> <input type="button" name="Submit2" value="返回" class="button"
-									onclick="window.history.go(-1);" /></td>
-							</tr>
 							<tr>
 								<td width="100%">
 									<fieldset style="height: 100%;">

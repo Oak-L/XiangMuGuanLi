@@ -1,6 +1,6 @@
-/* $TopStyle:URL=css/head.css$ */
+ï»¿/* $TopStyle:URL=css/head.css$ */
 
-/* Í¨ÓÃÑùÊ½±ív2.0 */
+/* é€šç”¨æ ·å¼è¡¨v2.0 */
 body,p,td,input,option,textarea,select{color:#333333;font:12px "Verdana"}
 body,form,ul,li,p,ol{margin:0;padding:0}
 body{background:#fff;text-align:center}
@@ -21,8 +21,8 @@ table{text-align:left}
 .lineRight{text-align:right}
 a:link,a:visited{color:#1835D1;text-decoration:none}
 a:active,a:hover{color:#FF4e00;text-decoration:underline}
-/* Í·²¿ºÍÎ²²¿ÑùÊ½±í */
-#head{font-family:"ËÎÌå"}
+/* å¤´éƒ¨å’Œå°¾éƒ¨æ ·å¼è¡¨ */
+#head{font-family:"å®‹ä½“"}
 #head a:link,#head a:visited,#foot a:link,#foot a:visited{color:#1835D1;text-decoration:none}
 #head a:active,#head a:hover,#foot a:active,#foot a:hover{color:#FF4e00;text-decoration:underline}
 #head{height:80px;margin:0 auto;position:relative;width:760px}
@@ -34,10 +34,10 @@ a:active,a:hover{color:#FF4e00;text-decoration:underline}
 #head_navi{float:right;width:500px}
 #head_navi li{float:right;margin-left:10px}
 #head_url{border-top:1px solid #D0D0D0;color:#808080;float:right;font-family:Verdana;margin-top:1px;padding:2px 21px 0 0;text-align:right;width:516px}
-/* Í·²¿ÑùÊ½±íV2 */
+/* å¤´éƒ¨æ ·å¼è¡¨V2 */
 #headV2 a:link,#headV2 a:visited,#foot a:link,#foot a:visited{color:#1835D1;text-decoration:none}
 #headV2 a:active,#headV2 a:hover,#foot a:active,#foot a:hover{color:#FF3300;text-decoration:underline}
-#headV2 #headMenuSimple li a{color:#333;font-family:"ËÎÌå"}
+#headV2 #headMenuSimple li a{color:#333;font-family:"å®‹ä½“"}
 #headV2 #menuFind a{color:#fff;text-decoration:underline}
 #headV2 #menuFind a:hover{color:#ff4e00}
 #foot{margin:10px 0 12px;text-align:center;line-height:150%}
@@ -56,7 +56,7 @@ a:active,a:hover{color:#FF4e00;text-decoration:underline}
 #headForm{height:26px;padding:8px 20px 0;text-align:left;color:#fff}
 .findInto{border:1px solid #808080;color:gray;height:16px;width:240px}
 .findGoto{border:none;height:20px;background:url(http://pics.paipai.com/common/menu/find_bg.gif) no-repeat}
-#headV2 #menuItem{height:24px;font-family:"ËÎÌå"}
+#headV2 #menuItem{height:24px;font-family:"å®‹ä½“"}
 #headV2 #menuItem a{background:url(http://pics.paipai.com/common/menu/main_left.gif) #EBEBEB left top no-repeat;display:block;float:left;height:24px;text-decoration:none}
 #menuItem a span{background:transparent url(http://pics.paipai.com/common/menu/main_side.gif) right top no-repeat;color:#000000;cursor:hand;display:block;float:left;height:17px;padding:7px 13px 0;text-align:center}
 #menuItem li{float:left;height:24px;margin-right:3px}

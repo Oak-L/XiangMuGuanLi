@@ -61,9 +61,10 @@ public class ClientAction extends ActionSupport {
 	}
 
 	public String delete() throws Exception {
-		System.out.println(delid);
-		int i = new TbCompanyService().deleteByExample(delid);
-		System.out.println(i);
+		if (delid != null) {
+			int i = new TbCompanyService().deleteByExample(delid);
+			System.out.println(i);
+		}
 		return "listAgain";
 	}
 

@@ -1,4 +1,4 @@
-function	IsShow()
+﻿function	IsShow()
 {
 	parent.document.all.layMnAboutPingSoft.style.visibility = 'visible';
 }

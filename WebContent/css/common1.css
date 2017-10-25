@@ -1,9 +1,9 @@
-.declare{background:#FFFDE8;border:1px solid #FFEBB6;margin-top:10px;padding:10px}
+ï»¿.declare{background:#FFFDE8;border:1px solid #FFEBB6;margin-top:10px;padding:10px}
 .FTGreen{color:#7DC818}
 .price_list_head{border-bottom:2px solid #7F7F7F}
 .price_list_main{border-bottom:1px solid #D7D7D7}
 .SideItem{position:absolute;right:20px;top:7px}
-.title{font:bold 14px "ËÎÌå";margin:16px 10px 0;position:relative}
+.title{font:bold 14px "ïž©ïž¬ïžª×•";margin:16px 10px 0;position:relative}
 .TitleInfo{position:absolute}
 .TitleLink{text-align:center;position:absolute}
 .TitleTop{text-align:center;position:absolute}
@@ -11,7 +11,7 @@
 #auction_list li{float:left;text-align:center}
 #comm{margin-top:10px;position:relative;width:100%}
 #commend{margin-top:10px}
-#commend_head{font:bold 14px "ËÎÌå";height:20px;padding:6px 0 0 30px}
+#commend_head{font:bold 14px "ïž©ïž¬ïžª×•";height:20px;padding:6px 0 0 30px}
 #commend_list td{text-align:center}
 #commend_list{height:180px;padding-top:10px;margin:0 10px 10px}
 #CommInfo{position:absolute;right:10px;top:0;width:240px}

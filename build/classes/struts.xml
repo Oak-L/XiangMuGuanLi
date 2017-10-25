@@ -10,16 +10,19 @@
 			<interceptor name="loginInterceptor" class="com.oracle.interceptor.LoginInterceptor"></interceptor>
 		</interceptors>
 
-		<action name="loginAction" class="com.oracle.action.LoginAction">
+		<action name="loginAction_*" class="com.oracle.action.LoginAction" method="{1}">
 			<result name="loginSuccess">index.jsp</result>
 			<result name="loginFail">login.jsp</result>
 		</action>
 		<action name="randomCodeAction" class="com.oracle.action.RandomCodeAction" method="get"></action>
 		<action name="client_*" class="com.oracle.action.ClientAction" method="{1}">
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="list">/client/listClient.jsp</result>
 			<result name="listAgain" type="redirectAction">client_list.action</result>
 			<result name="update">/client/updateClient.jsp</result>
 			<result name="msg">/client/msgClient.jsp</result>
+			<result name="loginFail">/login.jsp</result>
 		</action>
 		<!-- <action name="taskAction_*" class="com.oracle.action.TaskAction" method="{1}"> <result name="yes">index.jsp</result> 
 			</action> -->

@@ -1,4 +1,4 @@
-
+Ôªø
 var init = function(){
 	var xiangmustyle = document.getElementById("xiangmu");
 	alert(xiangmustyle);
@@ -8,7 +8,7 @@ var init = function(){
 
 
 
-//ªÒ»°getPageSize
+//Ëé∑ÂèñgetPageSize
 var getPageSize = function () {
 	var de = document.documentElement;
 	var w = window.innerWidth || self.innerWidth || (de&&de.clientWidth) || document.body.clientWidth;
@@ -17,7 +17,7 @@ var getPageSize = function () {
 	return arrayPageSize;
 }
 
-//ªÒ»°pageScrollTop
+//Ëé∑ÂèñpageScrollTop
 var getPageScroll = function (){
 	var yScrolltop;
 	var xScrollleft;
