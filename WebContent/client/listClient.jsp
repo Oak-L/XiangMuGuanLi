@@ -125,11 +125,11 @@ html {
 						<tr>
 							<td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
 									<tr>
-										<td height="20"><span class="newfont07">选择：<a href="#" class="right-font08"
-												onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-											<input name="Submit" type="button" class="right-button08" value="删除所选人员信息"
-											onclick="deleteChoose();" /> <input name="Submit" type="button" class="right-button08"
-											value="添加人员信息" onclick="link();" />
+										<td height="20"><span class="newfont07">选择：<a href="####" class="right-font08"
+												onclick="selectAll();">全选</a>-<a href="####" class="right-font08"
+												onclick="unselectAll();">反选</a></span> <input name="Submit" type="button"
+											class="right-button08" value="删除所选人员信息" onclick="deleteChoose();" /> <input
+											name="Submit" type="button" class="right-button08" value="添加人员信息" onclick="link();" />
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</td>
 									</tr>

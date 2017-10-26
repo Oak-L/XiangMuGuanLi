@@ -22,13 +22,12 @@ body {
 		var form = document.getElementById("form");
 		if (username[0].value == "" || password[0].value == "") {
 			alert("请输入用户名或密码");
-			return false;
 		} else if (randomCode[0].value == "") {
 			alert("请输入验证码");
-			return false;
+			
 		} else {	
 			form.submit();
-			return true;
+			
 		}
 	}
 
@@ -37,10 +36,7 @@ body {
 				+ Math.random();
 	}
 
-	$
-	{
-		msg
-	}
+	${msg}
 </script>
 <link href="css/css.css" rel="stylesheet" type="text/css" />
 </head>
@@ -89,7 +85,7 @@ body {
 						<tr>
 							<td height="35">&nbsp;</td>
 							<td><input name="Submit2" type="button" class="right-button01" value="确认登陆"
-								onclick="return check()" /> <input name="Submit232" type="submit" class="right-button02"
+								onclick="check()" /> <input name="Submit232" type="submit" class="right-button02"
 								value="重 置" /></td>
 						</tr>
 						<tr>

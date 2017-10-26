@@ -29,9 +29,10 @@ public class LoginInterceptor extends MethodFilterInterceptor {
 			return invocation.invoke();
 		} else {
 			// 没有登录
-			// 不执行action方法，返回登录页面
+			// 让页面跳转，而不是在框架内显示
 			String msg = "window.parent.location.href ='login.jsp'";
 			ServletActionContext.getRequest().setAttribute("msg", msg);
+			// 不执行action方法，返回登录页面
 			return "loginFail";
 		}
 	}
