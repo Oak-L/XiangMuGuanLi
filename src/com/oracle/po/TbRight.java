@@ -9,6 +9,8 @@ public class TbRight {
 
     private String urlname;
 
+    private String code;
+
     private String rightdesc;
 
     public String getRightid() {
@@ -41,6 +43,14 @@ public class TbRight {
 
     public void setUrlname(String urlname) {
         this.urlname = urlname == null ? null : urlname.trim();
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
     }
 
     public String getRightdesc() {

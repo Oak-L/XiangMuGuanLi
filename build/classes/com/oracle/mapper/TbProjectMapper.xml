@@ -2,23 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oracle.mapper.TbProjectMapper">
   <resultMap id="BaseResultMap" type="com.oracle.po.TbProject">
-    <id column="projectid" jdbcType="INTEGER" property="projectid" />
-    <result column="CompanyID" jdbcType="INTEGER" property="companyid" />
-    <result column="EmpID" jdbcType="INTEGER" property="empid" />
-    <result column="projectName" jdbcType="VARCHAR" property="projectname" />
-    <result column="proSum" jdbcType="INTEGER" property="prosum" />
-    <result column="amount" jdbcType="INTEGER" property="amount" />
-    <result column="state" jdbcType="INTEGER" property="state" />
-    <result column="budget" jdbcType="INTEGER" property="budget" />
-    <result column="realCost" jdbcType="INTEGER" property="realcost" />
-    <result column="planBeginDate" jdbcType="DATE" property="planbegindate" />
-    <result column="planEndDate" jdbcType="DATE" property="planenddate" />
-    <result column="priority" jdbcType="INTEGER" property="priority" />
-    <result column="realBeginDate" jdbcType="DATE" property="realbegindate" />
-    <result column="realEndDate" jdbcType="DATE" property="realenddate" />
-    <result column="expired" jdbcType="INTEGER" property="expired" />
-    <result column="expiredDay" jdbcType="INTEGER" property="expiredday" />
-    <result column="Descript" jdbcType="VARCHAR" property="descript" />
+    <id column="PROJECTID" jdbcType="DECIMAL" property="projectid" />
+    <result column="COMPANYID" jdbcType="DECIMAL" property="companyid" />
+    <result column="EMPID" jdbcType="DECIMAL" property="empid" />
+    <result column="PROJECTNAME" jdbcType="VARCHAR" property="projectname" />
+    <result column="PROSUM" jdbcType="DECIMAL" property="prosum" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="BUDGET" jdbcType="DECIMAL" property="budget" />
+    <result column="REALCOST" jdbcType="DECIMAL" property="realcost" />
+    <result column="PLANBEGINDATE" jdbcType="TIMESTAMP" property="planbegindate" />
+    <result column="PLANENDDATE" jdbcType="TIMESTAMP" property="planenddate" />
+    <result column="PRIORITY" jdbcType="DECIMAL" property="priority" />
+    <result column="REALBEGINDATE" jdbcType="TIMESTAMP" property="realbegindate" />
+    <result column="REALENDDATE" jdbcType="TIMESTAMP" property="realenddate" />
+    <result column="EXPIRED" jdbcType="DECIMAL" property="expired" />
+    <result column="EXPIREDDAY" jdbcType="DECIMAL" property="expiredday" />
+    <result column="DESCRIPT" jdbcType="VARCHAR" property="descript" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -79,9 +79,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    projectid, CompanyID, EmpID, projectName, proSum, amount, state, budget, realCost, 
-    planBeginDate, planEndDate, priority, realBeginDate, realEndDate, expired, expiredDay, 
-    Descript
+    PROJECTID, COMPANYID, EMPID, PROJECTNAME, PROSUM, AMOUNT, STATE, BUDGET, REALCOST, 
+    PLANBEGINDATE, PLANENDDATE, PRIORITY, REALBEGINDATE, REALENDDATE, EXPIRED, EXPIREDDAY, 
+    DESCRIPT
   </sql>
   <select id="selectByExample" parameterType="com.oracle.po.TbProjectExample" resultMap="BaseResultMap">
     select
@@ -89,7 +89,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tb_project
+    from TB_PROJECT
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -100,136 +100,136 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_project
-    where projectid = #{projectid,jdbcType=INTEGER}
+    from TB_PROJECT
+    where PROJECTID = #{projectid,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_project
-    where projectid = #{projectid,jdbcType=INTEGER}
+    delete from TB_PROJECT
+    where PROJECTID = #{projectid,jdbcType=DECIMAL}
   </delete>
   <delete id="deleteByExample" parameterType="com.oracle.po.TbProjectExample">
-    delete from tb_project
+    delete from TB_PROJECT
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.oracle.po.TbProject">
-    insert into tb_project (projectid, CompanyID, EmpID, 
-      projectName, proSum, amount, 
-      state, budget, realCost, 
-      planBeginDate, planEndDate, priority, 
-      realBeginDate, realEndDate, expired, 
-      expiredDay, Descript)
-    values (#{projectid,jdbcType=INTEGER}, #{companyid,jdbcType=INTEGER}, #{empid,jdbcType=INTEGER}, 
-      #{projectname,jdbcType=VARCHAR}, #{prosum,jdbcType=INTEGER}, #{amount,jdbcType=INTEGER}, 
-      #{state,jdbcType=INTEGER}, #{budget,jdbcType=INTEGER}, #{realcost,jdbcType=INTEGER}, 
-      #{planbegindate,jdbcType=DATE}, #{planenddate,jdbcType=DATE}, #{priority,jdbcType=INTEGER}, 
-      #{realbegindate,jdbcType=DATE}, #{realenddate,jdbcType=DATE}, #{expired,jdbcType=INTEGER}, 
-      #{expiredday,jdbcType=INTEGER}, #{descript,jdbcType=VARCHAR})
+    insert into TB_PROJECT (PROJECTID, COMPANYID, EMPID, 
+      PROJECTNAME, PROSUM, AMOUNT, 
+      STATE, BUDGET, REALCOST, 
+      PLANBEGINDATE, PLANENDDATE, PRIORITY, 
+      REALBEGINDATE, REALENDDATE, EXPIRED, 
+      EXPIREDDAY, DESCRIPT)
+    values (#{projectid,jdbcType=DECIMAL}, #{companyid,jdbcType=DECIMAL}, #{empid,jdbcType=DECIMAL}, 
+      #{projectname,jdbcType=VARCHAR}, #{prosum,jdbcType=DECIMAL}, #{amount,jdbcType=DECIMAL}, 
+      #{state,jdbcType=DECIMAL}, #{budget,jdbcType=DECIMAL}, #{realcost,jdbcType=DECIMAL}, 
+      #{planbegindate,jdbcType=TIMESTAMP}, #{planenddate,jdbcType=TIMESTAMP}, #{priority,jdbcType=DECIMAL}, 
+      #{realbegindate,jdbcType=TIMESTAMP}, #{realenddate,jdbcType=TIMESTAMP}, #{expired,jdbcType=DECIMAL}, 
+      #{expiredday,jdbcType=DECIMAL}, #{descript,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.oracle.po.TbProject">
-    insert into tb_project
+    insert into TB_PROJECT
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="projectid != null">
-        projectid,
+        PROJECTID,
       </if>
       <if test="companyid != null">
-        CompanyID,
+        COMPANYID,
       </if>
       <if test="empid != null">
-        EmpID,
+        EMPID,
       </if>
       <if test="projectname != null">
-        projectName,
+        PROJECTNAME,
       </if>
       <if test="prosum != null">
-        proSum,
+        PROSUM,
       </if>
       <if test="amount != null">
-        amount,
+        AMOUNT,
       </if>
       <if test="state != null">
-        state,
+        STATE,
       </if>
       <if test="budget != null">
-        budget,
+        BUDGET,
       </if>
       <if test="realcost != null">
-        realCost,
+        REALCOST,
       </if>
       <if test="planbegindate != null">
-        planBeginDate,
+        PLANBEGINDATE,
       </if>
       <if test="planenddate != null">
-        planEndDate,
+        PLANENDDATE,
       </if>
       <if test="priority != null">
-        priority,
+        PRIORITY,
       </if>
       <if test="realbegindate != null">
-        realBeginDate,
+        REALBEGINDATE,
       </if>
       <if test="realenddate != null">
-        realEndDate,
+        REALENDDATE,
       </if>
       <if test="expired != null">
-        expired,
+        EXPIRED,
       </if>
       <if test="expiredday != null">
-        expiredDay,
+        EXPIREDDAY,
       </if>
       <if test="descript != null">
-        Descript,
+        DESCRIPT,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="projectid != null">
-        #{projectid,jdbcType=INTEGER},
+        #{projectid,jdbcType=DECIMAL},
       </if>
       <if test="companyid != null">
-        #{companyid,jdbcType=INTEGER},
+        #{companyid,jdbcType=DECIMAL},
       </if>
       <if test="empid != null">
-        #{empid,jdbcType=INTEGER},
+        #{empid,jdbcType=DECIMAL},
       </if>
       <if test="projectname != null">
         #{projectname,jdbcType=VARCHAR},
       </if>
       <if test="prosum != null">
-        #{prosum,jdbcType=INTEGER},
+        #{prosum,jdbcType=DECIMAL},
       </if>
       <if test="amount != null">
-        #{amount,jdbcType=INTEGER},
+        #{amount,jdbcType=DECIMAL},
       </if>
       <if test="state != null">
-        #{state,jdbcType=INTEGER},
+        #{state,jdbcType=DECIMAL},
       </if>
       <if test="budget != null">
-        #{budget,jdbcType=INTEGER},
+        #{budget,jdbcType=DECIMAL},
       </if>
       <if test="realcost != null">
-        #{realcost,jdbcType=INTEGER},
+        #{realcost,jdbcType=DECIMAL},
       </if>
       <if test="planbegindate != null">
-        #{planbegindate,jdbcType=DATE},
+        #{planbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="planenddate != null">
-        #{planenddate,jdbcType=DATE},
+        #{planenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="priority != null">
-        #{priority,jdbcType=INTEGER},
+        #{priority,jdbcType=DECIMAL},
       </if>
       <if test="realbegindate != null">
-        #{realbegindate,jdbcType=DATE},
+        #{realbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="realenddate != null">
-        #{realenddate,jdbcType=DATE},
+        #{realenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="expired != null">
-        #{expired,jdbcType=INTEGER},
+        #{expired,jdbcType=DECIMAL},
       </if>
       <if test="expiredday != null">
-        #{expiredday,jdbcType=INTEGER},
+        #{expiredday,jdbcType=DECIMAL},
       </if>
       <if test="descript != null">
         #{descript,jdbcType=VARCHAR},
@@ -237,64 +237,64 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.oracle.po.TbProjectExample" resultType="java.lang.Long">
-    select count(*) from tb_project
+    select count(*) from TB_PROJECT
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update tb_project
+    update TB_PROJECT
     <set>
       <if test="record.projectid != null">
-        projectid = #{record.projectid,jdbcType=INTEGER},
+        PROJECTID = #{record.projectid,jdbcType=DECIMAL},
       </if>
       <if test="record.companyid != null">
-        CompanyID = #{record.companyid,jdbcType=INTEGER},
+        COMPANYID = #{record.companyid,jdbcType=DECIMAL},
       </if>
       <if test="record.empid != null">
-        EmpID = #{record.empid,jdbcType=INTEGER},
+        EMPID = #{record.empid,jdbcType=DECIMAL},
       </if>
       <if test="record.projectname != null">
-        projectName = #{record.projectname,jdbcType=VARCHAR},
+        PROJECTNAME = #{record.projectname,jdbcType=VARCHAR},
       </if>
       <if test="record.prosum != null">
-        proSum = #{record.prosum,jdbcType=INTEGER},
+        PROSUM = #{record.prosum,jdbcType=DECIMAL},
       </if>
       <if test="record.amount != null">
-        amount = #{record.amount,jdbcType=INTEGER},
+        AMOUNT = #{record.amount,jdbcType=DECIMAL},
       </if>
       <if test="record.state != null">
-        state = #{record.state,jdbcType=INTEGER},
+        STATE = #{record.state,jdbcType=DECIMAL},
       </if>
       <if test="record.budget != null">
-        budget = #{record.budget,jdbcType=INTEGER},
+        BUDGET = #{record.budget,jdbcType=DECIMAL},
       </if>
       <if test="record.realcost != null">
-        realCost = #{record.realcost,jdbcType=INTEGER},
+        REALCOST = #{record.realcost,jdbcType=DECIMAL},
       </if>
       <if test="record.planbegindate != null">
-        planBeginDate = #{record.planbegindate,jdbcType=DATE},
+        PLANBEGINDATE = #{record.planbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.planenddate != null">
-        planEndDate = #{record.planenddate,jdbcType=DATE},
+        PLANENDDATE = #{record.planenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.priority != null">
-        priority = #{record.priority,jdbcType=INTEGER},
+        PRIORITY = #{record.priority,jdbcType=DECIMAL},
       </if>
       <if test="record.realbegindate != null">
-        realBeginDate = #{record.realbegindate,jdbcType=DATE},
+        REALBEGINDATE = #{record.realbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.realenddate != null">
-        realEndDate = #{record.realenddate,jdbcType=DATE},
+        REALENDDATE = #{record.realenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.expired != null">
-        expired = #{record.expired,jdbcType=INTEGER},
+        EXPIRED = #{record.expired,jdbcType=DECIMAL},
       </if>
       <if test="record.expiredday != null">
-        expiredDay = #{record.expiredday,jdbcType=INTEGER},
+        EXPIREDDAY = #{record.expiredday,jdbcType=DECIMAL},
       </if>
       <if test="record.descript != null">
-        Descript = #{record.descript,jdbcType=VARCHAR},
+        DESCRIPT = #{record.descript,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -302,100 +302,100 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tb_project
-    set projectid = #{record.projectid,jdbcType=INTEGER},
-      CompanyID = #{record.companyid,jdbcType=INTEGER},
-      EmpID = #{record.empid,jdbcType=INTEGER},
-      projectName = #{record.projectname,jdbcType=VARCHAR},
-      proSum = #{record.prosum,jdbcType=INTEGER},
-      amount = #{record.amount,jdbcType=INTEGER},
-      state = #{record.state,jdbcType=INTEGER},
-      budget = #{record.budget,jdbcType=INTEGER},
-      realCost = #{record.realcost,jdbcType=INTEGER},
-      planBeginDate = #{record.planbegindate,jdbcType=DATE},
-      planEndDate = #{record.planenddate,jdbcType=DATE},
-      priority = #{record.priority,jdbcType=INTEGER},
-      realBeginDate = #{record.realbegindate,jdbcType=DATE},
-      realEndDate = #{record.realenddate,jdbcType=DATE},
-      expired = #{record.expired,jdbcType=INTEGER},
-      expiredDay = #{record.expiredday,jdbcType=INTEGER},
-      Descript = #{record.descript,jdbcType=VARCHAR}
+    update TB_PROJECT
+    set PROJECTID = #{record.projectid,jdbcType=DECIMAL},
+      COMPANYID = #{record.companyid,jdbcType=DECIMAL},
+      EMPID = #{record.empid,jdbcType=DECIMAL},
+      PROJECTNAME = #{record.projectname,jdbcType=VARCHAR},
+      PROSUM = #{record.prosum,jdbcType=DECIMAL},
+      AMOUNT = #{record.amount,jdbcType=DECIMAL},
+      STATE = #{record.state,jdbcType=DECIMAL},
+      BUDGET = #{record.budget,jdbcType=DECIMAL},
+      REALCOST = #{record.realcost,jdbcType=DECIMAL},
+      PLANBEGINDATE = #{record.planbegindate,jdbcType=TIMESTAMP},
+      PLANENDDATE = #{record.planenddate,jdbcType=TIMESTAMP},
+      PRIORITY = #{record.priority,jdbcType=DECIMAL},
+      REALBEGINDATE = #{record.realbegindate,jdbcType=TIMESTAMP},
+      REALENDDATE = #{record.realenddate,jdbcType=TIMESTAMP},
+      EXPIRED = #{record.expired,jdbcType=DECIMAL},
+      EXPIREDDAY = #{record.expiredday,jdbcType=DECIMAL},
+      DESCRIPT = #{record.descript,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbProject">
-    update tb_project
+    update TB_PROJECT
     <set>
       <if test="companyid != null">
-        CompanyID = #{companyid,jdbcType=INTEGER},
+        COMPANYID = #{companyid,jdbcType=DECIMAL},
       </if>
       <if test="empid != null">
-        EmpID = #{empid,jdbcType=INTEGER},
+        EMPID = #{empid,jdbcType=DECIMAL},
       </if>
       <if test="projectname != null">
-        projectName = #{projectname,jdbcType=VARCHAR},
+        PROJECTNAME = #{projectname,jdbcType=VARCHAR},
       </if>
       <if test="prosum != null">
-        proSum = #{prosum,jdbcType=INTEGER},
+        PROSUM = #{prosum,jdbcType=DECIMAL},
       </if>
       <if test="amount != null">
-        amount = #{amount,jdbcType=INTEGER},
+        AMOUNT = #{amount,jdbcType=DECIMAL},
       </if>
       <if test="state != null">
-        state = #{state,jdbcType=INTEGER},
+        STATE = #{state,jdbcType=DECIMAL},
       </if>
       <if test="budget != null">
-        budget = #{budget,jdbcType=INTEGER},
+        BUDGET = #{budget,jdbcType=DECIMAL},
       </if>
       <if test="realcost != null">
-        realCost = #{realcost,jdbcType=INTEGER},
+        REALCOST = #{realcost,jdbcType=DECIMAL},
       </if>
       <if test="planbegindate != null">
-        planBeginDate = #{planbegindate,jdbcType=DATE},
+        PLANBEGINDATE = #{planbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="planenddate != null">
-        planEndDate = #{planenddate,jdbcType=DATE},
+        PLANENDDATE = #{planenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="priority != null">
-        priority = #{priority,jdbcType=INTEGER},
+        PRIORITY = #{priority,jdbcType=DECIMAL},
       </if>
       <if test="realbegindate != null">
-        realBeginDate = #{realbegindate,jdbcType=DATE},
+        REALBEGINDATE = #{realbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="realenddate != null">
-        realEndDate = #{realenddate,jdbcType=DATE},
+        REALENDDATE = #{realenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="expired != null">
-        expired = #{expired,jdbcType=INTEGER},
+        EXPIRED = #{expired,jdbcType=DECIMAL},
       </if>
       <if test="expiredday != null">
-        expiredDay = #{expiredday,jdbcType=INTEGER},
+        EXPIREDDAY = #{expiredday,jdbcType=DECIMAL},
       </if>
       <if test="descript != null">
-        Descript = #{descript,jdbcType=VARCHAR},
+        DESCRIPT = #{descript,jdbcType=VARCHAR},
       </if>
     </set>
-    where projectid = #{projectid,jdbcType=INTEGER}
+    where PROJECTID = #{projectid,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbProject">
-    update tb_project
-    set CompanyID = #{companyid,jdbcType=INTEGER},
-      EmpID = #{empid,jdbcType=INTEGER},
-      projectName = #{projectname,jdbcType=VARCHAR},
-      proSum = #{prosum,jdbcType=INTEGER},
-      amount = #{amount,jdbcType=INTEGER},
-      state = #{state,jdbcType=INTEGER},
-      budget = #{budget,jdbcType=INTEGER},
-      realCost = #{realcost,jdbcType=INTEGER},
-      planBeginDate = #{planbegindate,jdbcType=DATE},
-      planEndDate = #{planenddate,jdbcType=DATE},
-      priority = #{priority,jdbcType=INTEGER},
-      realBeginDate = #{realbegindate,jdbcType=DATE},
-      realEndDate = #{realenddate,jdbcType=DATE},
-      expired = #{expired,jdbcType=INTEGER},
-      expiredDay = #{expiredday,jdbcType=INTEGER},
-      Descript = #{descript,jdbcType=VARCHAR}
-    where projectid = #{projectid,jdbcType=INTEGER}
+    update TB_PROJECT
+    set COMPANYID = #{companyid,jdbcType=DECIMAL},
+      EMPID = #{empid,jdbcType=DECIMAL},
+      PROJECTNAME = #{projectname,jdbcType=VARCHAR},
+      PROSUM = #{prosum,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      STATE = #{state,jdbcType=DECIMAL},
+      BUDGET = #{budget,jdbcType=DECIMAL},
+      REALCOST = #{realcost,jdbcType=DECIMAL},
+      PLANBEGINDATE = #{planbegindate,jdbcType=TIMESTAMP},
+      PLANENDDATE = #{planenddate,jdbcType=TIMESTAMP},
+      PRIORITY = #{priority,jdbcType=DECIMAL},
+      REALBEGINDATE = #{realbegindate,jdbcType=TIMESTAMP},
+      REALENDDATE = #{realenddate,jdbcType=TIMESTAMP},
+      EXPIRED = #{expired,jdbcType=DECIMAL},
+      EXPIREDDAY = #{expiredday,jdbcType=DECIMAL},
+      DESCRIPT = #{descript,jdbcType=VARCHAR}
+    where PROJECTID = #{projectid,jdbcType=DECIMAL}
   </update>
 </mapper>

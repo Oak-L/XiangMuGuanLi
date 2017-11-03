@@ -1,7 +1,7 @@
 package com.oracle.mapper;
 
+import com.oracle.po.ToRightrole;
 import com.oracle.po.ToRightroleExample;
-import com.oracle.po.ToRightroleKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -10,15 +10,13 @@ public interface ToRightroleMapper {
 
     int deleteByExample(ToRightroleExample example);
 
-    int deleteByPrimaryKey(ToRightroleKey key);
+    int insert(ToRightrole record);
 
-    int insert(ToRightroleKey record);
+    int insertSelective(ToRightrole record);
 
-    int insertSelective(ToRightroleKey record);
+    List<ToRightrole> selectByExample(ToRightroleExample example);
 
-    List<ToRightroleKey> selectByExample(ToRightroleExample example);
+    int updateByExampleSelective(@Param("record") ToRightrole record, @Param("example") ToRightroleExample example);
 
-    int updateByExampleSelective(@Param("record") ToRightroleKey record, @Param("example") ToRightroleExample example);
-
-    int updateByExample(@Param("record") ToRightroleKey record, @Param("example") ToRightroleExample example);
+    int updateByExample(@Param("record") ToRightrole record, @Param("example") ToRightroleExample example);
 }

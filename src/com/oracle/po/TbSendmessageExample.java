@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ToReceivemessageExample {
+public class TbSendmessageExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public ToReceivemessageExample() {
+    public TbSendmessageExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -103,66 +103,6 @@ public class ToReceivemessageExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        public Criteria andReceiveidIsNull() {
-            addCriterion("RECEIVEID is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidIsNotNull() {
-            addCriterion("RECEIVEID is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidEqualTo(Integer value) {
-            addCriterion("RECEIVEID =", value, "receiveid");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidNotEqualTo(Integer value) {
-            addCriterion("RECEIVEID <>", value, "receiveid");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidGreaterThan(Integer value) {
-            addCriterion("RECEIVEID >", value, "receiveid");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("RECEIVEID >=", value, "receiveid");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidLessThan(Integer value) {
-            addCriterion("RECEIVEID <", value, "receiveid");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidLessThanOrEqualTo(Integer value) {
-            addCriterion("RECEIVEID <=", value, "receiveid");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidIn(List<Integer> values) {
-            addCriterion("RECEIVEID in", values, "receiveid");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidNotIn(List<Integer> values) {
-            addCriterion("RECEIVEID not in", values, "receiveid");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidBetween(Integer value1, Integer value2) {
-            addCriterion("RECEIVEID between", value1, value2, "receiveid");
-            return (Criteria) this;
-        }
-
-        public Criteria andReceiveidNotBetween(Integer value1, Integer value2) {
-            addCriterion("RECEIVEID not between", value1, value2, "receiveid");
-            return (Criteria) this;
         }
 
         public Criteria andSendidIsNull() {
@@ -285,123 +225,273 @@ public class ToReceivemessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateIsNull() {
-            addCriterion("MESSAGESTATE is null");
+        public Criteria andSendmanIsNull() {
+            addCriterion("SENDMAN is null");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateIsNotNull() {
-            addCriterion("MESSAGESTATE is not null");
+        public Criteria andSendmanIsNotNull() {
+            addCriterion("SENDMAN is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateEqualTo(Integer value) {
-            addCriterion("MESSAGESTATE =", value, "messagestate");
+        public Criteria andSendmanEqualTo(String value) {
+            addCriterion("SENDMAN =", value, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateNotEqualTo(Integer value) {
-            addCriterion("MESSAGESTATE <>", value, "messagestate");
+        public Criteria andSendmanNotEqualTo(String value) {
+            addCriterion("SENDMAN <>", value, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateGreaterThan(Integer value) {
-            addCriterion("MESSAGESTATE >", value, "messagestate");
+        public Criteria andSendmanGreaterThan(String value) {
+            addCriterion("SENDMAN >", value, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("MESSAGESTATE >=", value, "messagestate");
+        public Criteria andSendmanGreaterThanOrEqualTo(String value) {
+            addCriterion("SENDMAN >=", value, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateLessThan(Integer value) {
-            addCriterion("MESSAGESTATE <", value, "messagestate");
+        public Criteria andSendmanLessThan(String value) {
+            addCriterion("SENDMAN <", value, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateLessThanOrEqualTo(Integer value) {
-            addCriterion("MESSAGESTATE <=", value, "messagestate");
+        public Criteria andSendmanLessThanOrEqualTo(String value) {
+            addCriterion("SENDMAN <=", value, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateIn(List<Integer> values) {
-            addCriterion("MESSAGESTATE in", values, "messagestate");
+        public Criteria andSendmanLike(String value) {
+            addCriterion("SENDMAN like", value, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateNotIn(List<Integer> values) {
-            addCriterion("MESSAGESTATE not in", values, "messagestate");
+        public Criteria andSendmanNotLike(String value) {
+            addCriterion("SENDMAN not like", value, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateBetween(Integer value1, Integer value2) {
-            addCriterion("MESSAGESTATE between", value1, value2, "messagestate");
+        public Criteria andSendmanIn(List<String> values) {
+            addCriterion("SENDMAN in", values, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andMessagestateNotBetween(Integer value1, Integer value2) {
-            addCriterion("MESSAGESTATE not between", value1, value2, "messagestate");
+        public Criteria andSendmanNotIn(List<String> values) {
+            addCriterion("SENDMAN not in", values, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateIsNull() {
-            addCriterion("OPENDATE is null");
+        public Criteria andSendmanBetween(String value1, String value2) {
+            addCriterion("SENDMAN between", value1, value2, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateIsNotNull() {
-            addCriterion("OPENDATE is not null");
+        public Criteria andSendmanNotBetween(String value1, String value2) {
+            addCriterion("SENDMAN not between", value1, value2, "sendman");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateEqualTo(Date value) {
-            addCriterion("OPENDATE =", value, "opendate");
+        public Criteria andMessagetitleIsNull() {
+            addCriterion("MESSAGETITLE is null");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateNotEqualTo(Date value) {
-            addCriterion("OPENDATE <>", value, "opendate");
+        public Criteria andMessagetitleIsNotNull() {
+            addCriterion("MESSAGETITLE is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateGreaterThan(Date value) {
-            addCriterion("OPENDATE >", value, "opendate");
+        public Criteria andMessagetitleEqualTo(String value) {
+            addCriterion("MESSAGETITLE =", value, "messagetitle");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateGreaterThanOrEqualTo(Date value) {
-            addCriterion("OPENDATE >=", value, "opendate");
+        public Criteria andMessagetitleNotEqualTo(String value) {
+            addCriterion("MESSAGETITLE <>", value, "messagetitle");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateLessThan(Date value) {
-            addCriterion("OPENDATE <", value, "opendate");
+        public Criteria andMessagetitleGreaterThan(String value) {
+            addCriterion("MESSAGETITLE >", value, "messagetitle");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateLessThanOrEqualTo(Date value) {
-            addCriterion("OPENDATE <=", value, "opendate");
+        public Criteria andMessagetitleGreaterThanOrEqualTo(String value) {
+            addCriterion("MESSAGETITLE >=", value, "messagetitle");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateIn(List<Date> values) {
-            addCriterion("OPENDATE in", values, "opendate");
+        public Criteria andMessagetitleLessThan(String value) {
+            addCriterion("MESSAGETITLE <", value, "messagetitle");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateNotIn(List<Date> values) {
-            addCriterion("OPENDATE not in", values, "opendate");
+        public Criteria andMessagetitleLessThanOrEqualTo(String value) {
+            addCriterion("MESSAGETITLE <=", value, "messagetitle");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateBetween(Date value1, Date value2) {
-            addCriterion("OPENDATE between", value1, value2, "opendate");
+        public Criteria andMessagetitleLike(String value) {
+            addCriterion("MESSAGETITLE like", value, "messagetitle");
             return (Criteria) this;
         }
 
-        public Criteria andOpendateNotBetween(Date value1, Date value2) {
-            addCriterion("OPENDATE not between", value1, value2, "opendate");
+        public Criteria andMessagetitleNotLike(String value) {
+            addCriterion("MESSAGETITLE not like", value, "messagetitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagetitleIn(List<String> values) {
+            addCriterion("MESSAGETITLE in", values, "messagetitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagetitleNotIn(List<String> values) {
+            addCriterion("MESSAGETITLE not in", values, "messagetitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagetitleBetween(String value1, String value2) {
+            addCriterion("MESSAGETITLE between", value1, value2, "messagetitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagetitleNotBetween(String value1, String value2) {
+            addCriterion("MESSAGETITLE not between", value1, value2, "messagetitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentIsNull() {
+            addCriterion("MESSAGECONTENT is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentIsNotNull() {
+            addCriterion("MESSAGECONTENT is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentEqualTo(String value) {
+            addCriterion("MESSAGECONTENT =", value, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentNotEqualTo(String value) {
+            addCriterion("MESSAGECONTENT <>", value, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentGreaterThan(String value) {
+            addCriterion("MESSAGECONTENT >", value, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentGreaterThanOrEqualTo(String value) {
+            addCriterion("MESSAGECONTENT >=", value, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentLessThan(String value) {
+            addCriterion("MESSAGECONTENT <", value, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentLessThanOrEqualTo(String value) {
+            addCriterion("MESSAGECONTENT <=", value, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentLike(String value) {
+            addCriterion("MESSAGECONTENT like", value, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentNotLike(String value) {
+            addCriterion("MESSAGECONTENT not like", value, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentIn(List<String> values) {
+            addCriterion("MESSAGECONTENT in", values, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentNotIn(List<String> values) {
+            addCriterion("MESSAGECONTENT not in", values, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentBetween(String value1, String value2) {
+            addCriterion("MESSAGECONTENT between", value1, value2, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagecontentNotBetween(String value1, String value2) {
+            addCriterion("MESSAGECONTENT not between", value1, value2, "messagecontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateIsNull() {
+            addCriterion("CREATEDATE is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateIsNotNull() {
+            addCriterion("CREATEDATE is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateEqualTo(Date value) {
+            addCriterion("CREATEDATE =", value, "createdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateNotEqualTo(Date value) {
+            addCriterion("CREATEDATE <>", value, "createdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateGreaterThan(Date value) {
+            addCriterion("CREATEDATE >", value, "createdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateGreaterThanOrEqualTo(Date value) {
+            addCriterion("CREATEDATE >=", value, "createdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateLessThan(Date value) {
+            addCriterion("CREATEDATE <", value, "createdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateLessThanOrEqualTo(Date value) {
+            addCriterion("CREATEDATE <=", value, "createdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateIn(List<Date> values) {
+            addCriterion("CREATEDATE in", values, "createdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateNotIn(List<Date> values) {
+            addCriterion("CREATEDATE not in", values, "createdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateBetween(Date value1, Date value2) {
+            addCriterion("CREATEDATE between", value1, value2, "createdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatedateNotBetween(Date value1, Date value2) {
+            addCriterion("CREATEDATE not between", value1, value2, "createdate");
             return (Criteria) this;
         }
     }

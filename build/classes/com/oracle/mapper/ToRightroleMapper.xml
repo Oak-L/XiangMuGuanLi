@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oracle.mapper.ToRightroleMapper">
-  <resultMap id="BaseResultMap" type="com.oracle.po.ToRightroleKey">
-    <id column="roleID" jdbcType="INTEGER" property="roleid" />
-    <id column="rightID" jdbcType="VARCHAR" property="rightid" />
+  <resultMap id="BaseResultMap" type="com.oracle.po.ToRightrole">
+    <result column="ROLEID" jdbcType="DECIMAL" property="roleid" />
+    <result column="RIGHTID" jdbcType="VARCHAR" property="rightid" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -64,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    roleID, rightID
+    ROLEID, RIGHTID
   </sql>
   <select id="selectByExample" parameterType="com.oracle.po.ToRightroleExample" resultMap="BaseResultMap">
     select
@@ -72,7 +72,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from to_rightrole
+    from TO_RIGHTROLE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -80,34 +80,29 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.oracle.po.ToRightroleKey">
-    delete from to_rightrole
-    where roleID = #{roleid,jdbcType=INTEGER}
-      and rightID = #{rightid,jdbcType=VARCHAR}
-  </delete>
   <delete id="deleteByExample" parameterType="com.oracle.po.ToRightroleExample">
-    delete from to_rightrole
+    delete from TO_RIGHTROLE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.oracle.po.ToRightroleKey">
-    insert into to_rightrole (roleID, rightID)
-    values (#{roleid,jdbcType=INTEGER}, #{rightid,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.oracle.po.ToRightrole">
+    insert into TO_RIGHTROLE (ROLEID, RIGHTID)
+    values (#{roleid,jdbcType=DECIMAL}, #{rightid,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.oracle.po.ToRightroleKey">
-    insert into to_rightrole
+  <insert id="insertSelective" parameterType="com.oracle.po.ToRightrole">
+    insert into TO_RIGHTROLE
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="roleid != null">
-        roleID,
+        ROLEID,
       </if>
       <if test="rightid != null">
-        rightID,
+        RIGHTID,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="roleid != null">
-        #{roleid,jdbcType=INTEGER},
+        #{roleid,jdbcType=DECIMAL},
       </if>
       <if test="rightid != null">
         #{rightid,jdbcType=VARCHAR},
@@ -115,19 +110,19 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.oracle.po.ToRightroleExample" resultType="java.lang.Long">
-    select count(*) from to_rightrole
+    select count(*) from TO_RIGHTROLE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update to_rightrole
+    update TO_RIGHTROLE
     <set>
       <if test="record.roleid != null">
-        roleID = #{record.roleid,jdbcType=INTEGER},
+        ROLEID = #{record.roleid,jdbcType=DECIMAL},
       </if>
       <if test="record.rightid != null">
-        rightID = #{record.rightid,jdbcType=VARCHAR},
+        RIGHTID = #{record.rightid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -135,9 +130,9 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update to_rightrole
-    set roleID = #{record.roleid,jdbcType=INTEGER},
-      rightID = #{record.rightid,jdbcType=VARCHAR}
+    update TO_RIGHTROLE
+    set ROLEID = #{record.roleid,jdbcType=DECIMAL},
+      RIGHTID = #{record.rightid,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

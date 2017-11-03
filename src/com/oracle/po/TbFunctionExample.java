@@ -2,7 +2,6 @@ package com.oracle.po;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class TbFunctionExample {
@@ -106,409 +105,383 @@ public class TbFunctionExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
-        }
-
         public Criteria andFunctionidIsNull() {
-            addCriterion("FunctionID is null");
+            addCriterion("FUNCTIONID is null");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidIsNotNull() {
-            addCriterion("FunctionID is not null");
+            addCriterion("FUNCTIONID is not null");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidEqualTo(Integer value) {
-            addCriterion("FunctionID =", value, "functionid");
+            addCriterion("FUNCTIONID =", value, "functionid");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidNotEqualTo(Integer value) {
-            addCriterion("FunctionID <>", value, "functionid");
+            addCriterion("FUNCTIONID <>", value, "functionid");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidGreaterThan(Integer value) {
-            addCriterion("FunctionID >", value, "functionid");
+            addCriterion("FUNCTIONID >", value, "functionid");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("FunctionID >=", value, "functionid");
+            addCriterion("FUNCTIONID >=", value, "functionid");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidLessThan(Integer value) {
-            addCriterion("FunctionID <", value, "functionid");
+            addCriterion("FUNCTIONID <", value, "functionid");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidLessThanOrEqualTo(Integer value) {
-            addCriterion("FunctionID <=", value, "functionid");
+            addCriterion("FUNCTIONID <=", value, "functionid");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidIn(List<Integer> values) {
-            addCriterion("FunctionID in", values, "functionid");
+            addCriterion("FUNCTIONID in", values, "functionid");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidNotIn(List<Integer> values) {
-            addCriterion("FunctionID not in", values, "functionid");
+            addCriterion("FUNCTIONID not in", values, "functionid");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidBetween(Integer value1, Integer value2) {
-            addCriterion("FunctionID between", value1, value2, "functionid");
+            addCriterion("FUNCTIONID between", value1, value2, "functionid");
             return (Criteria) this;
         }
 
         public Criteria andFunctionidNotBetween(Integer value1, Integer value2) {
-            addCriterion("FunctionID not between", value1, value2, "functionid");
+            addCriterion("FUNCTIONID not between", value1, value2, "functionid");
             return (Criteria) this;
         }
 
         public Criteria andModuleidIsNull() {
-            addCriterion("moduleID is null");
+            addCriterion("MODULEID is null");
             return (Criteria) this;
         }
 
         public Criteria andModuleidIsNotNull() {
-            addCriterion("moduleID is not null");
+            addCriterion("MODULEID is not null");
             return (Criteria) this;
         }
 
         public Criteria andModuleidEqualTo(Integer value) {
-            addCriterion("moduleID =", value, "moduleid");
+            addCriterion("MODULEID =", value, "moduleid");
             return (Criteria) this;
         }
 
         public Criteria andModuleidNotEqualTo(Integer value) {
-            addCriterion("moduleID <>", value, "moduleid");
+            addCriterion("MODULEID <>", value, "moduleid");
             return (Criteria) this;
         }
 
         public Criteria andModuleidGreaterThan(Integer value) {
-            addCriterion("moduleID >", value, "moduleid");
+            addCriterion("MODULEID >", value, "moduleid");
             return (Criteria) this;
         }
 
         public Criteria andModuleidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("moduleID >=", value, "moduleid");
+            addCriterion("MODULEID >=", value, "moduleid");
             return (Criteria) this;
         }
 
         public Criteria andModuleidLessThan(Integer value) {
-            addCriterion("moduleID <", value, "moduleid");
+            addCriterion("MODULEID <", value, "moduleid");
             return (Criteria) this;
         }
 
         public Criteria andModuleidLessThanOrEqualTo(Integer value) {
-            addCriterion("moduleID <=", value, "moduleid");
+            addCriterion("MODULEID <=", value, "moduleid");
             return (Criteria) this;
         }
 
         public Criteria andModuleidIn(List<Integer> values) {
-            addCriterion("moduleID in", values, "moduleid");
+            addCriterion("MODULEID in", values, "moduleid");
             return (Criteria) this;
         }
 
         public Criteria andModuleidNotIn(List<Integer> values) {
-            addCriterion("moduleID not in", values, "moduleid");
+            addCriterion("MODULEID not in", values, "moduleid");
             return (Criteria) this;
         }
 
         public Criteria andModuleidBetween(Integer value1, Integer value2) {
-            addCriterion("moduleID between", value1, value2, "moduleid");
+            addCriterion("MODULEID between", value1, value2, "moduleid");
             return (Criteria) this;
         }
 
         public Criteria andModuleidNotBetween(Integer value1, Integer value2) {
-            addCriterion("moduleID not between", value1, value2, "moduleid");
+            addCriterion("MODULEID not between", value1, value2, "moduleid");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameIsNull() {
-            addCriterion("FunctionName is null");
+            addCriterion("FUNCTIONNAME is null");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameIsNotNull() {
-            addCriterion("FunctionName is not null");
+            addCriterion("FUNCTIONNAME is not null");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameEqualTo(String value) {
-            addCriterion("FunctionName =", value, "functionname");
+            addCriterion("FUNCTIONNAME =", value, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameNotEqualTo(String value) {
-            addCriterion("FunctionName <>", value, "functionname");
+            addCriterion("FUNCTIONNAME <>", value, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameGreaterThan(String value) {
-            addCriterion("FunctionName >", value, "functionname");
+            addCriterion("FUNCTIONNAME >", value, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameGreaterThanOrEqualTo(String value) {
-            addCriterion("FunctionName >=", value, "functionname");
+            addCriterion("FUNCTIONNAME >=", value, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameLessThan(String value) {
-            addCriterion("FunctionName <", value, "functionname");
+            addCriterion("FUNCTIONNAME <", value, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameLessThanOrEqualTo(String value) {
-            addCriterion("FunctionName <=", value, "functionname");
+            addCriterion("FUNCTIONNAME <=", value, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameLike(String value) {
-            addCriterion("FunctionName like", value, "functionname");
+            addCriterion("FUNCTIONNAME like", value, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameNotLike(String value) {
-            addCriterion("FunctionName not like", value, "functionname");
+            addCriterion("FUNCTIONNAME not like", value, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameIn(List<String> values) {
-            addCriterion("FunctionName in", values, "functionname");
+            addCriterion("FUNCTIONNAME in", values, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameNotIn(List<String> values) {
-            addCriterion("FunctionName not in", values, "functionname");
+            addCriterion("FUNCTIONNAME not in", values, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameBetween(String value1, String value2) {
-            addCriterion("FunctionName between", value1, value2, "functionname");
+            addCriterion("FUNCTIONNAME between", value1, value2, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andFunctionnameNotBetween(String value1, String value2) {
-            addCriterion("FunctionName not between", value1, value2, "functionname");
+            addCriterion("FUNCTIONNAME not between", value1, value2, "functionname");
             return (Criteria) this;
         }
 
         public Criteria andPriorityIsNull() {
-            addCriterion("priority is null");
+            addCriterion("PRIORITY is null");
             return (Criteria) this;
         }
 
         public Criteria andPriorityIsNotNull() {
-            addCriterion("priority is not null");
+            addCriterion("PRIORITY is not null");
             return (Criteria) this;
         }
 
         public Criteria andPriorityEqualTo(Integer value) {
-            addCriterion("priority =", value, "priority");
+            addCriterion("PRIORITY =", value, "priority");
             return (Criteria) this;
         }
 
         public Criteria andPriorityNotEqualTo(Integer value) {
-            addCriterion("priority <>", value, "priority");
+            addCriterion("PRIORITY <>", value, "priority");
             return (Criteria) this;
         }
 
         public Criteria andPriorityGreaterThan(Integer value) {
-            addCriterion("priority >", value, "priority");
+            addCriterion("PRIORITY >", value, "priority");
             return (Criteria) this;
         }
 
         public Criteria andPriorityGreaterThanOrEqualTo(Integer value) {
-            addCriterion("priority >=", value, "priority");
+            addCriterion("PRIORITY >=", value, "priority");
             return (Criteria) this;
         }
 
         public Criteria andPriorityLessThan(Integer value) {
-            addCriterion("priority <", value, "priority");
+            addCriterion("PRIORITY <", value, "priority");
             return (Criteria) this;
         }
 
         public Criteria andPriorityLessThanOrEqualTo(Integer value) {
-            addCriterion("priority <=", value, "priority");
+            addCriterion("PRIORITY <=", value, "priority");
             return (Criteria) this;
         }
 
         public Criteria andPriorityIn(List<Integer> values) {
-            addCriterion("priority in", values, "priority");
+            addCriterion("PRIORITY in", values, "priority");
             return (Criteria) this;
         }
 
         public Criteria andPriorityNotIn(List<Integer> values) {
-            addCriterion("priority not in", values, "priority");
+            addCriterion("PRIORITY not in", values, "priority");
             return (Criteria) this;
         }
 
         public Criteria andPriorityBetween(Integer value1, Integer value2) {
-            addCriterion("priority between", value1, value2, "priority");
+            addCriterion("PRIORITY between", value1, value2, "priority");
             return (Criteria) this;
         }
 
         public Criteria andPriorityNotBetween(Integer value1, Integer value2) {
-            addCriterion("priority not between", value1, value2, "priority");
+            addCriterion("PRIORITY not between", value1, value2, "priority");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateIsNull() {
-            addCriterion("CreateDate is null");
+            addCriterion("CREATEDATE is null");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateIsNotNull() {
-            addCriterion("CreateDate is not null");
+            addCriterion("CREATEDATE is not null");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateEqualTo(Date value) {
-            addCriterionForJDBCDate("CreateDate =", value, "createdate");
+            addCriterion("CREATEDATE =", value, "createdate");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateNotEqualTo(Date value) {
-            addCriterionForJDBCDate("CreateDate <>", value, "createdate");
+            addCriterion("CREATEDATE <>", value, "createdate");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateGreaterThan(Date value) {
-            addCriterionForJDBCDate("CreateDate >", value, "createdate");
+            addCriterion("CREATEDATE >", value, "createdate");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("CreateDate >=", value, "createdate");
+            addCriterion("CREATEDATE >=", value, "createdate");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateLessThan(Date value) {
-            addCriterionForJDBCDate("CreateDate <", value, "createdate");
+            addCriterion("CREATEDATE <", value, "createdate");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("CreateDate <=", value, "createdate");
+            addCriterion("CREATEDATE <=", value, "createdate");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateIn(List<Date> values) {
-            addCriterionForJDBCDate("CreateDate in", values, "createdate");
+            addCriterion("CREATEDATE in", values, "createdate");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateNotIn(List<Date> values) {
-            addCriterionForJDBCDate("CreateDate not in", values, "createdate");
+            addCriterion("CREATEDATE not in", values, "createdate");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("CreateDate between", value1, value2, "createdate");
+            addCriterion("CREATEDATE between", value1, value2, "createdate");
             return (Criteria) this;
         }
 
         public Criteria andCreatedateNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("CreateDate not between", value1, value2, "createdate");
+            addCriterion("CREATEDATE not between", value1, value2, "createdate");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescIsNull() {
-            addCriterion("FunctionDesc is null");
+            addCriterion("FUNCTIONDESC is null");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescIsNotNull() {
-            addCriterion("FunctionDesc is not null");
+            addCriterion("FUNCTIONDESC is not null");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescEqualTo(String value) {
-            addCriterion("FunctionDesc =", value, "functiondesc");
+            addCriterion("FUNCTIONDESC =", value, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescNotEqualTo(String value) {
-            addCriterion("FunctionDesc <>", value, "functiondesc");
+            addCriterion("FUNCTIONDESC <>", value, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescGreaterThan(String value) {
-            addCriterion("FunctionDesc >", value, "functiondesc");
+            addCriterion("FUNCTIONDESC >", value, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescGreaterThanOrEqualTo(String value) {
-            addCriterion("FunctionDesc >=", value, "functiondesc");
+            addCriterion("FUNCTIONDESC >=", value, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescLessThan(String value) {
-            addCriterion("FunctionDesc <", value, "functiondesc");
+            addCriterion("FUNCTIONDESC <", value, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescLessThanOrEqualTo(String value) {
-            addCriterion("FunctionDesc <=", value, "functiondesc");
+            addCriterion("FUNCTIONDESC <=", value, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescLike(String value) {
-            addCriterion("FunctionDesc like", value, "functiondesc");
+            addCriterion("FUNCTIONDESC like", value, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescNotLike(String value) {
-            addCriterion("FunctionDesc not like", value, "functiondesc");
+            addCriterion("FUNCTIONDESC not like", value, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescIn(List<String> values) {
-            addCriterion("FunctionDesc in", values, "functiondesc");
+            addCriterion("FUNCTIONDESC in", values, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescNotIn(List<String> values) {
-            addCriterion("FunctionDesc not in", values, "functiondesc");
+            addCriterion("FUNCTIONDESC not in", values, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescBetween(String value1, String value2) {
-            addCriterion("FunctionDesc between", value1, value2, "functiondesc");
+            addCriterion("FUNCTIONDESC between", value1, value2, "functiondesc");
             return (Criteria) this;
         }
 
         public Criteria andFunctiondescNotBetween(String value1, String value2) {
-            addCriterion("FunctionDesc not between", value1, value2, "functiondesc");
+            addCriterion("FUNCTIONDESC not between", value1, value2, "functiondesc");
             return (Criteria) this;
         }
     }

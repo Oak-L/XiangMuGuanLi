@@ -1,6 +1,6 @@
 package com.oracle.po;
 
-public class ToRightroleKey {
+public class ToRightrole {
     private Integer roleid;
 
     private String rightid;

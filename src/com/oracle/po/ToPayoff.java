@@ -5,8 +5,6 @@ public class ToPayoff {
 
     private Integer empid;
 
-    private Integer tbEmpid;
-
     private Integer sal;
 
     private Integer comm;
@@ -18,6 +16,10 @@ public class ToPayoff {
     private Integer year;
 
     private Integer month;
+
+    private String miaoshu;
+
+    private Integer zhuangtai;
 
     public Integer getPayid() {
         return payid;
@@ -33,14 +35,6 @@ public class ToPayoff {
 
     public void setEmpid(Integer empid) {
         this.empid = empid;
-    }
-
-    public Integer getTbEmpid() {
-        return tbEmpid;
-    }
-
-    public void setTbEmpid(Integer tbEmpid) {
-        this.tbEmpid = tbEmpid;
     }
 
     public Integer getSal() {
@@ -89,5 +83,21 @@ public class ToPayoff {
 
     public void setMonth(Integer month) {
         this.month = month;
+    }
+
+    public String getMiaoshu() {
+        return miaoshu;
+    }
+
+    public void setMiaoshu(String miaoshu) {
+        this.miaoshu = miaoshu == null ? null : miaoshu.trim();
+    }
+
+    public Integer getZhuangtai() {
+        return zhuangtai;
+    }
+
+    public void setZhuangtai(Integer zhuangtai) {
+        this.zhuangtai = zhuangtai;
     }
 }

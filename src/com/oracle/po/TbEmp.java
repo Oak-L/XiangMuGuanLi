@@ -41,6 +41,8 @@ public class TbEmp {
 
     private Date hiredate;
 
+    private String dutyname;
+
     private String descript;
 
     public Integer getEmpid() {
@@ -193,6 +195,14 @@ public class TbEmp {
 
     public void setHiredate(Date hiredate) {
         this.hiredate = hiredate;
+    }
+
+    public String getDutyname() {
+        return dutyname;
+    }
+
+    public void setDutyname(String dutyname) {
+        this.dutyname = dutyname == null ? null : dutyname.trim();
     }
 
     public String getDescript() {

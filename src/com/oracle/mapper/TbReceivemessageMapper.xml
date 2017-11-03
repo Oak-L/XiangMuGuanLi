@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.oracle.mapper.TbWorkrecordMapper">
-  <resultMap id="BaseResultMap" type="com.oracle.po.TbWorkrecord">
-    <id column="recordID" jdbcType="INTEGER" property="recordid" />
-    <result column="EmpID" jdbcType="INTEGER" property="empid" />
-    <result column="workContent" jdbcType="VARCHAR" property="workcontent" />
-    <result column="CreateDate" jdbcType="DATE" property="createdate" />
-    <result column="WorkDate" jdbcType="DATE" property="workdate" />
+<mapper namespace="com.oracle.mapper.TbReceivemessageMapper">
+  <resultMap id="BaseResultMap" type="com.oracle.po.TbReceivemessage">
+    <id column="RECEIVEID" jdbcType="DECIMAL" property="receiveid" />
+    <result column="SENDID" jdbcType="DECIMAL" property="sendid" />
+    <result column="MESSAGESTATE" jdbcType="VARCHAR" property="messagestate" />
+    <result column="EMPID" jdbcType="DECIMAL" property="empid" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    recordID, EmpID, workContent, CreateDate, WorkDate
+    RECEIVEID, SENDID, MESSAGESTATE, EMPID
   </sql>
-  <select id="selectByExample" parameterType="com.oracle.po.TbWorkrecordExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.oracle.po.TbReceivemessageExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tb_workrecord
+    from TB_RECEIVEMESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,85 +85,76 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_workrecord
-    where recordID = #{recordid,jdbcType=INTEGER}
+    from TB_RECEIVEMESSAGE
+    where RECEIVEID = #{receiveid,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_workrecord
-    where recordID = #{recordid,jdbcType=INTEGER}
+    delete from TB_RECEIVEMESSAGE
+    where RECEIVEID = #{receiveid,jdbcType=DECIMAL}
   </delete>
-  <delete id="deleteByExample" parameterType="com.oracle.po.TbWorkrecordExample">
-    delete from tb_workrecord
+  <delete id="deleteByExample" parameterType="com.oracle.po.TbReceivemessageExample">
+    delete from TB_RECEIVEMESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.oracle.po.TbWorkrecord">
-    insert into tb_workrecord (recordID, EmpID, workContent, 
-      CreateDate, WorkDate)
-    values (#{recordid,jdbcType=INTEGER}, #{empid,jdbcType=INTEGER}, #{workcontent,jdbcType=VARCHAR}, 
-      #{createdate,jdbcType=DATE}, #{workdate,jdbcType=DATE})
+  <insert id="insert" parameterType="com.oracle.po.TbReceivemessage">
+    insert into TB_RECEIVEMESSAGE (RECEIVEID, SENDID, MESSAGESTATE, 
+      EMPID)
+    values (#{receiveid,jdbcType=DECIMAL}, #{sendid,jdbcType=DECIMAL}, #{messagestate,jdbcType=VARCHAR}, 
+      #{empid,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.oracle.po.TbWorkrecord">
-    insert into tb_workrecord
+  <insert id="insertSelective" parameterType="com.oracle.po.TbReceivemessage">
+    insert into TB_RECEIVEMESSAGE
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="recordid != null">
-        recordID,
+      <if test="receiveid != null">
+        RECEIVEID,
+      </if>
+      <if test="sendid != null">
+        SENDID,
+      </if>
+      <if test="messagestate != null">
+        MESSAGESTATE,
       </if>
       <if test="empid != null">
-        EmpID,
-      </if>
-      <if test="workcontent != null">
-        workContent,
-      </if>
-      <if test="createdate != null">
-        CreateDate,
-      </if>
-      <if test="workdate != null">
-        WorkDate,
+        EMPID,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="recordid != null">
-        #{recordid,jdbcType=INTEGER},
+      <if test="receiveid != null">
+        #{receiveid,jdbcType=DECIMAL},
+      </if>
+      <if test="sendid != null">
+        #{sendid,jdbcType=DECIMAL},
+      </if>
+      <if test="messagestate != null">
+        #{messagestate,jdbcType=VARCHAR},
       </if>
       <if test="empid != null">
-        #{empid,jdbcType=INTEGER},
-      </if>
-      <if test="workcontent != null">
-        #{workcontent,jdbcType=VARCHAR},
-      </if>
-      <if test="createdate != null">
-        #{createdate,jdbcType=DATE},
-      </if>
-      <if test="workdate != null">
-        #{workdate,jdbcType=DATE},
+        #{empid,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.oracle.po.TbWorkrecordExample" resultType="java.lang.Long">
-    select count(*) from tb_workrecord
+  <select id="countByExample" parameterType="com.oracle.po.TbReceivemessageExample" resultType="java.lang.Long">
+    select count(*) from TB_RECEIVEMESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update tb_workrecord
+    update TB_RECEIVEMESSAGE
     <set>
-      <if test="record.recordid != null">
-        recordID = #{record.recordid,jdbcType=INTEGER},
+      <if test="record.receiveid != null">
+        RECEIVEID = #{record.receiveid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sendid != null">
+        SENDID = #{record.sendid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.messagestate != null">
+        MESSAGESTATE = #{record.messagestate,jdbcType=VARCHAR},
       </if>
       <if test="record.empid != null">
-        EmpID = #{record.empid,jdbcType=INTEGER},
-      </if>
-      <if test="record.workcontent != null">
-        workContent = #{record.workcontent,jdbcType=VARCHAR},
-      </if>
-      <if test="record.createdate != null">
-        CreateDate = #{record.createdate,jdbcType=DATE},
-      </if>
-      <if test="record.workdate != null">
-        WorkDate = #{record.workdate,jdbcType=DATE},
+        EMPID = #{record.empid,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null">
@@ -172,40 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tb_workrecord
-    set recordID = #{record.recordid,jdbcType=INTEGER},
-      EmpID = #{record.empid,jdbcType=INTEGER},
-      workContent = #{record.workcontent,jdbcType=VARCHAR},
-      CreateDate = #{record.createdate,jdbcType=DATE},
-      WorkDate = #{record.workdate,jdbcType=DATE}
+    update TB_RECEIVEMESSAGE
+    set RECEIVEID = #{record.receiveid,jdbcType=DECIMAL},
+      SENDID = #{record.sendid,jdbcType=DECIMAL},
+      MESSAGESTATE = #{record.messagestate,jdbcType=VARCHAR},
+      EMPID = #{record.empid,jdbcType=DECIMAL}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbWorkrecord">
-    update tb_workrecord
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbReceivemessage">
+    update TB_RECEIVEMESSAGE
     <set>
+      <if test="sendid != null">
+        SENDID = #{sendid,jdbcType=DECIMAL},
+      </if>
+      <if test="messagestate != null">
+        MESSAGESTATE = #{messagestate,jdbcType=VARCHAR},
+      </if>
       <if test="empid != null">
-        EmpID = #{empid,jdbcType=INTEGER},
-      </if>
-      <if test="workcontent != null">
-        workContent = #{workcontent,jdbcType=VARCHAR},
-      </if>
-      <if test="createdate != null">
-        CreateDate = #{createdate,jdbcType=DATE},
-      </if>
-      <if test="workdate != null">
-        WorkDate = #{workdate,jdbcType=DATE},
+        EMPID = #{empid,jdbcType=DECIMAL},
       </if>
     </set>
-    where recordID = #{recordid,jdbcType=INTEGER}
+    where RECEIVEID = #{receiveid,jdbcType=DECIMAL}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbWorkrecord">
-    update tb_workrecord
-    set EmpID = #{empid,jdbcType=INTEGER},
-      workContent = #{workcontent,jdbcType=VARCHAR},
-      CreateDate = #{createdate,jdbcType=DATE},
-      WorkDate = #{workdate,jdbcType=DATE}
-    where recordID = #{recordid,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbReceivemessage">
+    update TB_RECEIVEMESSAGE
+    set SENDID = #{sendid,jdbcType=DECIMAL},
+      MESSAGESTATE = #{messagestate,jdbcType=VARCHAR},
+      EMPID = #{empid,jdbcType=DECIMAL}
+    where RECEIVEID = #{receiveid,jdbcType=DECIMAL}
   </update>
 </mapper>

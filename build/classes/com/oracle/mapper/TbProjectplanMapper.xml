@@ -2,25 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oracle.mapper.TbProjectplanMapper">
   <resultMap id="BaseResultMap" type="com.oracle.po.TbProjectplan">
-    <id column="planID" jdbcType="INTEGER" property="planid" />
-    <result column="FunctionID" jdbcType="INTEGER" property="functionid" />
-    <result column="EmpID" jdbcType="INTEGER" property="empid" />
-    <result column="TB__planID" jdbcType="INTEGER" property="tbPlanid" />
-    <result column="TB__EmpID" jdbcType="INTEGER" property="tbEmpid" />
-    <result column="planTitle" jdbcType="VARCHAR" property="plantitle" />
-    <result column="planBeginDate" jdbcType="DATE" property="planbegindate" />
-    <result column="planEndDate" jdbcType="DATE" property="planenddate" />
-    <result column="realBeginDate" jdbcType="DATE" property="realbegindate" />
-    <result column="realEndDate" jdbcType="DATE" property="realenddate" />
-    <result column="timeLimit" jdbcType="INTEGER" property="timelimit" />
-    <result column="priority" jdbcType="INTEGER" property="priority" />
-    <result column="taskType" jdbcType="INTEGER" property="tasktype" />
-    <result column="CreateDate" jdbcType="DATE" property="createdate" />
-    <result column="state" jdbcType="INTEGER" property="state" />
-    <result column="expired" jdbcType="INTEGER" property="expired" />
-    <result column="expiredDay" jdbcType="INTEGER" property="expiredday" />
-    <result column="planDesc" jdbcType="VARCHAR" property="plandesc" />
-    <result column="finishRate" jdbcType="INTEGER" property="finishrate" />
+    <id column="PLANID" jdbcType="DECIMAL" property="planid" />
+    <result column="FUNCTIONID" jdbcType="DECIMAL" property="functionid" />
+    <result column="EMPID" jdbcType="DECIMAL" property="empid" />
+    <result column="TB__PLANID" jdbcType="DECIMAL" property="tbPlanid" />
+    <result column="TB__EMPID" jdbcType="DECIMAL" property="tbEmpid" />
+    <result column="PLANTITLE" jdbcType="VARCHAR" property="plantitle" />
+    <result column="PLANBEGINDATE" jdbcType="TIMESTAMP" property="planbegindate" />
+    <result column="PLANENDDATE" jdbcType="TIMESTAMP" property="planenddate" />
+    <result column="REALBEGINDATE" jdbcType="TIMESTAMP" property="realbegindate" />
+    <result column="REALENDDATE" jdbcType="TIMESTAMP" property="realenddate" />
+    <result column="TIMELIMIT" jdbcType="DECIMAL" property="timelimit" />
+    <result column="PRIORITY" jdbcType="DECIMAL" property="priority" />
+    <result column="TASKTYPE" jdbcType="DECIMAL" property="tasktype" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="EXPIRED" jdbcType="DECIMAL" property="expired" />
+    <result column="EXPIREDDAY" jdbcType="DECIMAL" property="expiredday" />
+    <result column="PLANDESC" jdbcType="VARCHAR" property="plandesc" />
+    <result column="FINISHRATE" jdbcType="DECIMAL" property="finishrate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -81,9 +81,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    planID, FunctionID, EmpID, TB__planID, TB__EmpID, planTitle, planBeginDate, planEndDate, 
-    realBeginDate, realEndDate, timeLimit, priority, taskType, CreateDate, state, expired, 
-    expiredDay, planDesc, finishRate
+    PLANID, FUNCTIONID, EMPID, TB__PLANID, TB__EMPID, PLANTITLE, PLANBEGINDATE, PLANENDDATE, 
+    REALBEGINDATE, REALENDDATE, TIMELIMIT, PRIORITY, TASKTYPE, CREATEDATE, STATE, EXPIRED, 
+    EXPIREDDAY, PLANDESC, FINISHRATE
   </sql>
   <select id="selectByExample" parameterType="com.oracle.po.TbProjectplanExample" resultMap="BaseResultMap">
     select
@@ -91,7 +91,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tb_projectplan
+    from TB_PROJECTPLAN
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -102,221 +102,221 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_projectplan
-    where planID = #{planid,jdbcType=INTEGER}
+    from TB_PROJECTPLAN
+    where PLANID = #{planid,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_projectplan
-    where planID = #{planid,jdbcType=INTEGER}
+    delete from TB_PROJECTPLAN
+    where PLANID = #{planid,jdbcType=DECIMAL}
   </delete>
   <delete id="deleteByExample" parameterType="com.oracle.po.TbProjectplanExample">
-    delete from tb_projectplan
+    delete from TB_PROJECTPLAN
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.oracle.po.TbProjectplan">
-    insert into tb_projectplan (planID, FunctionID, EmpID, 
-      TB__planID, TB__EmpID, planTitle, 
-      planBeginDate, planEndDate, realBeginDate, 
-      realEndDate, timeLimit, priority, 
-      taskType, CreateDate, state, 
-      expired, expiredDay, planDesc, 
-      finishRate)
-    values (#{planid,jdbcType=INTEGER}, #{functionid,jdbcType=INTEGER}, #{empid,jdbcType=INTEGER}, 
-      #{tbPlanid,jdbcType=INTEGER}, #{tbEmpid,jdbcType=INTEGER}, #{plantitle,jdbcType=VARCHAR}, 
-      #{planbegindate,jdbcType=DATE}, #{planenddate,jdbcType=DATE}, #{realbegindate,jdbcType=DATE}, 
-      #{realenddate,jdbcType=DATE}, #{timelimit,jdbcType=INTEGER}, #{priority,jdbcType=INTEGER}, 
-      #{tasktype,jdbcType=INTEGER}, #{createdate,jdbcType=DATE}, #{state,jdbcType=INTEGER}, 
-      #{expired,jdbcType=INTEGER}, #{expiredday,jdbcType=INTEGER}, #{plandesc,jdbcType=VARCHAR}, 
-      #{finishrate,jdbcType=INTEGER})
+    insert into TB_PROJECTPLAN (PLANID, FUNCTIONID, EMPID, 
+      TB__PLANID, TB__EMPID, PLANTITLE, 
+      PLANBEGINDATE, PLANENDDATE, REALBEGINDATE, 
+      REALENDDATE, TIMELIMIT, PRIORITY, 
+      TASKTYPE, CREATEDATE, STATE, 
+      EXPIRED, EXPIREDDAY, PLANDESC, 
+      FINISHRATE)
+    values (#{planid,jdbcType=DECIMAL}, #{functionid,jdbcType=DECIMAL}, #{empid,jdbcType=DECIMAL}, 
+      #{tbPlanid,jdbcType=DECIMAL}, #{tbEmpid,jdbcType=DECIMAL}, #{plantitle,jdbcType=VARCHAR}, 
+      #{planbegindate,jdbcType=TIMESTAMP}, #{planenddate,jdbcType=TIMESTAMP}, #{realbegindate,jdbcType=TIMESTAMP}, 
+      #{realenddate,jdbcType=TIMESTAMP}, #{timelimit,jdbcType=DECIMAL}, #{priority,jdbcType=DECIMAL}, 
+      #{tasktype,jdbcType=DECIMAL}, #{createdate,jdbcType=TIMESTAMP}, #{state,jdbcType=DECIMAL}, 
+      #{expired,jdbcType=DECIMAL}, #{expiredday,jdbcType=DECIMAL}, #{plandesc,jdbcType=VARCHAR}, 
+      #{finishrate,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="com.oracle.po.TbProjectplan">
-    insert into tb_projectplan
+    insert into TB_PROJECTPLAN
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="planid != null">
-        planID,
+        PLANID,
       </if>
       <if test="functionid != null">
-        FunctionID,
+        FUNCTIONID,
       </if>
       <if test="empid != null">
-        EmpID,
+        EMPID,
       </if>
       <if test="tbPlanid != null">
-        TB__planID,
+        TB__PLANID,
       </if>
       <if test="tbEmpid != null">
-        TB__EmpID,
+        TB__EMPID,
       </if>
       <if test="plantitle != null">
-        planTitle,
+        PLANTITLE,
       </if>
       <if test="planbegindate != null">
-        planBeginDate,
+        PLANBEGINDATE,
       </if>
       <if test="planenddate != null">
-        planEndDate,
+        PLANENDDATE,
       </if>
       <if test="realbegindate != null">
-        realBeginDate,
+        REALBEGINDATE,
       </if>
       <if test="realenddate != null">
-        realEndDate,
+        REALENDDATE,
       </if>
       <if test="timelimit != null">
-        timeLimit,
+        TIMELIMIT,
       </if>
       <if test="priority != null">
-        priority,
+        PRIORITY,
       </if>
       <if test="tasktype != null">
-        taskType,
+        TASKTYPE,
       </if>
       <if test="createdate != null">
-        CreateDate,
+        CREATEDATE,
       </if>
       <if test="state != null">
-        state,
+        STATE,
       </if>
       <if test="expired != null">
-        expired,
+        EXPIRED,
       </if>
       <if test="expiredday != null">
-        expiredDay,
+        EXPIREDDAY,
       </if>
       <if test="plandesc != null">
-        planDesc,
+        PLANDESC,
       </if>
       <if test="finishrate != null">
-        finishRate,
+        FINISHRATE,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="planid != null">
-        #{planid,jdbcType=INTEGER},
+        #{planid,jdbcType=DECIMAL},
       </if>
       <if test="functionid != null">
-        #{functionid,jdbcType=INTEGER},
+        #{functionid,jdbcType=DECIMAL},
       </if>
       <if test="empid != null">
-        #{empid,jdbcType=INTEGER},
+        #{empid,jdbcType=DECIMAL},
       </if>
       <if test="tbPlanid != null">
-        #{tbPlanid,jdbcType=INTEGER},
+        #{tbPlanid,jdbcType=DECIMAL},
       </if>
       <if test="tbEmpid != null">
-        #{tbEmpid,jdbcType=INTEGER},
+        #{tbEmpid,jdbcType=DECIMAL},
       </if>
       <if test="plantitle != null">
         #{plantitle,jdbcType=VARCHAR},
       </if>
       <if test="planbegindate != null">
-        #{planbegindate,jdbcType=DATE},
+        #{planbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="planenddate != null">
-        #{planenddate,jdbcType=DATE},
+        #{planenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="realbegindate != null">
-        #{realbegindate,jdbcType=DATE},
+        #{realbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="realenddate != null">
-        #{realenddate,jdbcType=DATE},
+        #{realenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="timelimit != null">
-        #{timelimit,jdbcType=INTEGER},
+        #{timelimit,jdbcType=DECIMAL},
       </if>
       <if test="priority != null">
-        #{priority,jdbcType=INTEGER},
+        #{priority,jdbcType=DECIMAL},
       </if>
       <if test="tasktype != null">
-        #{tasktype,jdbcType=INTEGER},
+        #{tasktype,jdbcType=DECIMAL},
       </if>
       <if test="createdate != null">
-        #{createdate,jdbcType=DATE},
+        #{createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="state != null">
-        #{state,jdbcType=INTEGER},
+        #{state,jdbcType=DECIMAL},
       </if>
       <if test="expired != null">
-        #{expired,jdbcType=INTEGER},
+        #{expired,jdbcType=DECIMAL},
       </if>
       <if test="expiredday != null">
-        #{expiredday,jdbcType=INTEGER},
+        #{expiredday,jdbcType=DECIMAL},
       </if>
       <if test="plandesc != null">
         #{plandesc,jdbcType=VARCHAR},
       </if>
       <if test="finishrate != null">
-        #{finishrate,jdbcType=INTEGER},
+        #{finishrate,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.oracle.po.TbProjectplanExample" resultType="java.lang.Long">
-    select count(*) from tb_projectplan
+    select count(*) from TB_PROJECTPLAN
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update tb_projectplan
+    update TB_PROJECTPLAN
     <set>
       <if test="record.planid != null">
-        planID = #{record.planid,jdbcType=INTEGER},
+        PLANID = #{record.planid,jdbcType=DECIMAL},
       </if>
       <if test="record.functionid != null">
-        FunctionID = #{record.functionid,jdbcType=INTEGER},
+        FUNCTIONID = #{record.functionid,jdbcType=DECIMAL},
       </if>
       <if test="record.empid != null">
-        EmpID = #{record.empid,jdbcType=INTEGER},
+        EMPID = #{record.empid,jdbcType=DECIMAL},
       </if>
       <if test="record.tbPlanid != null">
-        TB__planID = #{record.tbPlanid,jdbcType=INTEGER},
+        TB__PLANID = #{record.tbPlanid,jdbcType=DECIMAL},
       </if>
       <if test="record.tbEmpid != null">
-        TB__EmpID = #{record.tbEmpid,jdbcType=INTEGER},
+        TB__EMPID = #{record.tbEmpid,jdbcType=DECIMAL},
       </if>
       <if test="record.plantitle != null">
-        planTitle = #{record.plantitle,jdbcType=VARCHAR},
+        PLANTITLE = #{record.plantitle,jdbcType=VARCHAR},
       </if>
       <if test="record.planbegindate != null">
-        planBeginDate = #{record.planbegindate,jdbcType=DATE},
+        PLANBEGINDATE = #{record.planbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.planenddate != null">
-        planEndDate = #{record.planenddate,jdbcType=DATE},
+        PLANENDDATE = #{record.planenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.realbegindate != null">
-        realBeginDate = #{record.realbegindate,jdbcType=DATE},
+        REALBEGINDATE = #{record.realbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.realenddate != null">
-        realEndDate = #{record.realenddate,jdbcType=DATE},
+        REALENDDATE = #{record.realenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.timelimit != null">
-        timeLimit = #{record.timelimit,jdbcType=INTEGER},
+        TIMELIMIT = #{record.timelimit,jdbcType=DECIMAL},
       </if>
       <if test="record.priority != null">
-        priority = #{record.priority,jdbcType=INTEGER},
+        PRIORITY = #{record.priority,jdbcType=DECIMAL},
       </if>
       <if test="record.tasktype != null">
-        taskType = #{record.tasktype,jdbcType=INTEGER},
+        TASKTYPE = #{record.tasktype,jdbcType=DECIMAL},
       </if>
       <if test="record.createdate != null">
-        CreateDate = #{record.createdate,jdbcType=DATE},
+        CREATEDATE = #{record.createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.state != null">
-        state = #{record.state,jdbcType=INTEGER},
+        STATE = #{record.state,jdbcType=DECIMAL},
       </if>
       <if test="record.expired != null">
-        expired = #{record.expired,jdbcType=INTEGER},
+        EXPIRED = #{record.expired,jdbcType=DECIMAL},
       </if>
       <if test="record.expiredday != null">
-        expiredDay = #{record.expiredday,jdbcType=INTEGER},
+        EXPIREDDAY = #{record.expiredday,jdbcType=DECIMAL},
       </if>
       <if test="record.plandesc != null">
-        planDesc = #{record.plandesc,jdbcType=VARCHAR},
+        PLANDESC = #{record.plandesc,jdbcType=VARCHAR},
       </if>
       <if test="record.finishrate != null">
-        finishRate = #{record.finishrate,jdbcType=INTEGER},
+        FINISHRATE = #{record.finishrate,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null">
@@ -324,110 +324,110 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tb_projectplan
-    set planID = #{record.planid,jdbcType=INTEGER},
-      FunctionID = #{record.functionid,jdbcType=INTEGER},
-      EmpID = #{record.empid,jdbcType=INTEGER},
-      TB__planID = #{record.tbPlanid,jdbcType=INTEGER},
-      TB__EmpID = #{record.tbEmpid,jdbcType=INTEGER},
-      planTitle = #{record.plantitle,jdbcType=VARCHAR},
-      planBeginDate = #{record.planbegindate,jdbcType=DATE},
-      planEndDate = #{record.planenddate,jdbcType=DATE},
-      realBeginDate = #{record.realbegindate,jdbcType=DATE},
-      realEndDate = #{record.realenddate,jdbcType=DATE},
-      timeLimit = #{record.timelimit,jdbcType=INTEGER},
-      priority = #{record.priority,jdbcType=INTEGER},
-      taskType = #{record.tasktype,jdbcType=INTEGER},
-      CreateDate = #{record.createdate,jdbcType=DATE},
-      state = #{record.state,jdbcType=INTEGER},
-      expired = #{record.expired,jdbcType=INTEGER},
-      expiredDay = #{record.expiredday,jdbcType=INTEGER},
-      planDesc = #{record.plandesc,jdbcType=VARCHAR},
-      finishRate = #{record.finishrate,jdbcType=INTEGER}
+    update TB_PROJECTPLAN
+    set PLANID = #{record.planid,jdbcType=DECIMAL},
+      FUNCTIONID = #{record.functionid,jdbcType=DECIMAL},
+      EMPID = #{record.empid,jdbcType=DECIMAL},
+      TB__PLANID = #{record.tbPlanid,jdbcType=DECIMAL},
+      TB__EMPID = #{record.tbEmpid,jdbcType=DECIMAL},
+      PLANTITLE = #{record.plantitle,jdbcType=VARCHAR},
+      PLANBEGINDATE = #{record.planbegindate,jdbcType=TIMESTAMP},
+      PLANENDDATE = #{record.planenddate,jdbcType=TIMESTAMP},
+      REALBEGINDATE = #{record.realbegindate,jdbcType=TIMESTAMP},
+      REALENDDATE = #{record.realenddate,jdbcType=TIMESTAMP},
+      TIMELIMIT = #{record.timelimit,jdbcType=DECIMAL},
+      PRIORITY = #{record.priority,jdbcType=DECIMAL},
+      TASKTYPE = #{record.tasktype,jdbcType=DECIMAL},
+      CREATEDATE = #{record.createdate,jdbcType=TIMESTAMP},
+      STATE = #{record.state,jdbcType=DECIMAL},
+      EXPIRED = #{record.expired,jdbcType=DECIMAL},
+      EXPIREDDAY = #{record.expiredday,jdbcType=DECIMAL},
+      PLANDESC = #{record.plandesc,jdbcType=VARCHAR},
+      FINISHRATE = #{record.finishrate,jdbcType=DECIMAL}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbProjectplan">
-    update tb_projectplan
+    update TB_PROJECTPLAN
     <set>
       <if test="functionid != null">
-        FunctionID = #{functionid,jdbcType=INTEGER},
+        FUNCTIONID = #{functionid,jdbcType=DECIMAL},
       </if>
       <if test="empid != null">
-        EmpID = #{empid,jdbcType=INTEGER},
+        EMPID = #{empid,jdbcType=DECIMAL},
       </if>
       <if test="tbPlanid != null">
-        TB__planID = #{tbPlanid,jdbcType=INTEGER},
+        TB__PLANID = #{tbPlanid,jdbcType=DECIMAL},
       </if>
       <if test="tbEmpid != null">
-        TB__EmpID = #{tbEmpid,jdbcType=INTEGER},
+        TB__EMPID = #{tbEmpid,jdbcType=DECIMAL},
       </if>
       <if test="plantitle != null">
-        planTitle = #{plantitle,jdbcType=VARCHAR},
+        PLANTITLE = #{plantitle,jdbcType=VARCHAR},
       </if>
       <if test="planbegindate != null">
-        planBeginDate = #{planbegindate,jdbcType=DATE},
+        PLANBEGINDATE = #{planbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="planenddate != null">
-        planEndDate = #{planenddate,jdbcType=DATE},
+        PLANENDDATE = #{planenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="realbegindate != null">
-        realBeginDate = #{realbegindate,jdbcType=DATE},
+        REALBEGINDATE = #{realbegindate,jdbcType=TIMESTAMP},
       </if>
       <if test="realenddate != null">
-        realEndDate = #{realenddate,jdbcType=DATE},
+        REALENDDATE = #{realenddate,jdbcType=TIMESTAMP},
       </if>
       <if test="timelimit != null">
-        timeLimit = #{timelimit,jdbcType=INTEGER},
+        TIMELIMIT = #{timelimit,jdbcType=DECIMAL},
       </if>
       <if test="priority != null">
-        priority = #{priority,jdbcType=INTEGER},
+        PRIORITY = #{priority,jdbcType=DECIMAL},
       </if>
       <if test="tasktype != null">
-        taskType = #{tasktype,jdbcType=INTEGER},
+        TASKTYPE = #{tasktype,jdbcType=DECIMAL},
       </if>
       <if test="createdate != null">
-        CreateDate = #{createdate,jdbcType=DATE},
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="state != null">
-        state = #{state,jdbcType=INTEGER},
+        STATE = #{state,jdbcType=DECIMAL},
       </if>
       <if test="expired != null">
-        expired = #{expired,jdbcType=INTEGER},
+        EXPIRED = #{expired,jdbcType=DECIMAL},
       </if>
       <if test="expiredday != null">
-        expiredDay = #{expiredday,jdbcType=INTEGER},
+        EXPIREDDAY = #{expiredday,jdbcType=DECIMAL},
       </if>
       <if test="plandesc != null">
-        planDesc = #{plandesc,jdbcType=VARCHAR},
+        PLANDESC = #{plandesc,jdbcType=VARCHAR},
       </if>
       <if test="finishrate != null">
-        finishRate = #{finishrate,jdbcType=INTEGER},
+        FINISHRATE = #{finishrate,jdbcType=DECIMAL},
       </if>
     </set>
-    where planID = #{planid,jdbcType=INTEGER}
+    where PLANID = #{planid,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbProjectplan">
-    update tb_projectplan
-    set FunctionID = #{functionid,jdbcType=INTEGER},
-      EmpID = #{empid,jdbcType=INTEGER},
-      TB__planID = #{tbPlanid,jdbcType=INTEGER},
-      TB__EmpID = #{tbEmpid,jdbcType=INTEGER},
-      planTitle = #{plantitle,jdbcType=VARCHAR},
-      planBeginDate = #{planbegindate,jdbcType=DATE},
-      planEndDate = #{planenddate,jdbcType=DATE},
-      realBeginDate = #{realbegindate,jdbcType=DATE},
-      realEndDate = #{realenddate,jdbcType=DATE},
-      timeLimit = #{timelimit,jdbcType=INTEGER},
-      priority = #{priority,jdbcType=INTEGER},
-      taskType = #{tasktype,jdbcType=INTEGER},
-      CreateDate = #{createdate,jdbcType=DATE},
-      state = #{state,jdbcType=INTEGER},
-      expired = #{expired,jdbcType=INTEGER},
-      expiredDay = #{expiredday,jdbcType=INTEGER},
-      planDesc = #{plandesc,jdbcType=VARCHAR},
-      finishRate = #{finishrate,jdbcType=INTEGER}
-    where planID = #{planid,jdbcType=INTEGER}
+    update TB_PROJECTPLAN
+    set FUNCTIONID = #{functionid,jdbcType=DECIMAL},
+      EMPID = #{empid,jdbcType=DECIMAL},
+      TB__PLANID = #{tbPlanid,jdbcType=DECIMAL},
+      TB__EMPID = #{tbEmpid,jdbcType=DECIMAL},
+      PLANTITLE = #{plantitle,jdbcType=VARCHAR},
+      PLANBEGINDATE = #{planbegindate,jdbcType=TIMESTAMP},
+      PLANENDDATE = #{planenddate,jdbcType=TIMESTAMP},
+      REALBEGINDATE = #{realbegindate,jdbcType=TIMESTAMP},
+      REALENDDATE = #{realenddate,jdbcType=TIMESTAMP},
+      TIMELIMIT = #{timelimit,jdbcType=DECIMAL},
+      PRIORITY = #{priority,jdbcType=DECIMAL},
+      TASKTYPE = #{tasktype,jdbcType=DECIMAL},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      STATE = #{state,jdbcType=DECIMAL},
+      EXPIRED = #{expired,jdbcType=DECIMAL},
+      EXPIREDDAY = #{expiredday,jdbcType=DECIMAL},
+      PLANDESC = #{plandesc,jdbcType=VARCHAR},
+      FINISHRATE = #{finishrate,jdbcType=DECIMAL}
+    where PLANID = #{planid,jdbcType=DECIMAL}
   </update>
 </mapper>

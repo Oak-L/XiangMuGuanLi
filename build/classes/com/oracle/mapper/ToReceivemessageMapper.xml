@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oracle.mapper.ToReceivemessageMapper">
   <resultMap id="BaseResultMap" type="com.oracle.po.ToReceivemessage">
-    <id column="ReceiveID" jdbcType="INTEGER" property="receiveid" />
-    <result column="sendID" jdbcType="INTEGER" property="sendid" />
-    <result column="EmpID" jdbcType="INTEGER" property="empid" />
-    <result column="MessageState" jdbcType="INTEGER" property="messagestate" />
-    <result column="OpenDate" jdbcType="DATE" property="opendate" />
+    <id column="RECEIVEID" jdbcType="DECIMAL" property="receiveid" />
+    <result column="SENDID" jdbcType="DECIMAL" property="sendid" />
+    <result column="EMPID" jdbcType="DECIMAL" property="empid" />
+    <result column="MESSAGESTATE" jdbcType="DECIMAL" property="messagestate" />
+    <result column="OPENDATE" jdbcType="TIMESTAMP" property="opendate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ReceiveID, sendID, EmpID, MessageState, OpenDate
+    RECEIVEID, SENDID, EMPID, MESSAGESTATE, OPENDATE
   </sql>
   <select id="selectByExample" parameterType="com.oracle.po.ToReceivemessageExample" resultMap="BaseResultMap">
     select
@@ -75,7 +75,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from to_receivemessage
+    from TO_RECEIVEMESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,85 +86,85 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from to_receivemessage
-    where ReceiveID = #{receiveid,jdbcType=INTEGER}
+    from TO_RECEIVEMESSAGE
+    where RECEIVEID = #{receiveid,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from to_receivemessage
-    where ReceiveID = #{receiveid,jdbcType=INTEGER}
+    delete from TO_RECEIVEMESSAGE
+    where RECEIVEID = #{receiveid,jdbcType=DECIMAL}
   </delete>
   <delete id="deleteByExample" parameterType="com.oracle.po.ToReceivemessageExample">
-    delete from to_receivemessage
+    delete from TO_RECEIVEMESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.oracle.po.ToReceivemessage">
-    insert into to_receivemessage (ReceiveID, sendID, EmpID, 
-      MessageState, OpenDate)
-    values (#{receiveid,jdbcType=INTEGER}, #{sendid,jdbcType=INTEGER}, #{empid,jdbcType=INTEGER}, 
-      #{messagestate,jdbcType=INTEGER}, #{opendate,jdbcType=DATE})
+    insert into TO_RECEIVEMESSAGE (RECEIVEID, SENDID, EMPID, 
+      MESSAGESTATE, OPENDATE)
+    values (#{receiveid,jdbcType=DECIMAL}, #{sendid,jdbcType=DECIMAL}, #{empid,jdbcType=DECIMAL}, 
+      #{messagestate,jdbcType=DECIMAL}, #{opendate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.oracle.po.ToReceivemessage">
-    insert into to_receivemessage
+    insert into TO_RECEIVEMESSAGE
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="receiveid != null">
-        ReceiveID,
+        RECEIVEID,
       </if>
       <if test="sendid != null">
-        sendID,
+        SENDID,
       </if>
       <if test="empid != null">
-        EmpID,
+        EMPID,
       </if>
       <if test="messagestate != null">
-        MessageState,
+        MESSAGESTATE,
       </if>
       <if test="opendate != null">
-        OpenDate,
+        OPENDATE,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="receiveid != null">
-        #{receiveid,jdbcType=INTEGER},
+        #{receiveid,jdbcType=DECIMAL},
       </if>
       <if test="sendid != null">
-        #{sendid,jdbcType=INTEGER},
+        #{sendid,jdbcType=DECIMAL},
       </if>
       <if test="empid != null">
-        #{empid,jdbcType=INTEGER},
+        #{empid,jdbcType=DECIMAL},
       </if>
       <if test="messagestate != null">
-        #{messagestate,jdbcType=INTEGER},
+        #{messagestate,jdbcType=DECIMAL},
       </if>
       <if test="opendate != null">
-        #{opendate,jdbcType=DATE},
+        #{opendate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.oracle.po.ToReceivemessageExample" resultType="java.lang.Long">
-    select count(*) from to_receivemessage
+    select count(*) from TO_RECEIVEMESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update to_receivemessage
+    update TO_RECEIVEMESSAGE
     <set>
       <if test="record.receiveid != null">
-        ReceiveID = #{record.receiveid,jdbcType=INTEGER},
+        RECEIVEID = #{record.receiveid,jdbcType=DECIMAL},
       </if>
       <if test="record.sendid != null">
-        sendID = #{record.sendid,jdbcType=INTEGER},
+        SENDID = #{record.sendid,jdbcType=DECIMAL},
       </if>
       <if test="record.empid != null">
-        EmpID = #{record.empid,jdbcType=INTEGER},
+        EMPID = #{record.empid,jdbcType=DECIMAL},
       </if>
       <if test="record.messagestate != null">
-        MessageState = #{record.messagestate,jdbcType=INTEGER},
+        MESSAGESTATE = #{record.messagestate,jdbcType=DECIMAL},
       </if>
       <if test="record.opendate != null">
-        OpenDate = #{record.opendate,jdbcType=DATE},
+        OPENDATE = #{record.opendate,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -172,40 +172,40 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update to_receivemessage
-    set ReceiveID = #{record.receiveid,jdbcType=INTEGER},
-      sendID = #{record.sendid,jdbcType=INTEGER},
-      EmpID = #{record.empid,jdbcType=INTEGER},
-      MessageState = #{record.messagestate,jdbcType=INTEGER},
-      OpenDate = #{record.opendate,jdbcType=DATE}
+    update TO_RECEIVEMESSAGE
+    set RECEIVEID = #{record.receiveid,jdbcType=DECIMAL},
+      SENDID = #{record.sendid,jdbcType=DECIMAL},
+      EMPID = #{record.empid,jdbcType=DECIMAL},
+      MESSAGESTATE = #{record.messagestate,jdbcType=DECIMAL},
+      OPENDATE = #{record.opendate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.ToReceivemessage">
-    update to_receivemessage
+    update TO_RECEIVEMESSAGE
     <set>
       <if test="sendid != null">
-        sendID = #{sendid,jdbcType=INTEGER},
+        SENDID = #{sendid,jdbcType=DECIMAL},
       </if>
       <if test="empid != null">
-        EmpID = #{empid,jdbcType=INTEGER},
+        EMPID = #{empid,jdbcType=DECIMAL},
       </if>
       <if test="messagestate != null">
-        MessageState = #{messagestate,jdbcType=INTEGER},
+        MESSAGESTATE = #{messagestate,jdbcType=DECIMAL},
       </if>
       <if test="opendate != null">
-        OpenDate = #{opendate,jdbcType=DATE},
+        OPENDATE = #{opendate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where ReceiveID = #{receiveid,jdbcType=INTEGER}
+    where RECEIVEID = #{receiveid,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oracle.po.ToReceivemessage">
-    update to_receivemessage
-    set sendID = #{sendid,jdbcType=INTEGER},
-      EmpID = #{empid,jdbcType=INTEGER},
-      MessageState = #{messagestate,jdbcType=INTEGER},
-      OpenDate = #{opendate,jdbcType=DATE}
-    where ReceiveID = #{receiveid,jdbcType=INTEGER}
+    update TO_RECEIVEMESSAGE
+    set SENDID = #{sendid,jdbcType=DECIMAL},
+      EMPID = #{empid,jdbcType=DECIMAL},
+      MESSAGESTATE = #{messagestate,jdbcType=DECIMAL},
+      OPENDATE = #{opendate,jdbcType=TIMESTAMP}
+    where RECEIVEID = #{receiveid,jdbcType=DECIMAL}
   </update>
 </mapper>

@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oracle.mapper.TbFunctionMapper">
   <resultMap id="BaseResultMap" type="com.oracle.po.TbFunction">
-    <id column="FunctionID" jdbcType="INTEGER" property="functionid" />
-    <result column="moduleID" jdbcType="INTEGER" property="moduleid" />
-    <result column="FunctionName" jdbcType="VARCHAR" property="functionname" />
-    <result column="priority" jdbcType="INTEGER" property="priority" />
-    <result column="CreateDate" jdbcType="DATE" property="createdate" />
-    <result column="FunctionDesc" jdbcType="VARCHAR" property="functiondesc" />
+    <id column="FUNCTIONID" jdbcType="DECIMAL" property="functionid" />
+    <result column="MODULEID" jdbcType="DECIMAL" property="moduleid" />
+    <result column="FUNCTIONNAME" jdbcType="VARCHAR" property="functionname" />
+    <result column="PRIORITY" jdbcType="DECIMAL" property="priority" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="FUNCTIONDESC" jdbcType="VARCHAR" property="functiondesc" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    FunctionID, moduleID, FunctionName, priority, CreateDate, FunctionDesc
+    FUNCTIONID, MODULEID, FUNCTIONNAME, PRIORITY, CREATEDATE, FUNCTIONDESC
   </sql>
   <select id="selectByExample" parameterType="com.oracle.po.TbFunctionExample" resultMap="BaseResultMap">
     select
@@ -76,7 +76,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tb_function
+    from TB_FUNCTION
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,64 +87,64 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_function
-    where FunctionID = #{functionid,jdbcType=INTEGER}
+    from TB_FUNCTION
+    where FUNCTIONID = #{functionid,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_function
-    where FunctionID = #{functionid,jdbcType=INTEGER}
+    delete from TB_FUNCTION
+    where FUNCTIONID = #{functionid,jdbcType=DECIMAL}
   </delete>
   <delete id="deleteByExample" parameterType="com.oracle.po.TbFunctionExample">
-    delete from tb_function
+    delete from TB_FUNCTION
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.oracle.po.TbFunction">
-    insert into tb_function (FunctionID, moduleID, FunctionName, 
-      priority, CreateDate, FunctionDesc
+    insert into TB_FUNCTION (FUNCTIONID, MODULEID, FUNCTIONNAME, 
+      PRIORITY, CREATEDATE, FUNCTIONDESC
       )
-    values (#{functionid,jdbcType=INTEGER}, #{moduleid,jdbcType=INTEGER}, #{functionname,jdbcType=VARCHAR}, 
-      #{priority,jdbcType=INTEGER}, #{createdate,jdbcType=DATE}, #{functiondesc,jdbcType=VARCHAR}
+    values (#{functionid,jdbcType=DECIMAL}, #{moduleid,jdbcType=DECIMAL}, #{functionname,jdbcType=VARCHAR}, 
+      #{priority,jdbcType=DECIMAL}, #{createdate,jdbcType=TIMESTAMP}, #{functiondesc,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.oracle.po.TbFunction">
-    insert into tb_function
+    insert into TB_FUNCTION
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="functionid != null">
-        FunctionID,
+        FUNCTIONID,
       </if>
       <if test="moduleid != null">
-        moduleID,
+        MODULEID,
       </if>
       <if test="functionname != null">
-        FunctionName,
+        FUNCTIONNAME,
       </if>
       <if test="priority != null">
-        priority,
+        PRIORITY,
       </if>
       <if test="createdate != null">
-        CreateDate,
+        CREATEDATE,
       </if>
       <if test="functiondesc != null">
-        FunctionDesc,
+        FUNCTIONDESC,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="functionid != null">
-        #{functionid,jdbcType=INTEGER},
+        #{functionid,jdbcType=DECIMAL},
       </if>
       <if test="moduleid != null">
-        #{moduleid,jdbcType=INTEGER},
+        #{moduleid,jdbcType=DECIMAL},
       </if>
       <if test="functionname != null">
         #{functionname,jdbcType=VARCHAR},
       </if>
       <if test="priority != null">
-        #{priority,jdbcType=INTEGER},
+        #{priority,jdbcType=DECIMAL},
       </if>
       <if test="createdate != null">
-        #{createdate,jdbcType=DATE},
+        #{createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="functiondesc != null">
         #{functiondesc,jdbcType=VARCHAR},
@@ -152,31 +152,31 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.oracle.po.TbFunctionExample" resultType="java.lang.Long">
-    select count(*) from tb_function
+    select count(*) from TB_FUNCTION
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update tb_function
+    update TB_FUNCTION
     <set>
       <if test="record.functionid != null">
-        FunctionID = #{record.functionid,jdbcType=INTEGER},
+        FUNCTIONID = #{record.functionid,jdbcType=DECIMAL},
       </if>
       <if test="record.moduleid != null">
-        moduleID = #{record.moduleid,jdbcType=INTEGER},
+        MODULEID = #{record.moduleid,jdbcType=DECIMAL},
       </if>
       <if test="record.functionname != null">
-        FunctionName = #{record.functionname,jdbcType=VARCHAR},
+        FUNCTIONNAME = #{record.functionname,jdbcType=VARCHAR},
       </if>
       <if test="record.priority != null">
-        priority = #{record.priority,jdbcType=INTEGER},
+        PRIORITY = #{record.priority,jdbcType=DECIMAL},
       </if>
       <if test="record.createdate != null">
-        CreateDate = #{record.createdate,jdbcType=DATE},
+        CREATEDATE = #{record.createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.functiondesc != null">
-        FunctionDesc = #{record.functiondesc,jdbcType=VARCHAR},
+        FUNCTIONDESC = #{record.functiondesc,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -184,45 +184,45 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tb_function
-    set FunctionID = #{record.functionid,jdbcType=INTEGER},
-      moduleID = #{record.moduleid,jdbcType=INTEGER},
-      FunctionName = #{record.functionname,jdbcType=VARCHAR},
-      priority = #{record.priority,jdbcType=INTEGER},
-      CreateDate = #{record.createdate,jdbcType=DATE},
-      FunctionDesc = #{record.functiondesc,jdbcType=VARCHAR}
+    update TB_FUNCTION
+    set FUNCTIONID = #{record.functionid,jdbcType=DECIMAL},
+      MODULEID = #{record.moduleid,jdbcType=DECIMAL},
+      FUNCTIONNAME = #{record.functionname,jdbcType=VARCHAR},
+      PRIORITY = #{record.priority,jdbcType=DECIMAL},
+      CREATEDATE = #{record.createdate,jdbcType=TIMESTAMP},
+      FUNCTIONDESC = #{record.functiondesc,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbFunction">
-    update tb_function
+    update TB_FUNCTION
     <set>
       <if test="moduleid != null">
-        moduleID = #{moduleid,jdbcType=INTEGER},
+        MODULEID = #{moduleid,jdbcType=DECIMAL},
       </if>
       <if test="functionname != null">
-        FunctionName = #{functionname,jdbcType=VARCHAR},
+        FUNCTIONNAME = #{functionname,jdbcType=VARCHAR},
       </if>
       <if test="priority != null">
-        priority = #{priority,jdbcType=INTEGER},
+        PRIORITY = #{priority,jdbcType=DECIMAL},
       </if>
       <if test="createdate != null">
-        CreateDate = #{createdate,jdbcType=DATE},
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="functiondesc != null">
-        FunctionDesc = #{functiondesc,jdbcType=VARCHAR},
+        FUNCTIONDESC = #{functiondesc,jdbcType=VARCHAR},
       </if>
     </set>
-    where FunctionID = #{functionid,jdbcType=INTEGER}
+    where FUNCTIONID = #{functionid,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbFunction">
-    update tb_function
-    set moduleID = #{moduleid,jdbcType=INTEGER},
-      FunctionName = #{functionname,jdbcType=VARCHAR},
-      priority = #{priority,jdbcType=INTEGER},
-      CreateDate = #{createdate,jdbcType=DATE},
-      FunctionDesc = #{functiondesc,jdbcType=VARCHAR}
-    where FunctionID = #{functionid,jdbcType=INTEGER}
+    update TB_FUNCTION
+    set MODULEID = #{moduleid,jdbcType=DECIMAL},
+      FUNCTIONNAME = #{functionname,jdbcType=VARCHAR},
+      PRIORITY = #{priority,jdbcType=DECIMAL},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      FUNCTIONDESC = #{functiondesc,jdbcType=VARCHAR}
+    where FUNCTIONID = #{functionid,jdbcType=DECIMAL}
   </update>
 </mapper>

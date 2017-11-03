@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.oracle.mapper.ToSendmessageMapper">
-  <resultMap id="BaseResultMap" type="com.oracle.po.ToSendmessage">
-    <id column="sendID" jdbcType="INTEGER" property="sendid" />
-    <result column="EmpID" jdbcType="INTEGER" property="empid" />
-    <result column="MessageTitle" jdbcType="VARCHAR" property="messagetitle" />
-    <result column="MessageContent" jdbcType="VARCHAR" property="messagecontent" />
-    <result column="CreateDate" jdbcType="DATE" property="createdate" />
-    <result column="priority" jdbcType="INTEGER" property="priority" />
-    <result column="MessageState" jdbcType="INTEGER" property="messagestate" />
+<mapper namespace="com.oracle.mapper.TbSendmessageMapper">
+  <resultMap id="BaseResultMap" type="com.oracle.po.TbSendmessage">
+    <id column="SENDID" jdbcType="DECIMAL" property="sendid" />
+    <result column="EMPID" jdbcType="DECIMAL" property="empid" />
+    <result column="SENDMAN" jdbcType="VARCHAR" property="sendman" />
+    <result column="MESSAGETITLE" jdbcType="VARCHAR" property="messagetitle" />
+    <result column="MESSAGECONTENT" jdbcType="VARCHAR" property="messagecontent" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,15 +68,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    sendID, EmpID, MessageTitle, MessageContent, CreateDate, priority, MessageState
+    SENDID, EMPID, SENDMAN, MESSAGETITLE, MESSAGECONTENT, CREATEDATE
   </sql>
-  <select id="selectByExample" parameterType="com.oracle.po.ToSendmessageExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.oracle.po.TbSendmessageExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from to_sendmessage
+    from TB_SENDMESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -88,58 +87,58 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from to_sendmessage
-    where sendID = #{sendid,jdbcType=INTEGER}
+    from TB_SENDMESSAGE
+    where SENDID = #{sendid,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from to_sendmessage
-    where sendID = #{sendid,jdbcType=INTEGER}
+    delete from TB_SENDMESSAGE
+    where SENDID = #{sendid,jdbcType=DECIMAL}
   </delete>
-  <delete id="deleteByExample" parameterType="com.oracle.po.ToSendmessageExample">
-    delete from to_sendmessage
+  <delete id="deleteByExample" parameterType="com.oracle.po.TbSendmessageExample">
+    delete from TB_SENDMESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.oracle.po.ToSendmessage">
-    insert into to_sendmessage (sendID, EmpID, MessageTitle, 
-      MessageContent, CreateDate, priority, 
-      MessageState)
-    values (#{sendid,jdbcType=INTEGER}, #{empid,jdbcType=INTEGER}, #{messagetitle,jdbcType=VARCHAR}, 
-      #{messagecontent,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, #{priority,jdbcType=INTEGER}, 
-      #{messagestate,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.oracle.po.TbSendmessage">
+    insert into TB_SENDMESSAGE (SENDID, EMPID, SENDMAN, 
+      MESSAGETITLE, MESSAGECONTENT, CREATEDATE
+      )
+    values (#{sendid,jdbcType=DECIMAL}, #{empid,jdbcType=DECIMAL}, #{sendman,jdbcType=VARCHAR}, 
+      #{messagetitle,jdbcType=VARCHAR}, #{messagecontent,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.oracle.po.ToSendmessage">
-    insert into to_sendmessage
+  <insert id="insertSelective" parameterType="com.oracle.po.TbSendmessage">
+    insert into TB_SENDMESSAGE
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="sendid != null">
-        sendID,
+        SENDID,
       </if>
       <if test="empid != null">
-        EmpID,
+        EMPID,
+      </if>
+      <if test="sendman != null">
+        SENDMAN,
       </if>
       <if test="messagetitle != null">
-        MessageTitle,
+        MESSAGETITLE,
       </if>
       <if test="messagecontent != null">
-        MessageContent,
+        MESSAGECONTENT,
       </if>
       <if test="createdate != null">
-        CreateDate,
-      </if>
-      <if test="priority != null">
-        priority,
-      </if>
-      <if test="messagestate != null">
-        MessageState,
+        CREATEDATE,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="sendid != null">
-        #{sendid,jdbcType=INTEGER},
+        #{sendid,jdbcType=DECIMAL},
       </if>
       <if test="empid != null">
-        #{empid,jdbcType=INTEGER},
+        #{empid,jdbcType=DECIMAL},
+      </if>
+      <if test="sendman != null">
+        #{sendman,jdbcType=VARCHAR},
       </if>
       <if test="messagetitle != null">
         #{messagetitle,jdbcType=VARCHAR},
@@ -148,45 +147,36 @@
         #{messagecontent,jdbcType=VARCHAR},
       </if>
       <if test="createdate != null">
-        #{createdate,jdbcType=DATE},
-      </if>
-      <if test="priority != null">
-        #{priority,jdbcType=INTEGER},
-      </if>
-      <if test="messagestate != null">
-        #{messagestate,jdbcType=INTEGER},
+        #{createdate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.oracle.po.ToSendmessageExample" resultType="java.lang.Long">
-    select count(*) from to_sendmessage
+  <select id="countByExample" parameterType="com.oracle.po.TbSendmessageExample" resultType="java.lang.Long">
+    select count(*) from TB_SENDMESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update to_sendmessage
+    update TB_SENDMESSAGE
     <set>
       <if test="record.sendid != null">
-        sendID = #{record.sendid,jdbcType=INTEGER},
+        SENDID = #{record.sendid,jdbcType=DECIMAL},
       </if>
       <if test="record.empid != null">
-        EmpID = #{record.empid,jdbcType=INTEGER},
+        EMPID = #{record.empid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sendman != null">
+        SENDMAN = #{record.sendman,jdbcType=VARCHAR},
       </if>
       <if test="record.messagetitle != null">
-        MessageTitle = #{record.messagetitle,jdbcType=VARCHAR},
+        MESSAGETITLE = #{record.messagetitle,jdbcType=VARCHAR},
       </if>
       <if test="record.messagecontent != null">
-        MessageContent = #{record.messagecontent,jdbcType=VARCHAR},
+        MESSAGECONTENT = #{record.messagecontent,jdbcType=VARCHAR},
       </if>
       <if test="record.createdate != null">
-        CreateDate = #{record.createdate,jdbcType=DATE},
-      </if>
-      <if test="record.priority != null">
-        priority = #{record.priority,jdbcType=INTEGER},
-      </if>
-      <if test="record.messagestate != null">
-        MessageState = #{record.messagestate,jdbcType=INTEGER},
+        CREATEDATE = #{record.createdate,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -194,50 +184,45 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update to_sendmessage
-    set sendID = #{record.sendid,jdbcType=INTEGER},
-      EmpID = #{record.empid,jdbcType=INTEGER},
-      MessageTitle = #{record.messagetitle,jdbcType=VARCHAR},
-      MessageContent = #{record.messagecontent,jdbcType=VARCHAR},
-      CreateDate = #{record.createdate,jdbcType=DATE},
-      priority = #{record.priority,jdbcType=INTEGER},
-      MessageState = #{record.messagestate,jdbcType=INTEGER}
+    update TB_SENDMESSAGE
+    set SENDID = #{record.sendid,jdbcType=DECIMAL},
+      EMPID = #{record.empid,jdbcType=DECIMAL},
+      SENDMAN = #{record.sendman,jdbcType=VARCHAR},
+      MESSAGETITLE = #{record.messagetitle,jdbcType=VARCHAR},
+      MESSAGECONTENT = #{record.messagecontent,jdbcType=VARCHAR},
+      CREATEDATE = #{record.createdate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.ToSendmessage">
-    update to_sendmessage
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbSendmessage">
+    update TB_SENDMESSAGE
     <set>
       <if test="empid != null">
-        EmpID = #{empid,jdbcType=INTEGER},
+        EMPID = #{empid,jdbcType=DECIMAL},
+      </if>
+      <if test="sendman != null">
+        SENDMAN = #{sendman,jdbcType=VARCHAR},
       </if>
       <if test="messagetitle != null">
-        MessageTitle = #{messagetitle,jdbcType=VARCHAR},
+        MESSAGETITLE = #{messagetitle,jdbcType=VARCHAR},
       </if>
       <if test="messagecontent != null">
-        MessageContent = #{messagecontent,jdbcType=VARCHAR},
+        MESSAGECONTENT = #{messagecontent,jdbcType=VARCHAR},
       </if>
       <if test="createdate != null">
-        CreateDate = #{createdate,jdbcType=DATE},
-      </if>
-      <if test="priority != null">
-        priority = #{priority,jdbcType=INTEGER},
-      </if>
-      <if test="messagestate != null">
-        MessageState = #{messagestate,jdbcType=INTEGER},
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where sendID = #{sendid,jdbcType=INTEGER}
+    where SENDID = #{sendid,jdbcType=DECIMAL}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.oracle.po.ToSendmessage">
-    update to_sendmessage
-    set EmpID = #{empid,jdbcType=INTEGER},
-      MessageTitle = #{messagetitle,jdbcType=VARCHAR},
-      MessageContent = #{messagecontent,jdbcType=VARCHAR},
-      CreateDate = #{createdate,jdbcType=DATE},
-      priority = #{priority,jdbcType=INTEGER},
-      MessageState = #{messagestate,jdbcType=INTEGER}
-    where sendID = #{sendid,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbSendmessage">
+    update TB_SENDMESSAGE
+    set EMPID = #{empid,jdbcType=DECIMAL},
+      SENDMAN = #{sendman,jdbcType=VARCHAR},
+      MESSAGETITLE = #{messagetitle,jdbcType=VARCHAR},
+      MESSAGECONTENT = #{messagecontent,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP}
+    where SENDID = #{sendid,jdbcType=DECIMAL}
   </update>
 </mapper>

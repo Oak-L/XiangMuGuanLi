@@ -1,17 +1,16 @@
 package com.oracle.po;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class ToReceivemessageExample {
+public class TbReceivemessageExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public ToReceivemessageExample() {
+    public TbReceivemessageExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -225,6 +224,76 @@ public class ToReceivemessageExample {
             return (Criteria) this;
         }
 
+        public Criteria andMessagestateIsNull() {
+            addCriterion("MESSAGESTATE is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateIsNotNull() {
+            addCriterion("MESSAGESTATE is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateEqualTo(String value) {
+            addCriterion("MESSAGESTATE =", value, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateNotEqualTo(String value) {
+            addCriterion("MESSAGESTATE <>", value, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateGreaterThan(String value) {
+            addCriterion("MESSAGESTATE >", value, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateGreaterThanOrEqualTo(String value) {
+            addCriterion("MESSAGESTATE >=", value, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateLessThan(String value) {
+            addCriterion("MESSAGESTATE <", value, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateLessThanOrEqualTo(String value) {
+            addCriterion("MESSAGESTATE <=", value, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateLike(String value) {
+            addCriterion("MESSAGESTATE like", value, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateNotLike(String value) {
+            addCriterion("MESSAGESTATE not like", value, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateIn(List<String> values) {
+            addCriterion("MESSAGESTATE in", values, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateNotIn(List<String> values) {
+            addCriterion("MESSAGESTATE not in", values, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateBetween(String value1, String value2) {
+            addCriterion("MESSAGESTATE between", value1, value2, "messagestate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessagestateNotBetween(String value1, String value2) {
+            addCriterion("MESSAGESTATE not between", value1, value2, "messagestate");
+            return (Criteria) this;
+        }
+
         public Criteria andEmpidIsNull() {
             addCriterion("EMPID is null");
             return (Criteria) this;
@@ -282,126 +351,6 @@ public class ToReceivemessageExample {
 
         public Criteria andEmpidNotBetween(Integer value1, Integer value2) {
             addCriterion("EMPID not between", value1, value2, "empid");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateIsNull() {
-            addCriterion("MESSAGESTATE is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateIsNotNull() {
-            addCriterion("MESSAGESTATE is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateEqualTo(Integer value) {
-            addCriterion("MESSAGESTATE =", value, "messagestate");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateNotEqualTo(Integer value) {
-            addCriterion("MESSAGESTATE <>", value, "messagestate");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateGreaterThan(Integer value) {
-            addCriterion("MESSAGESTATE >", value, "messagestate");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("MESSAGESTATE >=", value, "messagestate");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateLessThan(Integer value) {
-            addCriterion("MESSAGESTATE <", value, "messagestate");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateLessThanOrEqualTo(Integer value) {
-            addCriterion("MESSAGESTATE <=", value, "messagestate");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateIn(List<Integer> values) {
-            addCriterion("MESSAGESTATE in", values, "messagestate");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateNotIn(List<Integer> values) {
-            addCriterion("MESSAGESTATE not in", values, "messagestate");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateBetween(Integer value1, Integer value2) {
-            addCriterion("MESSAGESTATE between", value1, value2, "messagestate");
-            return (Criteria) this;
-        }
-
-        public Criteria andMessagestateNotBetween(Integer value1, Integer value2) {
-            addCriterion("MESSAGESTATE not between", value1, value2, "messagestate");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateIsNull() {
-            addCriterion("OPENDATE is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateIsNotNull() {
-            addCriterion("OPENDATE is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateEqualTo(Date value) {
-            addCriterion("OPENDATE =", value, "opendate");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateNotEqualTo(Date value) {
-            addCriterion("OPENDATE <>", value, "opendate");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateGreaterThan(Date value) {
-            addCriterion("OPENDATE >", value, "opendate");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateGreaterThanOrEqualTo(Date value) {
-            addCriterion("OPENDATE >=", value, "opendate");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateLessThan(Date value) {
-            addCriterion("OPENDATE <", value, "opendate");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateLessThanOrEqualTo(Date value) {
-            addCriterion("OPENDATE <=", value, "opendate");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateIn(List<Date> values) {
-            addCriterion("OPENDATE in", values, "opendate");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateNotIn(List<Date> values) {
-            addCriterion("OPENDATE not in", values, "opendate");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateBetween(Date value1, Date value2) {
-            addCriterion("OPENDATE between", value1, value2, "opendate");
-            return (Criteria) this;
-        }
-
-        public Criteria andOpendateNotBetween(Date value1, Date value2) {
-            addCriterion("OPENDATE not between", value1, value2, "opendate");
             return (Criteria) this;
         }
     }

@@ -2,20 +2,18 @@ package com.oracle.po;
 
 import java.util.Date;
 
-public class ToSendmessage {
+public class TbSendmessage {
     private Integer sendid;
 
     private Integer empid;
+
+    private String sendman;
 
     private String messagetitle;
 
     private String messagecontent;
 
     private Date createdate;
-
-    private Integer priority;
-
-    private Integer messagestate;
 
     public Integer getSendid() {
         return sendid;
@@ -31,6 +29,14 @@ public class ToSendmessage {
 
     public void setEmpid(Integer empid) {
         this.empid = empid;
+    }
+
+    public String getSendman() {
+        return sendman;
+    }
+
+    public void setSendman(String sendman) {
+        this.sendman = sendman == null ? null : sendman.trim();
     }
 
     public String getMessagetitle() {
@@ -55,21 +61,5 @@ public class ToSendmessage {
 
     public void setCreatedate(Date createdate) {
         this.createdate = createdate;
-    }
-
-    public Integer getPriority() {
-        return priority;
-    }
-
-    public void setPriority(Integer priority) {
-        this.priority = priority;
-    }
-
-    public Integer getMessagestate() {
-        return messagestate;
-    }
-
-    public void setMessagestate(Integer messagestate) {
-        this.messagestate = messagestate;
     }
 }

@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oracle.mapper.TbCompanyMapper">
   <resultMap id="BaseResultMap" type="com.oracle.po.TbCompany">
-    <id column="CompanyID" jdbcType="INTEGER" property="companyid" />
-    <result column="CompanyName" jdbcType="VARCHAR" property="companyname" />
-    <result column="Linkman" jdbcType="VARCHAR" property="linkman" />
-    <result column="Tel" jdbcType="VARCHAR" property="tel" />
-    <result column="Address" jdbcType="VARCHAR" property="address" />
-    <result column="CreateDate" jdbcType="DATE" property="createdate" />
-    <result column="Descript" jdbcType="VARCHAR" property="descript" />
+    <id column="COMPANYID" jdbcType="DECIMAL" property="companyid" />
+    <result column="COMPANYNAME" jdbcType="VARCHAR" property="companyname" />
+    <result column="LINKMAN" jdbcType="VARCHAR" property="linkman" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="DESCRIPT" jdbcType="VARCHAR" property="descript" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    CompanyID, CompanyName, Linkman, Tel, Address, CreateDate, Descript
+    COMPANYID, COMPANYNAME, LINKMAN, TEL, ADDRESS, CREATEDATE, DESCRIPT
   </sql>
   <select id="selectByExample" parameterType="com.oracle.po.TbCompanyExample" resultMap="BaseResultMap">
     select
@@ -77,7 +77,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tb_company
+    from TB_COMPANY
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -88,55 +88,55 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_company
-    where CompanyID = #{companyid,jdbcType=INTEGER}
+    from TB_COMPANY
+    where COMPANYID = #{companyid,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_company
-    where CompanyID = #{companyid,jdbcType=INTEGER}
+    delete from TB_COMPANY
+    where COMPANYID = #{companyid,jdbcType=DECIMAL}
   </delete>
   <delete id="deleteByExample" parameterType="com.oracle.po.TbCompanyExample">
-    delete from tb_company
+    delete from TB_COMPANY
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.oracle.po.TbCompany">
-    insert into tb_company (CompanyID, CompanyName, Linkman, 
-      Tel, Address, CreateDate, 
-      Descript)
-    values (#{companyid,jdbcType=INTEGER}, #{companyname,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, 
-      #{tel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, 
+    insert into TB_COMPANY (COMPANYID, COMPANYNAME, LINKMAN, 
+      TEL, ADDRESS, CREATEDATE, 
+      DESCRIPT)
+    values (#{companyid,jdbcType=DECIMAL}, #{companyname,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
       #{descript,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.oracle.po.TbCompany">
-    insert into tb_company
+    insert into TB_COMPANY
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="companyid != null">
-        CompanyID,
+        COMPANYID,
       </if>
       <if test="companyname != null">
-        CompanyName,
+        COMPANYNAME,
       </if>
       <if test="linkman != null">
-        Linkman,
+        LINKMAN,
       </if>
       <if test="tel != null">
-        Tel,
+        TEL,
       </if>
       <if test="address != null">
-        Address,
+        ADDRESS,
       </if>
       <if test="createdate != null">
-        CreateDate,
+        CREATEDATE,
       </if>
       <if test="descript != null">
-        Descript,
+        DESCRIPT,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="companyid != null">
-        #{companyid,jdbcType=INTEGER},
+        #{companyid,jdbcType=DECIMAL},
       </if>
       <if test="companyname != null">
         #{companyname,jdbcType=VARCHAR},
@@ -151,7 +151,7 @@
         #{address,jdbcType=VARCHAR},
       </if>
       <if test="createdate != null">
-        #{createdate,jdbcType=DATE},
+        #{createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="descript != null">
         #{descript,jdbcType=VARCHAR},
@@ -159,34 +159,34 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.oracle.po.TbCompanyExample" resultType="java.lang.Long">
-    select count(*) from tb_company
+    select count(*) from TB_COMPANY
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update tb_company
+    update TB_COMPANY
     <set>
       <if test="record.companyid != null">
-        CompanyID = #{record.companyid,jdbcType=INTEGER},
+        COMPANYID = #{record.companyid,jdbcType=DECIMAL},
       </if>
       <if test="record.companyname != null">
-        CompanyName = #{record.companyname,jdbcType=VARCHAR},
+        COMPANYNAME = #{record.companyname,jdbcType=VARCHAR},
       </if>
       <if test="record.linkman != null">
-        Linkman = #{record.linkman,jdbcType=VARCHAR},
+        LINKMAN = #{record.linkman,jdbcType=VARCHAR},
       </if>
       <if test="record.tel != null">
-        Tel = #{record.tel,jdbcType=VARCHAR},
+        TEL = #{record.tel,jdbcType=VARCHAR},
       </if>
       <if test="record.address != null">
-        Address = #{record.address,jdbcType=VARCHAR},
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
       </if>
       <if test="record.createdate != null">
-        CreateDate = #{record.createdate,jdbcType=DATE},
+        CREATEDATE = #{record.createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.descript != null">
-        Descript = #{record.descript,jdbcType=VARCHAR},
+        DESCRIPT = #{record.descript,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -194,50 +194,50 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tb_company
-    set CompanyID = #{record.companyid,jdbcType=INTEGER},
-      CompanyName = #{record.companyname,jdbcType=VARCHAR},
-      Linkman = #{record.linkman,jdbcType=VARCHAR},
-      Tel = #{record.tel,jdbcType=VARCHAR},
-      Address = #{record.address,jdbcType=VARCHAR},
-      CreateDate = #{record.createdate,jdbcType=DATE},
-      Descript = #{record.descript,jdbcType=VARCHAR}
+    update TB_COMPANY
+    set COMPANYID = #{record.companyid,jdbcType=DECIMAL},
+      COMPANYNAME = #{record.companyname,jdbcType=VARCHAR},
+      LINKMAN = #{record.linkman,jdbcType=VARCHAR},
+      TEL = #{record.tel,jdbcType=VARCHAR},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      CREATEDATE = #{record.createdate,jdbcType=TIMESTAMP},
+      DESCRIPT = #{record.descript,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbCompany">
-    update tb_company
+    update TB_COMPANY
     <set>
       <if test="companyname != null">
-        CompanyName = #{companyname,jdbcType=VARCHAR},
+        COMPANYNAME = #{companyname,jdbcType=VARCHAR},
       </if>
       <if test="linkman != null">
-        Linkman = #{linkman,jdbcType=VARCHAR},
+        LINKMAN = #{linkman,jdbcType=VARCHAR},
       </if>
       <if test="tel != null">
-        Tel = #{tel,jdbcType=VARCHAR},
+        TEL = #{tel,jdbcType=VARCHAR},
       </if>
       <if test="address != null">
-        Address = #{address,jdbcType=VARCHAR},
+        ADDRESS = #{address,jdbcType=VARCHAR},
       </if>
       <if test="createdate != null">
-        CreateDate = #{createdate,jdbcType=DATE},
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="descript != null">
-        Descript = #{descript,jdbcType=VARCHAR},
+        DESCRIPT = #{descript,jdbcType=VARCHAR},
       </if>
     </set>
-    where CompanyID = #{companyid,jdbcType=INTEGER}
+    where COMPANYID = #{companyid,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbCompany">
-    update tb_company
-    set CompanyName = #{companyname,jdbcType=VARCHAR},
-      Linkman = #{linkman,jdbcType=VARCHAR},
-      Tel = #{tel,jdbcType=VARCHAR},
-      Address = #{address,jdbcType=VARCHAR},
-      CreateDate = #{createdate,jdbcType=DATE},
-      Descript = #{descript,jdbcType=VARCHAR}
-    where CompanyID = #{companyid,jdbcType=INTEGER}
+    update TB_COMPANY
+    set COMPANYNAME = #{companyname,jdbcType=VARCHAR},
+      LINKMAN = #{linkman,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      DESCRIPT = #{descript,jdbcType=VARCHAR}
+    where COMPANYID = #{companyid,jdbcType=DECIMAL}
   </update>
 </mapper>

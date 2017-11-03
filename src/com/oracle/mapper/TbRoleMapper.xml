@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oracle.mapper.TbRoleMapper">
   <resultMap id="BaseResultMap" type="com.oracle.po.TbRole">
-    <id column="roleID" jdbcType="INTEGER" property="roleid" />
-    <result column="roleName" jdbcType="VARCHAR" property="rolename" />
-    <result column="roleDesc" jdbcType="VARCHAR" property="roledesc" />
+    <id column="ROLEID" jdbcType="DECIMAL" property="roleid" />
+    <result column="ROLENAME" jdbcType="VARCHAR" property="rolename" />
+    <result column="ROLEDESC" jdbcType="VARCHAR" property="roledesc" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    roleID, roleName, roleDesc
+    ROLEID, ROLENAME, ROLEDESC
   </sql>
   <select id="selectByExample" parameterType="com.oracle.po.TbRoleExample" resultMap="BaseResultMap">
     select
@@ -73,7 +73,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tb_role
+    from TB_ROLE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,41 +84,41 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_role
-    where roleID = #{roleid,jdbcType=INTEGER}
+    from TB_ROLE
+    where ROLEID = #{roleid,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_role
-    where roleID = #{roleid,jdbcType=INTEGER}
+    delete from TB_ROLE
+    where ROLEID = #{roleid,jdbcType=DECIMAL}
   </delete>
   <delete id="deleteByExample" parameterType="com.oracle.po.TbRoleExample">
-    delete from tb_role
+    delete from TB_ROLE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.oracle.po.TbRole">
-    insert into tb_role (roleID, roleName, roleDesc
+    insert into TB_ROLE (ROLEID, ROLENAME, ROLEDESC
       )
-    values (#{roleid,jdbcType=INTEGER}, #{rolename,jdbcType=VARCHAR}, #{roledesc,jdbcType=VARCHAR}
+    values (#{roleid,jdbcType=DECIMAL}, #{rolename,jdbcType=VARCHAR}, #{roledesc,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.oracle.po.TbRole">
-    insert into tb_role
+    insert into TB_ROLE
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="roleid != null">
-        roleID,
+        ROLEID,
       </if>
       <if test="rolename != null">
-        roleName,
+        ROLENAME,
       </if>
       <if test="roledesc != null">
-        roleDesc,
+        ROLEDESC,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="roleid != null">
-        #{roleid,jdbcType=INTEGER},
+        #{roleid,jdbcType=DECIMAL},
       </if>
       <if test="rolename != null">
         #{rolename,jdbcType=VARCHAR},
@@ -129,22 +129,22 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.oracle.po.TbRoleExample" resultType="java.lang.Long">
-    select count(*) from tb_role
+    select count(*) from TB_ROLE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update tb_role
+    update TB_ROLE
     <set>
       <if test="record.roleid != null">
-        roleID = #{record.roleid,jdbcType=INTEGER},
+        ROLEID = #{record.roleid,jdbcType=DECIMAL},
       </if>
       <if test="record.rolename != null">
-        roleName = #{record.rolename,jdbcType=VARCHAR},
+        ROLENAME = #{record.rolename,jdbcType=VARCHAR},
       </if>
       <if test="record.roledesc != null">
-        roleDesc = #{record.roledesc,jdbcType=VARCHAR},
+        ROLEDESC = #{record.roledesc,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -152,30 +152,30 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tb_role
-    set roleID = #{record.roleid,jdbcType=INTEGER},
-      roleName = #{record.rolename,jdbcType=VARCHAR},
-      roleDesc = #{record.roledesc,jdbcType=VARCHAR}
+    update TB_ROLE
+    set ROLEID = #{record.roleid,jdbcType=DECIMAL},
+      ROLENAME = #{record.rolename,jdbcType=VARCHAR},
+      ROLEDESC = #{record.roledesc,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbRole">
-    update tb_role
+    update TB_ROLE
     <set>
       <if test="rolename != null">
-        roleName = #{rolename,jdbcType=VARCHAR},
+        ROLENAME = #{rolename,jdbcType=VARCHAR},
       </if>
       <if test="roledesc != null">
-        roleDesc = #{roledesc,jdbcType=VARCHAR},
+        ROLEDESC = #{roledesc,jdbcType=VARCHAR},
       </if>
     </set>
-    where roleID = #{roleid,jdbcType=INTEGER}
+    where ROLEID = #{roleid,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbRole">
-    update tb_role
-    set roleName = #{rolename,jdbcType=VARCHAR},
-      roleDesc = #{roledesc,jdbcType=VARCHAR}
-    where roleID = #{roleid,jdbcType=INTEGER}
+    update TB_ROLE
+    set ROLENAME = #{rolename,jdbcType=VARCHAR},
+      ROLEDESC = #{roledesc,jdbcType=VARCHAR}
+    where ROLEID = #{roleid,jdbcType=DECIMAL}
   </update>
 </mapper>

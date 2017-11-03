@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oracle.mapper.TbDutyMapper">
   <resultMap id="BaseResultMap" type="com.oracle.po.TbDuty">
-    <id column="DutyID" jdbcType="INTEGER" property="dutyid" />
-    <result column="DutyName" jdbcType="VARCHAR" property="dutyname" />
-    <result column="Descript" jdbcType="VARCHAR" property="descript" />
+    <id column="DUTYID" jdbcType="DECIMAL" property="dutyid" />
+    <result column="DUTYNAME" jdbcType="VARCHAR" property="dutyname" />
+    <result column="DESCRIPT" jdbcType="VARCHAR" property="descript" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    DutyID, DutyName, Descript
+    DUTYID, DUTYNAME, DESCRIPT
   </sql>
   <select id="selectByExample" parameterType="com.oracle.po.TbDutyExample" resultMap="BaseResultMap">
     select
@@ -73,7 +73,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tb_duty
+    from TB_DUTY
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,41 +84,41 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_duty
-    where DutyID = #{dutyid,jdbcType=INTEGER}
+    from TB_DUTY
+    where DUTYID = #{dutyid,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_duty
-    where DutyID = #{dutyid,jdbcType=INTEGER}
+    delete from TB_DUTY
+    where DUTYID = #{dutyid,jdbcType=DECIMAL}
   </delete>
   <delete id="deleteByExample" parameterType="com.oracle.po.TbDutyExample">
-    delete from tb_duty
+    delete from TB_DUTY
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.oracle.po.TbDuty">
-    insert into tb_duty (DutyID, DutyName, Descript
+    insert into TB_DUTY (DUTYID, DUTYNAME, DESCRIPT
       )
-    values (#{dutyid,jdbcType=INTEGER}, #{dutyname,jdbcType=VARCHAR}, #{descript,jdbcType=VARCHAR}
+    values (#{dutyid,jdbcType=DECIMAL}, #{dutyname,jdbcType=VARCHAR}, #{descript,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.oracle.po.TbDuty">
-    insert into tb_duty
+    insert into TB_DUTY
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="dutyid != null">
-        DutyID,
+        DUTYID,
       </if>
       <if test="dutyname != null">
-        DutyName,
+        DUTYNAME,
       </if>
       <if test="descript != null">
-        Descript,
+        DESCRIPT,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="dutyid != null">
-        #{dutyid,jdbcType=INTEGER},
+        #{dutyid,jdbcType=DECIMAL},
       </if>
       <if test="dutyname != null">
         #{dutyname,jdbcType=VARCHAR},
@@ -129,22 +129,22 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.oracle.po.TbDutyExample" resultType="java.lang.Long">
-    select count(*) from tb_duty
+    select count(*) from TB_DUTY
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update tb_duty
+    update TB_DUTY
     <set>
       <if test="record.dutyid != null">
-        DutyID = #{record.dutyid,jdbcType=INTEGER},
+        DUTYID = #{record.dutyid,jdbcType=DECIMAL},
       </if>
       <if test="record.dutyname != null">
-        DutyName = #{record.dutyname,jdbcType=VARCHAR},
+        DUTYNAME = #{record.dutyname,jdbcType=VARCHAR},
       </if>
       <if test="record.descript != null">
-        Descript = #{record.descript,jdbcType=VARCHAR},
+        DESCRIPT = #{record.descript,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -152,30 +152,30 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tb_duty
-    set DutyID = #{record.dutyid,jdbcType=INTEGER},
-      DutyName = #{record.dutyname,jdbcType=VARCHAR},
-      Descript = #{record.descript,jdbcType=VARCHAR}
+    update TB_DUTY
+    set DUTYID = #{record.dutyid,jdbcType=DECIMAL},
+      DUTYNAME = #{record.dutyname,jdbcType=VARCHAR},
+      DESCRIPT = #{record.descript,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbDuty">
-    update tb_duty
+    update TB_DUTY
     <set>
       <if test="dutyname != null">
-        DutyName = #{dutyname,jdbcType=VARCHAR},
+        DUTYNAME = #{dutyname,jdbcType=VARCHAR},
       </if>
       <if test="descript != null">
-        Descript = #{descript,jdbcType=VARCHAR},
+        DESCRIPT = #{descript,jdbcType=VARCHAR},
       </if>
     </set>
-    where DutyID = #{dutyid,jdbcType=INTEGER}
+    where DUTYID = #{dutyid,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbDuty">
-    update tb_duty
-    set DutyName = #{dutyname,jdbcType=VARCHAR},
-      Descript = #{descript,jdbcType=VARCHAR}
-    where DutyID = #{dutyid,jdbcType=INTEGER}
+    update TB_DUTY
+    set DUTYNAME = #{dutyname,jdbcType=VARCHAR},
+      DESCRIPT = #{descript,jdbcType=VARCHAR}
+    where DUTYID = #{dutyid,jdbcType=DECIMAL}
   </update>
 </mapper>

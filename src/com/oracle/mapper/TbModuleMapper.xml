@@ -2,14 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oracle.mapper.TbModuleMapper">
   <resultMap id="BaseResultMap" type="com.oracle.po.TbModule">
-    <id column="moduleID" jdbcType="INTEGER" property="moduleid" />
-    <result column="projectid" jdbcType="INTEGER" property="projectid" />
-    <result column="moduleName" jdbcType="VARCHAR" property="modulename" />
-    <result column="priority" jdbcType="INTEGER" property="priority" />
-    <result column="CreateDate" jdbcType="DATE" property="createdate" />
-    <result column="identifier" jdbcType="VARCHAR" property="identifier" />
-    <result column="ModuleDesc" jdbcType="VARCHAR" property="moduledesc" />
-    <result column="requireDes" jdbcType="VARCHAR" property="requiredes" />
+    <id column="MODULEID" jdbcType="DECIMAL" property="moduleid" />
+    <result column="PROJECTID" jdbcType="DECIMAL" property="projectid" />
+    <result column="MODULENAME" jdbcType="VARCHAR" property="modulename" />
+    <result column="PRIORITY" jdbcType="DECIMAL" property="priority" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="IDENTIFIER" jdbcType="VARCHAR" property="identifier" />
+    <result column="MODULEDESC" jdbcType="VARCHAR" property="moduledesc" />
+    <result column="REQUIREDES" jdbcType="VARCHAR" property="requiredes" />
+    <result column="REQUIREMENTID" jdbcType="DECIMAL" property="requirementid" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    moduleID, projectid, moduleName, priority, CreateDate, identifier, ModuleDesc, requireDes
+    MODULEID, PROJECTID, MODULENAME, PRIORITY, CREATEDATE, IDENTIFIER, MODULEDESC, REQUIREDES, 
+    REQUIREMENTID
   </sql>
   <select id="selectByExample" parameterType="com.oracle.po.TbModuleExample" resultMap="BaseResultMap">
     select
@@ -78,7 +80,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tb_module
+    from TB_MODULE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -89,70 +91,75 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_module
-    where moduleID = #{moduleid,jdbcType=INTEGER}
+    from TB_MODULE
+    where MODULEID = #{moduleid,jdbcType=DECIMAL}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_module
-    where moduleID = #{moduleid,jdbcType=INTEGER}
+    delete from TB_MODULE
+    where MODULEID = #{moduleid,jdbcType=DECIMAL}
   </delete>
   <delete id="deleteByExample" parameterType="com.oracle.po.TbModuleExample">
-    delete from tb_module
+    delete from TB_MODULE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.oracle.po.TbModule">
-    insert into tb_module (moduleID, projectid, moduleName, 
-      priority, CreateDate, identifier, 
-      ModuleDesc, requireDes)
-    values (#{moduleid,jdbcType=INTEGER}, #{projectid,jdbcType=INTEGER}, #{modulename,jdbcType=VARCHAR}, 
-      #{priority,jdbcType=INTEGER}, #{createdate,jdbcType=DATE}, #{identifier,jdbcType=VARCHAR}, 
-      #{moduledesc,jdbcType=VARCHAR}, #{requiredes,jdbcType=VARCHAR})
+    insert into TB_MODULE (MODULEID, PROJECTID, MODULENAME, 
+      PRIORITY, CREATEDATE, IDENTIFIER, 
+      MODULEDESC, REQUIREDES, REQUIREMENTID
+      )
+    values (#{moduleid,jdbcType=DECIMAL}, #{projectid,jdbcType=DECIMAL}, #{modulename,jdbcType=VARCHAR}, 
+      #{priority,jdbcType=DECIMAL}, #{createdate,jdbcType=TIMESTAMP}, #{identifier,jdbcType=VARCHAR}, 
+      #{moduledesc,jdbcType=VARCHAR}, #{requiredes,jdbcType=VARCHAR}, #{requirementid,jdbcType=DECIMAL}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.oracle.po.TbModule">
-    insert into tb_module
+    insert into TB_MODULE
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="moduleid != null">
-        moduleID,
+        MODULEID,
       </if>
       <if test="projectid != null">
-        projectid,
+        PROJECTID,
       </if>
       <if test="modulename != null">
-        moduleName,
+        MODULENAME,
       </if>
       <if test="priority != null">
-        priority,
+        PRIORITY,
       </if>
       <if test="createdate != null">
-        CreateDate,
+        CREATEDATE,
       </if>
       <if test="identifier != null">
-        identifier,
+        IDENTIFIER,
       </if>
       <if test="moduledesc != null">
-        ModuleDesc,
+        MODULEDESC,
       </if>
       <if test="requiredes != null">
-        requireDes,
+        REQUIREDES,
+      </if>
+      <if test="requirementid != null">
+        REQUIREMENTID,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="moduleid != null">
-        #{moduleid,jdbcType=INTEGER},
+        #{moduleid,jdbcType=DECIMAL},
       </if>
       <if test="projectid != null">
-        #{projectid,jdbcType=INTEGER},
+        #{projectid,jdbcType=DECIMAL},
       </if>
       <if test="modulename != null">
         #{modulename,jdbcType=VARCHAR},
       </if>
       <if test="priority != null">
-        #{priority,jdbcType=INTEGER},
+        #{priority,jdbcType=DECIMAL},
       </if>
       <if test="createdate != null">
-        #{createdate,jdbcType=DATE},
+        #{createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="identifier != null">
         #{identifier,jdbcType=VARCHAR},
@@ -163,40 +170,46 @@
       <if test="requiredes != null">
         #{requiredes,jdbcType=VARCHAR},
       </if>
+      <if test="requirementid != null">
+        #{requirementid,jdbcType=DECIMAL},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.oracle.po.TbModuleExample" resultType="java.lang.Long">
-    select count(*) from tb_module
+    select count(*) from TB_MODULE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update tb_module
+    update TB_MODULE
     <set>
       <if test="record.moduleid != null">
-        moduleID = #{record.moduleid,jdbcType=INTEGER},
+        MODULEID = #{record.moduleid,jdbcType=DECIMAL},
       </if>
       <if test="record.projectid != null">
-        projectid = #{record.projectid,jdbcType=INTEGER},
+        PROJECTID = #{record.projectid,jdbcType=DECIMAL},
       </if>
       <if test="record.modulename != null">
-        moduleName = #{record.modulename,jdbcType=VARCHAR},
+        MODULENAME = #{record.modulename,jdbcType=VARCHAR},
       </if>
       <if test="record.priority != null">
-        priority = #{record.priority,jdbcType=INTEGER},
+        PRIORITY = #{record.priority,jdbcType=DECIMAL},
       </if>
       <if test="record.createdate != null">
-        CreateDate = #{record.createdate,jdbcType=DATE},
+        CREATEDATE = #{record.createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.identifier != null">
-        identifier = #{record.identifier,jdbcType=VARCHAR},
+        IDENTIFIER = #{record.identifier,jdbcType=VARCHAR},
       </if>
       <if test="record.moduledesc != null">
-        ModuleDesc = #{record.moduledesc,jdbcType=VARCHAR},
+        MODULEDESC = #{record.moduledesc,jdbcType=VARCHAR},
       </if>
       <if test="record.requiredes != null">
-        requireDes = #{record.requiredes,jdbcType=VARCHAR},
+        REQUIREDES = #{record.requiredes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requirementid != null">
+        REQUIREMENTID = #{record.requirementid,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null">
@@ -204,55 +217,60 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tb_module
-    set moduleID = #{record.moduleid,jdbcType=INTEGER},
-      projectid = #{record.projectid,jdbcType=INTEGER},
-      moduleName = #{record.modulename,jdbcType=VARCHAR},
-      priority = #{record.priority,jdbcType=INTEGER},
-      CreateDate = #{record.createdate,jdbcType=DATE},
-      identifier = #{record.identifier,jdbcType=VARCHAR},
-      ModuleDesc = #{record.moduledesc,jdbcType=VARCHAR},
-      requireDes = #{record.requiredes,jdbcType=VARCHAR}
+    update TB_MODULE
+    set MODULEID = #{record.moduleid,jdbcType=DECIMAL},
+      PROJECTID = #{record.projectid,jdbcType=DECIMAL},
+      MODULENAME = #{record.modulename,jdbcType=VARCHAR},
+      PRIORITY = #{record.priority,jdbcType=DECIMAL},
+      CREATEDATE = #{record.createdate,jdbcType=TIMESTAMP},
+      IDENTIFIER = #{record.identifier,jdbcType=VARCHAR},
+      MODULEDESC = #{record.moduledesc,jdbcType=VARCHAR},
+      REQUIREDES = #{record.requiredes,jdbcType=VARCHAR},
+      REQUIREMENTID = #{record.requirementid,jdbcType=DECIMAL}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbModule">
-    update tb_module
+    update TB_MODULE
     <set>
       <if test="projectid != null">
-        projectid = #{projectid,jdbcType=INTEGER},
+        PROJECTID = #{projectid,jdbcType=DECIMAL},
       </if>
       <if test="modulename != null">
-        moduleName = #{modulename,jdbcType=VARCHAR},
+        MODULENAME = #{modulename,jdbcType=VARCHAR},
       </if>
       <if test="priority != null">
-        priority = #{priority,jdbcType=INTEGER},
+        PRIORITY = #{priority,jdbcType=DECIMAL},
       </if>
       <if test="createdate != null">
-        CreateDate = #{createdate,jdbcType=DATE},
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="identifier != null">
-        identifier = #{identifier,jdbcType=VARCHAR},
+        IDENTIFIER = #{identifier,jdbcType=VARCHAR},
       </if>
       <if test="moduledesc != null">
-        ModuleDesc = #{moduledesc,jdbcType=VARCHAR},
+        MODULEDESC = #{moduledesc,jdbcType=VARCHAR},
       </if>
       <if test="requiredes != null">
-        requireDes = #{requiredes,jdbcType=VARCHAR},
+        REQUIREDES = #{requiredes,jdbcType=VARCHAR},
+      </if>
+      <if test="requirementid != null">
+        REQUIREMENTID = #{requirementid,jdbcType=DECIMAL},
       </if>
     </set>
-    where moduleID = #{moduleid,jdbcType=INTEGER}
+    where MODULEID = #{moduleid,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbModule">
-    update tb_module
-    set projectid = #{projectid,jdbcType=INTEGER},
-      moduleName = #{modulename,jdbcType=VARCHAR},
-      priority = #{priority,jdbcType=INTEGER},
-      CreateDate = #{createdate,jdbcType=DATE},
-      identifier = #{identifier,jdbcType=VARCHAR},
-      ModuleDesc = #{moduledesc,jdbcType=VARCHAR},
-      requireDes = #{requiredes,jdbcType=VARCHAR}
-    where moduleID = #{moduleid,jdbcType=INTEGER}
+    update TB_MODULE
+    set PROJECTID = #{projectid,jdbcType=DECIMAL},
+      MODULENAME = #{modulename,jdbcType=VARCHAR},
+      PRIORITY = #{priority,jdbcType=DECIMAL},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      IDENTIFIER = #{identifier,jdbcType=VARCHAR},
+      MODULEDESC = #{moduledesc,jdbcType=VARCHAR},
+      REQUIREDES = #{requiredes,jdbcType=VARCHAR},
+      REQUIREMENTID = #{requirementid,jdbcType=DECIMAL}
+    where MODULEID = #{moduleid,jdbcType=DECIMAL}
   </update>
 </mapper>

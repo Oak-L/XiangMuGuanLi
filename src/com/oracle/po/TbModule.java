@@ -19,6 +19,8 @@ public class TbModule {
 
     private String requiredes;
 
+    private Integer requirementid;
+
     public Integer getModuleid() {
         return moduleid;
     }
@@ -81,5 +83,13 @@ public class TbModule {
 
     public void setRequiredes(String requiredes) {
         this.requiredes = requiredes == null ? null : requiredes.trim();
+    }
+
+    public Integer getRequirementid() {
+        return requirementid;
+    }
+
+    public void setRequirementid(Integer requirementid) {
+        this.requirementid = requirementid;
     }
 }
