@@ -1,228 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oracle.mapper.TbRightMapper">
-  <resultMap id="BaseResultMap" type="com.oracle.po.TbRight">
-    <id column="RIGHTID" jdbcType="VARCHAR" property="rightid" />
-    <result column="RIGHTNAME" jdbcType="VARCHAR" property="rightname" />
-    <result column="RIGHTURL" jdbcType="VARCHAR" property="righturl" />
-    <result column="URLNAME" jdbcType="VARCHAR" property="urlname" />
-    <result column="CODE" jdbcType="VARCHAR" property="code" />
-    <result column="RIGHTDESC" jdbcType="VARCHAR" property="rightdesc" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    RIGHTID, RIGHTNAME, RIGHTURL, URLNAME, CODE, RIGHTDESC
-  </sql>
-  <select id="selectByExample" parameterType="com.oracle.po.TbRightExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from TB_RIGHT
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from TB_RIGHT
-    where RIGHTID = #{rightid,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from TB_RIGHT
-    where RIGHTID = #{rightid,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.oracle.po.TbRightExample">
-    delete from TB_RIGHT
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.oracle.po.TbRight">
-    insert into TB_RIGHT (RIGHTID, RIGHTNAME, RIGHTURL, 
-      URLNAME, CODE, RIGHTDESC
-      )
-    values (#{rightid,jdbcType=VARCHAR}, #{rightname,jdbcType=VARCHAR}, #{righturl,jdbcType=VARCHAR}, 
-      #{urlname,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{rightdesc,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.oracle.po.TbRight">
-    insert into TB_RIGHT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="rightid != null">
-        RIGHTID,
-      </if>
-      <if test="rightname != null">
-        RIGHTNAME,
-      </if>
-      <if test="righturl != null">
-        RIGHTURL,
-      </if>
-      <if test="urlname != null">
-        URLNAME,
-      </if>
-      <if test="code != null">
-        CODE,
-      </if>
-      <if test="rightdesc != null">
-        RIGHTDESC,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="rightid != null">
-        #{rightid,jdbcType=VARCHAR},
-      </if>
-      <if test="rightname != null">
-        #{rightname,jdbcType=VARCHAR},
-      </if>
-      <if test="righturl != null">
-        #{righturl,jdbcType=VARCHAR},
-      </if>
-      <if test="urlname != null">
-        #{urlname,jdbcType=VARCHAR},
-      </if>
-      <if test="code != null">
-        #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="rightdesc != null">
-        #{rightdesc,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.oracle.po.TbRightExample" resultType="java.lang.Long">
-    select count(*) from TB_RIGHT
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update TB_RIGHT
-    <set>
-      <if test="record.rightid != null">
-        RIGHTID = #{record.rightid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.rightname != null">
-        RIGHTNAME = #{record.rightname,jdbcType=VARCHAR},
-      </if>
-      <if test="record.righturl != null">
-        RIGHTURL = #{record.righturl,jdbcType=VARCHAR},
-      </if>
-      <if test="record.urlname != null">
-        URLNAME = #{record.urlname,jdbcType=VARCHAR},
-      </if>
-      <if test="record.code != null">
-        CODE = #{record.code,jdbcType=VARCHAR},
-      </if>
-      <if test="record.rightdesc != null">
-        RIGHTDESC = #{record.rightdesc,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update TB_RIGHT
-    set RIGHTID = #{record.rightid,jdbcType=VARCHAR},
-      RIGHTNAME = #{record.rightname,jdbcType=VARCHAR},
-      RIGHTURL = #{record.righturl,jdbcType=VARCHAR},
-      URLNAME = #{record.urlname,jdbcType=VARCHAR},
-      CODE = #{record.code,jdbcType=VARCHAR},
-      RIGHTDESC = #{record.rightdesc,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbRight">
-    update TB_RIGHT
-    <set>
-      <if test="rightname != null">
-        RIGHTNAME = #{rightname,jdbcType=VARCHAR},
-      </if>
-      <if test="righturl != null">
-        RIGHTURL = #{righturl,jdbcType=VARCHAR},
-      </if>
-      <if test="urlname != null">
-        URLNAME = #{urlname,jdbcType=VARCHAR},
-      </if>
-      <if test="code != null">
-        CODE = #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="rightdesc != null">
-        RIGHTDESC = #{rightdesc,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where RIGHTID = #{rightid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.oracle.po.TbRight">
-    update TB_RIGHT
-    set RIGHTNAME = #{rightname,jdbcType=VARCHAR},
-      RIGHTURL = #{righturl,jdbcType=VARCHAR},
-      URLNAME = #{urlname,jdbcType=VARCHAR},
-      CODE = #{code,jdbcType=VARCHAR},
-      RIGHTDESC = #{rightdesc,jdbcType=VARCHAR}
-    where RIGHTID = #{rightid,jdbcType=VARCHAR}
-  </update>
+	<resultMap id="BaseResultMap" type="com.oracle.po.TbRight">
+		<id column="RIGHTID" jdbcType="VARCHAR" property="rightid" />
+		<result column="RIGHTNAME" jdbcType="VARCHAR" property="rightname" />
+		<result column="RIGHTURL" jdbcType="VARCHAR" property="righturl" />
+		<result column="URLNAME" jdbcType="VARCHAR" property="urlname" />
+		<result column="CODE" jdbcType="VARCHAR" property="code" />
+		<result column="RIGHTDESC" jdbcType="VARCHAR" property="rightdesc" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		RIGHTID, RIGHTNAME, RIGHTURL, URLNAME, CODE, RIGHTDESC
+	</sql>
+	<select id="selectByExample" parameterType="com.oracle.po.TbRightExample" resultMap="BaseResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from TB_RIGHT
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from TB_RIGHT
+		where RIGHTID = #{rightid,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from TB_RIGHT
+		where RIGHTID =
+		#{rightid,jdbcType=VARCHAR}
+	</delete>
+	<delete id="deleteByExample" parameterType="com.oracle.po.TbRightExample">
+		delete from TB_RIGHT
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="com.oracle.po.TbRight">
+		insert into TB_RIGHT (RIGHTID, RIGHTNAME, RIGHTURL,
+		URLNAME, CODE, RIGHTDESC
+		)
+		values (#{rightid,jdbcType=VARCHAR}, #{rightname,jdbcType=VARCHAR},
+		#{righturl,jdbcType=VARCHAR},
+		#{urlname,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
+		#{rightdesc,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.oracle.po.TbRight">
+		insert into TB_RIGHT
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="rightid != null">
+				RIGHTID,
+			</if>
+			<if test="rightname != null">
+				RIGHTNAME,
+			</if>
+			<if test="righturl != null">
+				RIGHTURL,
+			</if>
+			<if test="urlname != null">
+				URLNAME,
+			</if>
+			<if test="code != null">
+				CODE,
+			</if>
+			<if test="rightdesc != null">
+				RIGHTDESC,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="rightid != null">
+				#{rightid,jdbcType=VARCHAR},
+			</if>
+			<if test="rightname != null">
+				#{rightname,jdbcType=VARCHAR},
+			</if>
+			<if test="righturl != null">
+				#{righturl,jdbcType=VARCHAR},
+			</if>
+			<if test="urlname != null">
+				#{urlname,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null">
+				#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="rightdesc != null">
+				#{rightdesc,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="com.oracle.po.TbRightExample" resultType="java.lang.Long">
+		select count(*) from TB_RIGHT
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update TB_RIGHT
+		<set>
+			<if test="record.rightid != null">
+				RIGHTID = #{record.rightid,jdbcType=VARCHAR},
+			</if>
+			<if test="record.rightname != null">
+				RIGHTNAME = #{record.rightname,jdbcType=VARCHAR},
+			</if>
+			<if test="record.righturl != null">
+				RIGHTURL = #{record.righturl,jdbcType=VARCHAR},
+			</if>
+			<if test="record.urlname != null">
+				URLNAME = #{record.urlname,jdbcType=VARCHAR},
+			</if>
+			<if test="record.code != null">
+				CODE = #{record.code,jdbcType=VARCHAR},
+			</if>
+			<if test="record.rightdesc != null">
+				RIGHTDESC = #{record.rightdesc,jdbcType=VARCHAR},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update TB_RIGHT
+		set RIGHTID = #{record.rightid,jdbcType=VARCHAR},
+		RIGHTNAME =
+		#{record.rightname,jdbcType=VARCHAR},
+		RIGHTURL = #{record.righturl,jdbcType=VARCHAR},
+		URLNAME =
+		#{record.urlname,jdbcType=VARCHAR},
+		CODE = #{record.code,jdbcType=VARCHAR},
+		RIGHTDESC =
+		#{record.rightdesc,jdbcType=VARCHAR}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective" parameterType="com.oracle.po.TbRight">
+		update TB_RIGHT
+		<set>
+			<if test="rightname != null">
+				RIGHTNAME = #{rightname,jdbcType=VARCHAR},
+			</if>
+			<if test="righturl != null">
+				RIGHTURL = #{righturl,jdbcType=VARCHAR},
+			</if>
+			<if test="urlname != null">
+				URLNAME = #{urlname,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null">
+				CODE = #{code,jdbcType=VARCHAR},
+			</if>
+			<if test="rightdesc != null">
+				RIGHTDESC = #{rightdesc,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where RIGHTID = #{rightid,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.oracle.po.TbRight">
+		update TB_RIGHT
+		set RIGHTNAME =
+		#{rightname,jdbcType=VARCHAR},
+		RIGHTURL = #{righturl,jdbcType=VARCHAR},
+		URLNAME =
+		#{urlname,jdbcType=VARCHAR},
+		CODE = #{code,jdbcType=VARCHAR},
+		RIGHTDESC =
+		#{rightdesc,jdbcType=VARCHAR}
+		where RIGHTID = #{rightid,jdbcType=VARCHAR}
+	</update>
+
+	<select id="getTbrightByTbemp" parameterType="int" resultType="parentTbRight">
+		select tr.* from TB_EMP
+		te,TO_RIGHTROLE trr,TB_RIGHT tr where TE.ROLEID=TRR.ROLEID and TRR.RIGHTID=TR.RIGHTID and
+		TE.EMPID=#{empid}
+	</select>
 </mapper>

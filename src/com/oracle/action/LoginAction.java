@@ -1,8 +1,11 @@
 package com.oracle.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.oracle.po.ParentTbRight;
 import com.oracle.po.TbEmp;
 import com.oracle.service.TbEmpService;
+import com.oracle.service.TbRightService;
+
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -31,8 +34,11 @@ public class LoginAction extends ActionSupport {
 				ServletActionContext.getRequest().setAttribute("error", error);
 				return "loginFail";
 			} else {
+				// 通过empid查询权限信息
+				List<ParentTbRight> pRights = new TbRightService().selectByExample(list.get(0).getEmpid());
 				// 向session里面放值
 				request.getSession().setAttribute("emp", list.get(0));
+				request.getSession().setAttribute("prights", pRights);
 				return "loginSuccess";
 			}
 		}

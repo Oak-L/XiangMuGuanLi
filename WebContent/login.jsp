@@ -24,10 +24,10 @@ body {
 			alert("请输入用户名或密码");
 		} else if (randomCode[0].value == "") {
 			alert("请输入验证码");
-			
-		} else {	
+
+		} else {
 			form.submit();
-			
+
 		}
 	}
 
@@ -35,7 +35,6 @@ body {
 		document.getElementById("code").src = "randomCodeAction?ma="
 				+ Math.random();
 	}
-
 	${msg}
 </script>
 <link href="css/css.css" rel="stylesheet" type="text/css" />
@@ -75,7 +74,7 @@ body {
 						</tr>
 						<tr>
 							<td height="35" class="login-text02">验证图片：<br /></td>
-							<td><img src="randomCodeAction" id="code" width="90" height="30" /><a
+							<td><img src="randomCodeAction" id="code" width="90" height="30" onclick="reload()" /><a
 								href="javascript:void(0);" onclick="reload()" style="font-size: 15px;">看不清楚，换张图片</a></td>
 						</tr>
 						<tr>
@@ -85,7 +84,7 @@ body {
 						<tr>
 							<td height="35">&nbsp;</td>
 							<td><input name="Submit2" type="button" class="right-button01" value="确认登陆"
-								onclick="check()" /> <input name="Submit232" type="submit" class="right-button02"
+								onclick="check()" /> <input name="Submit232" type="reset" class="right-button02"
 								value="重 置" /></td>
 						</tr>
 						<tr>

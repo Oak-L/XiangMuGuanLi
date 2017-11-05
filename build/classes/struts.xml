@@ -11,10 +11,12 @@
 		<global-results>
 			<result name="loginFail">login.jsp</result>
 		</global-results>
+
 		<action name="loginAction_*" class="com.oracle.action.LoginAction" method="{1}">
 			<result name="loginSuccess">index.jsp</result>
 		</action>
 		<action name="randomCodeAction" class="com.oracle.action.RandomCodeAction" method="get"></action>
+
 		<action name="client_*" class="com.oracle.action.ClientAction" method="{1}">
 			<interceptor-ref name="loginInterceptor"></interceptor-ref>
 			<interceptor-ref name="defaultStack"></interceptor-ref>
@@ -22,6 +24,15 @@
 			<result name="listAgain" type="redirectAction">client_list.action</result>
 			<result name="update">/client/updateClient.jsp</result>
 			<result name="msg">/client/msgClient.jsp</result>
+		</action>
+
+		<action name="role_*" class="com.oracle.action.RoleAction" method="{1}">
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="list">/role/listRole.jsp</result>
+			<result name="listAgain" type="redirectAction">role_list.action</result>
+			<result name="update">/role/updateRole.jsp</result>
+			<result name="msg">/role/msgRole.jsp</result>
 		</action>
 	</package>
 </struts>

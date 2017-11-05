@@ -12,8 +12,8 @@ public class RandomCodeAction extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private final int width = 90; // 图片宽度
-	private final int height = 30; // 图片高度
+	private final int width = 60; // 图片宽度
+	private final int height = 20; // 图片高度
 
 	public void get() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -22,7 +22,7 @@ public class RandomCodeAction extends HttpServlet {
 		Graphics2D g = buffImg.createGraphics();
 		g.setColor(Color.WHITE); // 背景颜色
 		g.fillRect(0, 0, width, height);
-		Font font = new Font("Times New Roman", Font.PLAIN, 18);
+		Font font = new Font("Times New Roman", Font.PLAIN, 22);
 		g.setFont(font); // 设置字体，字号与图片高度相关
 		g.setColor(Color.black); // 图片边框
 		g.drawRect(0, 0, width - 1, height - 1);

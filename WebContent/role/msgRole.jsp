@@ -121,32 +121,19 @@ html {
 												<tr>
 													<td height="20" colspan="2" align="center" bgcolor="#EEEEEE" class="tablestyle_title">
 														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-														客户详细内容</td>
+														角色详细内容</td>
 												</tr>
 												<tr>
-													<td width="16%" height="20" align="right" bgcolor="#FFFFFF">公司名称:</td>
-													<td width="84%" colspan="2" bgcolor="#FFFFFF"><s:property
-															value="company.companyname" /></td>
+													<td width="16%" height="20" align="right" bgcolor="#FFFFFF">角色名称:</td>
+													<td width="84%" colspan="2" bgcolor="#FFFFFF"><s:property value="role.rolename" /></td>
 												</tr>
 												<tr>
-													<td height="20" align="right" bgcolor="#FFFFFF">联系人:</td>
-													<td colspan="2" bgcolor="#FFFFFF"><s:property value="company.linkman" /></td>
+													<td height="20" align="right" bgcolor="#FFFFFF">角色编号:</td>
+													<td colspan="2" bgcolor="#FFFFFF"><s:property value="role.roleid" /></td>
 												</tr>
 												<tr>
-													<td height="20" align="right" bgcolor="#FFFFFF">联系电话:</td>
-													<td colspan="2" bgcolor="#FFFFFF"><s:property value="company.tel" /></td>
-												</tr>
-												<tr>
-													<td height="20" align="right" bgcolor="#FFFFFF">联系地址:</td>
-													<td colspan="2" bgcolor="#FFFFFF"><s:property value="company.address" /></td>
-												</tr>
-												<tr>
-													<td height="20" align="right" bgcolor="#FFFFFF">添加日期:</td>
-													<td colspan="2" bgcolor="#FFFFFF"><s:property value="company.createdate" /></td>
-												</tr>
-												<tr>
-													<td height="85" align="right" bgcolor="#FFFFFF">公司背景:</td>
-													<td colspan="2" bgcolor="#FFFFFF"><s:property value="company.descript" /></td>
+													<td height="85" align="right" bgcolor="#FFFFFF">角色描述:</td>
+													<td colspan="2" bgcolor="#FFFFFF"><s:property value="role.roledesc" /></td>
 												</tr>
 											</table></td>
 									</tr>

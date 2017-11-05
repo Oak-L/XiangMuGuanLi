@@ -87,20 +87,20 @@ html {
 	}
 
 	function link() {
-		document.getElementById("fom").action = "client_updateFind.action?company.companyid=<s:property value="#company.companyid" />";
+		document.getElementById("fom").action = "role_updateFind.action?role.roleid=${role.roleid}";
 		document.getElementById("fom").submit();
 	}
 
 	function deleteChoose() {
 		if (confirm("一旦删除无法恢复，是否确认删除？")) {
-			document.getElementById("fom").action = "client_delete.action";
+			document.getElementById("fom").action = "role_delete.action";
 			document.getElementById("fom").submit();
 		}
 	}
 </SCRIPT>
 
 <body>
-	<form name="fom" id="fom" action="client_find.action" method="post">
+	<form name="fom" id="fom" action="role_find.action" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="30">
@@ -110,7 +110,7 @@ html {
 								<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 									<tr>
 										<td width="24"><img src="./images/ico07.gif" width="20" height="18" /></td>
-										<td width="519"><label>公司名称: <input type="text" name="companyName" />
+										<td width="519"><label>角色名称: <input type="text" name="roleName" />
 										</label><input name="Submit" type="submit" class="right-button02" value="查 询" /></td>
 										<td width="679" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</td>
@@ -130,8 +130,8 @@ html {
 										<td height="20"><span class="newfont07">选择：<a href="####" class="right-font08"
 												onclick="selectAll();">全选</a>-<a href="####" class="right-font08"
 												onclick="unselectAll();">反选</a></span> <input name="Submit" type="button"
-											class="right-button08" value="删除所选人员信息" onclick="deleteChoose();" /> <input
-											name="Submit" type="button" class="right-button08" value="添加人员信息" onclick="link();" />
+											class="right-button08" value="删除所选角色信息" onclick="deleteChoose();" /> <input
+											name="Submit" type="button" class="right-button08" value="添加角色信息" onclick="link();" />
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</td>
 									</tr>
@@ -140,34 +140,25 @@ html {
 												cellspacing="1" bgcolor="#464646" class="newfont03">
 												<tr>
 													<td height="20" colspan="14" align="center" bgcolor="#EEEEEE" class="tablestyle_title">
-														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户详细列表
+														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色详细列表
 														&nbsp;</td>
 												</tr>
 												<tr>
-													<td width="8%" align="center" bgcolor="#EEEEEE">选择</td>
-													<td width="12%" height="20" align="center" bgcolor="#EEEEEE">公司名称</td>
-													<td width="7%" align="center" bgcolor="#EEEEEE">联系人</td>
-													<td width="10%" align="center" bgcolor="#EEEEEE">联系电话</td>
-													<td width="14%" align="center" bgcolor="#EEEEEE">联系地址</td>
-													<td width="28%" align="center" bgcolor="#EEEEEE">公司背景</td>
-													<td width="10%" align="center" bgcolor="#EEEEEE">添加时间</td>
-													<td width="11%" align="center" bgcolor="#EEEEEE">操作</td>
+													<td width="10%" align="center" bgcolor="#EEEEEE">选择</td>
+													<td width="30%" height="20" align="center" bgcolor="#EEEEEE">角色名称</td>
+													<td width="10%" align="center" bgcolor="#EEEEEE">角色编号</td>
+													<td width="30%" align="center" bgcolor="#EEEEEE">角色描述</td>
+													<td width="20%" align="center" bgcolor="#EEEEEE">操作</td>
 												</tr>
-												<s:iterator value="list" id="company">
+												<s:iterator value="list" id="role">
 													<tr>
-														<td bgcolor="#FFFFFF"><input type="checkbox" name="delid"
-															value="${company.companyid}" /></td>
-														<td height="20" bgcolor="#FFFFFF"><a href="listyuangongmingxi.html"><s:property
-																	value="#company.companyname" /></a></td>
-														<td bgcolor="#FFFFFF"><a href="listyuangongmingxi.html"><s:property
-																	value="#company.linkman" /></a></td>
-														<td height="20" bgcolor="#FFFFFF"><s:property value="#company.tel" /></td>
-														<td bgcolor="#FFFFFF"><s:property value="#company.address" /></td>
-														<td bgcolor="#FFFFFF"><s:property value="#company.descript" /></td>
-														<td bgcolor="#FFFFFF"><s:property value="#company.createdate" /></td>
+														<td bgcolor="#FFFFFF"><input type="checkbox" name="delid" value="${role.roleid}" /></td>
+														<td height="20" bgcolor="#FFFFFF">${role.rolename }</td>
+														<td bgcolor="#FFFFFF">${role.roleid }</td>
+														<td bgcolor="#FFFFFF">${role.roledesc }</td>
 														<td bgcolor="#FFFFFF"><a
-															href="client_updateFind.action?company.companyid=<s:property value="#company.companyid" />">编辑</a>&nbsp;|&nbsp;<a
-															href="client_msg.action?id=<s:property value="#company.companyid" />">查看</a></td>
+															href="role_updateFind.action?role.roleid=${role.roleid }">编辑</a>&nbsp;|&nbsp;<a
+															href="role_msg.action?id=${role.roleid }">查看</a></td>
 													</tr>
 												</s:iterator>
 											</table></td>
