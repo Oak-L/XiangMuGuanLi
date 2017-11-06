@@ -34,5 +34,12 @@
 			<result name="update">/role/updateRole.jsp</result>
 			<result name="msg">/role/msgRole.jsp</result>
 		</action>
+
+		<action name="right_*" class="com.oracle.action.RightAction" method="{1}">
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="list">/right/listRight.jsp</result>
+			<result name="listAgain" type="redirectAction">role_list.action</result>
+		</action>
 	</package>
 </struts>

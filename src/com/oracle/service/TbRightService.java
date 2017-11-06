@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import com.oracle.mapper.TbRightMapper;
 import com.oracle.po.ParentTbRight;
 import com.oracle.po.TbRight;
+import com.oracle.po.TbRightExample;
+import com.oracle.po.TbRole;
 import com.oracle.util.DBUtil;
 
 public class TbRightService {
@@ -37,13 +39,30 @@ public class TbRightService {
 		return pRights;
 	}
 
+	public List<TbRight> selectAll() throws Exception {
+		List<TbRight> list = null;
+		SqlSession sqlSession = DBUtil.getSession();
+		TbRightMapper tbRightMapper = sqlSession.getMapper(TbRightMapper.class);
+		TbRightExample tbRightExample = new TbRightExample();
+		list = tbRightMapper.selectByExample(tbRightExample);
+		return list;
+	}
+
+	public List<TbRight> selectByTorightrole(int roleid) throws Exception {
+		List<TbRight> mylist = null;
+		SqlSession sqlSession = DBUtil.getSession();
+		TbRightMapper tbRightMapper = sqlSession.getMapper(TbRightMapper.class);
+		mylist = tbRightMapper.getTbrightByTorightrole(roleid);
+		return mylist;
+	}
+	
+	public void update(List<Integer> delid,TbRole role) {
+//		SqlSession sqlSession = DBUtil.getSession();
+//		TbRightMapper tbRightMapper = sqlSession.getMapper(TbRightMapper.class);
+//		int i = tbRightMapper.deleteByPrimaryKey(rightid)(roleid);
+	}
+
 	public static void main(String[] args) throws Exception {
-		List<ParentTbRight> tbRights = new TbRightService().selectByExample(1);
-		for (ParentTbRight pRight : tbRights) {
-			System.out.println(pRight.getRightname());
-			for (TbRight tbRight : pRight.getChildTbRights()) {
-				System.out.println("---" + tbRight.getRightname());
-			}
-		}
+		System.out.println(new TbRightService().selectByTorightrole(1));
 	}
 }

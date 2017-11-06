@@ -30,4 +30,6 @@ public interface TbRightMapper {
 	int updateByPrimaryKey(TbRight record);
 
 	List<ParentTbRight> getTbrightByTbemp(int empid);
+
+	List<TbRight> getTbrightByTorightrole(int roleid);
 }

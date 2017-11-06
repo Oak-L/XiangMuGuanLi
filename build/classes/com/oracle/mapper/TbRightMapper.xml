@@ -240,4 +240,9 @@
 		te,TO_RIGHTROLE trr,TB_RIGHT tr where TE.ROLEID=TRR.ROLEID and TRR.RIGHTID=TR.RIGHTID and
 		TE.EMPID=#{empid}
 	</select>
+
+	<select id="getTbrightByTorightrole" parameterType="int" resultType="tbRight">
+		select tr.* from
+		TO_RIGHTROLE trr,TB_RIGHT tr where TRR.RIGHTID=tr.RIGHTID and trr.ROLEID=#{roleid}
+	</select>
 </mapper>

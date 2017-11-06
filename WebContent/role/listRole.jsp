@@ -130,7 +130,7 @@ html {
 										<td height="20"><span class="newfont07">选择：<a href="####" class="right-font08"
 												onclick="selectAll();">全选</a>-<a href="####" class="right-font08"
 												onclick="unselectAll();">反选</a></span> <input name="Submit" type="button"
-											class="right-button08" value="删除所选角色信息" onclick="deleteChoose();" /> <input
+											class="right-button08" value="删除所选角色" onclick="deleteChoose();" /> <input
 											name="Submit" type="button" class="right-button08" value="添加角色信息" onclick="link();" />
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</td>
@@ -156,9 +156,10 @@ html {
 														<td height="20" bgcolor="#FFFFFF">${role.rolename }</td>
 														<td bgcolor="#FFFFFF">${role.roleid }</td>
 														<td bgcolor="#FFFFFF">${role.roledesc }</td>
-														<td bgcolor="#FFFFFF"><a
+														<td bgcolor="#FFFFFF">&nbsp;&nbsp;<a
 															href="role_updateFind.action?role.roleid=${role.roleid }">编辑</a>&nbsp;|&nbsp;<a
-															href="role_msg.action?id=${role.roleid }">查看</a></td>
+															href="role_msg.action?id=${role.roleid }">查看</a>&nbsp;|&nbsp;<a
+															href="right_list.action?role.roleid=${role.roleid }">权限管理</a></td>
 													</tr>
 												</s:iterator>
 											</table></td>
