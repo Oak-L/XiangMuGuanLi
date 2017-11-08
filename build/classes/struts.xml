@@ -41,5 +41,21 @@
 			<result name="list">/right/listRight.jsp</result>
 			<result name="listAgain" type="redirectAction">role_list.action</result>
 		</action>
+
+		<action name="emp_*" class="com.oracle.action.EmpAction" method="{1}">
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="list">/emp/listEmp.jsp</result>
+			<result name="update">/emp/updateEmp.jsp</result>
+			<result name="msg">/emp/msgEmp.jsp</result>
+			<result name="listAgain" type="redirectAction">emp_list.action</result>
+		</action>
+
+		<action name="xx" class="com.oracle.action.XxAction">
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="mode">/mode.html</result>
+		</action>
+
 	</package>
 </struts>

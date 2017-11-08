@@ -37,7 +37,7 @@ public class LoginAction extends ActionSupport {
 				// 通过empid查询权限信息
 				List<ParentTbRight> pRights = new TbRightService().selectByExample(list.get(0).getEmpid());
 				// 向session里面放值
-				request.getSession().setAttribute("emp", list.get(0));
+				request.getSession().setAttribute("cemp", list.get(0));
 				request.getSession().setAttribute("prights", pRights);
 				return "loginSuccess";
 			}
@@ -46,9 +46,9 @@ public class LoginAction extends ActionSupport {
 
 	public String logout() {
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		TbEmp emp = (TbEmp) session.getAttribute("emp");
+		TbEmp emp = (TbEmp) session.getAttribute("cemp");
 		if (null != emp) {
-			session.removeAttribute("emp");
+			session.removeAttribute("cemp");
 		}
 		return "loginFail";
 	}

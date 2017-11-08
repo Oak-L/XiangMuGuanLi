@@ -23,7 +23,7 @@ public class LoginInterceptor extends MethodFilterInterceptor {
 	protected String doIntercept(ActionInvocation invocation) throws Exception {
 		// 判断session里面是否有名称是username的值
 		// 得到session
-		if (ServletActionContext.getRequest().getSession().getAttribute("emp") != null) {
+		if (ServletActionContext.getRequest().getSession().getAttribute("cemp") != null) {
 			// 登录状态
 			// 做类似放行的操作
 			return invocation.invoke();

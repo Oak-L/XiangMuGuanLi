@@ -49,7 +49,7 @@ public class RoleAction extends ActionSupport {
 	}
 
 	public String updateFind() throws Exception {
-		if (role.getRoleid() != null) {
+		if (role != null) {
 			role = new TbRoleService().selectByPrimaryKey(role.getRoleid());
 		}
 		return "update";

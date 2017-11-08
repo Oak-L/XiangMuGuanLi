@@ -68,7 +68,7 @@ body {
 							<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
 								<tr>
 									<td width="25%" rowspan="2"><img src="./images/ico02.gif" width="35" height="35" /></td>
-									<td width="75%" height="22" class="left-font01">您好，<span class="left-font02">${emp.empname}</span></td>
+									<td width="75%" height="22" class="left-font01">您好，<span class="left-font02">${cemp.empname}</span></td>
 								</tr>
 								<tr>
 									<td height="22" class="left-font01">[&nbsp;<a href="loginAction_logout.action"

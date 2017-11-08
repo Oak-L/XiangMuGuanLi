@@ -34,7 +34,6 @@
 -->
 </style>
 </head>
-
 <body class="ContentBody">
 	<form action="client_add.action" method="post" enctype="multipart/form-data" name="form"
 		target="_self">
