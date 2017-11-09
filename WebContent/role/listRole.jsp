@@ -106,6 +106,18 @@ html {
 				<td height="30">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
+							<td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td height="62" background="./images/nav04.gif">
+											<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+												<tr>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table></td>
+						</tr>
+						<tr>
 							<td height="62" background="../images/nav04.gif">
 								<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 									<tr>
@@ -130,8 +142,8 @@ html {
 										<td height="20"><span class="newfont07">选择：<a href="####" class="right-font08"
 												onclick="selectAll();">全选</a>-<a href="####" class="right-font08"
 												onclick="unselectAll();">反选</a></span> <input name="Submit" type="button"
-											class="right-button08" value="删除所选角色" onclick="deleteChoose();" /> <input
-											name="Submit" type="button" class="right-button08" value="添加角色信息" onclick="link();" />
+											class="right-button08" value="删除所选角色" onclick="deleteChoose();" /> <input name="Submit"
+											type="button" class="right-button08" value="添加角色信息" onclick="link();" />
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</td>
 									</tr>

@@ -87,7 +87,7 @@ html {
 	}
 
 	function link() {
-		document.getElementById("fom").action = "client_updateFind.action?company.companyid=<s:property value="#company.companyid" />";
+		document.getElementById("fom").action = "client_updateFind.action";
 		document.getElementById("fom").submit();
 	}
 
@@ -102,6 +102,18 @@ html {
 <body>
 	<form name="fom" id="fom" action="client_find.action" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td height="62" background="./images/nav04.gif">
+								<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+									<tr>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table></td>
+			</tr>
 			<tr>
 				<td height="30">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">

@@ -35,11 +35,23 @@
 </style>
 </head>
 
-<body class="ContentBody">
+<body>
 	<form action="role_add.action" method="post" enctype="multipart/form-data" name="form"
 		target="_self">
 		<div class="MainDiv">
 			<table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
+				<tr>
+					<td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td height="62" background="./images/nav04.gif">
+									<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+										<tr>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
 				<tr>
 					<th class="tablestyle_title">角色基本信息录入</th>
 				</tr>

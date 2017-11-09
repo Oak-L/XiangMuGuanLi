@@ -51,6 +51,17 @@
 			<result name="listAgain" type="redirectAction">emp_list.action</result>
 		</action>
 
+		<action name="message_*" class="com.oracle.action.MessageAction" method="{1}">
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="send">/message/send.jsp</result>
+			<result name="listSend">/message/listSend.jsp</result>
+			<result name="listGet">/message/listGet.jsp</result>
+			<result name="listAll">/message/listAll.jsp</result>
+			<result name="find">/message/message.jsp</result>
+			<result name="yes" type="redirectAction">message_toListAll.action</result>
+		</action>
+
 		<action name="xx" class="com.oracle.action.XxAction">
 			<interceptor-ref name="loginInterceptor"></interceptor-ref>
 			<interceptor-ref name="defaultStack"></interceptor-ref>

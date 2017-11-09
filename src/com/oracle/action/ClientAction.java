@@ -54,7 +54,7 @@ public class ClientAction extends ActionSupport {
 	}
 
 	public String updateFind() throws Exception {
-		if (company.getCompanyid() != null) {
+		if (company != null) {
 			company = new TbCompanyService().selectByPrimaryKey(company.getCompanyid());
 		}
 		return "update";

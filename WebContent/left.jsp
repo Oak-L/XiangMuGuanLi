@@ -68,11 +68,12 @@ body {
 							<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
 								<tr>
 									<td width="25%" rowspan="2"><img src="./images/ico02.gif" width="35" height="35" /></td>
-									<td width="75%" height="22" class="left-font01">您好，<span class="left-font02">${cemp.empname}</span></td>
+									<td width="75%" height="22" class="left-font01">您好：<span class="left-font02">${cemp.empname}</span></td>
 								</tr>
 								<tr>
-									<td height="22" class="left-font01">[&nbsp;<a href="loginAction_logout.action"
-										target="_top" class="left-font01">退出</a>&nbsp;]
+									<td height="22" class="left-font01">&nbsp;&nbsp;&nbsp;[&nbsp;<a href="loginAction_logout.action"
+										target="_top" class="left-font01"><c:if test="${cemp.empname==null}">登陆</c:if> <c:if
+												test="${cemp.empname!=null}">退出</c:if></a>&nbsp;]
 									</td>
 								</tr>
 							</table>
