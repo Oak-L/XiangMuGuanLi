@@ -72,6 +72,14 @@
 			<result name="listAgain" type="redirectAction">salary_listSalary.action</result>
 		</action>
 
+		<action name="task_*" class="com.oracle.action.TaskAction" method="{1}">
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="list">/task/listTask.jsp</result>
+			<result name="toAdd">/task/addTask.jsp</result>
+			<result name="listAgain" type="redirectAction">task_list.action</result>
+		</action>
+
 		<action name="xx" class="com.oracle.action.XxAction">
 			<interceptor-ref name="loginInterceptor"></interceptor-ref>
 			<interceptor-ref name="defaultStack"></interceptor-ref>
