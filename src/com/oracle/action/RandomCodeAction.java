@@ -7,7 +7,9 @@ import javax.servlet.http.*;
 
 import org.apache.struts2.ServletActionContext;
 
-public class RandomCodeAction extends HttpServlet {
+import com.opensymphony.xwork2.ActionSupport;
+
+public class RandomCodeAction extends ActionSupport {
 	/**
 	 * 
 	 */

@@ -23,7 +23,7 @@ body {
 		var nametu = "xiaotu" + idt;
 		var tp = document.getElementById(nametu);
 		tp.src = "./images/ico05.gif";//图片ico04为白色的正方形
-		for (var i = 1; i < 35; i++) {
+		for (var i = 1; i < 40; i++) {
 			var nametu2 = "xiaotu" + i;
 			if (i != idt * 1) {
 				var tp2 = document.getElementById('xiaotu' + i);

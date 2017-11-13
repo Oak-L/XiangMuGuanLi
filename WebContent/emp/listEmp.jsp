@@ -166,7 +166,8 @@ html {
 														<td height="20" bgcolor="#FFFFFF"><s:property value="#emp.birth" /></td>
 														<td height="20" bgcolor="#FFFFFF">${emp.tel}</td>
 														<td bgcolor="#FFFFFF"><a href="emp_updateFind.action?id=${emp.empid }">编辑</a>&nbsp;|&nbsp;<a
-															href="yuangongsalary.html">发工资</a>&nbsp;|&nbsp;<a href="yuangongxiangmu.html">项目</a></td>
+															href="salary_give.action?emp.empid=${emp.empid}">发工资</a>&nbsp;|&nbsp;<a
+															href="yuangongxiangmu.html">项目</a></td>
 													</tr>
 												</s:iterator>
 											</table></td>

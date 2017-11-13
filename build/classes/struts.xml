@@ -62,6 +62,16 @@
 			<result name="yes" type="redirectAction">message_toListAll.action</result>
 		</action>
 
+		<action name="salary_*" class="com.oracle.action.SalaryAction" method="{1}">
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="standards">/salary/salaryStandards.jsp</result>
+			<result name="list">/salary/listSalary.jsp</result>
+			<result name="give">/salary/giveSalary.jsp</result>
+			<result name="find">/salary/findSalary.jsp</result>
+			<result name="listAgain" type="redirectAction">salary_listSalary.action</result>
+		</action>
+
 		<action name="xx" class="com.oracle.action.XxAction">
 			<interceptor-ref name="loginInterceptor"></interceptor-ref>
 			<interceptor-ref name="defaultStack"></interceptor-ref>

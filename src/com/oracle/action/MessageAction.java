@@ -7,11 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.opensymphony.xwork2.ActionSupport;
 import com.oracle.po.TbEmp;
 import com.oracle.po.TbSendmessage;
 import com.oracle.service.TbMessageService;
 
-public class MessageAction {
+public class MessageAction extends ActionSupport {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TbSendmessage message;
 	private String empname;
 	private List<TbSendmessage> list;

@@ -28,7 +28,6 @@ public class RoleAction extends ActionSupport {
 	}
 
 	public String add() throws Exception {
-		System.out.println(role.getRoleid());
 		TbRole tbrole = new TbRole();
 		int i = 0;
 		tbrole.setRolename(role.getRolename());

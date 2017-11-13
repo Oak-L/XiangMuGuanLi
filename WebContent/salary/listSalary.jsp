@@ -55,6 +55,13 @@ html {
 <script type="text/JavaScript">
 	
 </script>
+<style type="text/css">
+<!--
+.STYLE1 {
+	color: #FF0000
+}
+-->
+</style>
 <link href="./css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <SCRIPT language=JavaScript>
@@ -85,89 +92,72 @@ html {
 			}
 		}
 	}
-
-	function deleteChoose() {
-		if (confirm("一旦删除无法恢复，是否确认删除？")) {
-			document.getElementById("fom").action = "role_delete.action";
-			document.getElementById("fom").submit();
-		}
-	}
 </SCRIPT>
 
 <body>
-	<form name="fom" id="fom" action="role_find.action" method="post">
+	<form name="fom" id="fom" method="post" action="">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
 			<tr>
-				<td height="30">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
-							<td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-									<tr>
-										<td height="62" background="./images/nav04.gif">
-											<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
-												<tr>
-												</tr>
-											</table>
-										</td>
-									</tr>
+							<td height="62" background="./images/nav04.gif"><table width="98%" border="0"
+									align="center" cellpadding="0" cellspacing="0">
 								</table></td>
 						</tr>
-						<tr>
-							<td height="62" background="../images/nav04.gif">
-								<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
-									<tr>
-										<td width="24"><img src="./images/ico07.gif" width="20" height="18" /></td>
-										<td width="519"><label>角色名称: <input type="text" name="roleName" />
-										</label><input name="Submit" type="submit" class="right-button02" value="查 询" /></td>
-										<td width="679" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</td>
+					</table></td>
 			</tr>
 			<tr>
 				<td><table id="subtree1" style="DISPLAY:" width="100%" border="0" cellspacing="0"
 						cellpadding="0">
 						<tr>
 							<td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+
 									<tr>
-										<td height="20"><span class="newfont07">选择：<a href="####" class="right-font08"
-												onclick="selectAll();">全选</a>-<a href="####" class="right-font08"
-												onclick="unselectAll();">反选</a></span> <input name="Submit" type="button"
-											class="right-button08" value="删除所选角色" onclick="deleteChoose();" /> <input name="Submit"
-											type="button" class="right-button08" value="添加角色信息"
-											onclick="javascript:location.href='role_updateFind.action'" />
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</td>
+										<td height="20" colspan="9" align="center" bgcolor="#EEEEEE" class="tablestyle_title">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											员工工资列表 &nbsp;</td>
 									</tr>
 									<tr>
 										<td height="40" class="font42"><table width="100%" border="0" cellpadding="4"
 												cellspacing="1" bgcolor="#464646" class="newfont03">
 												<tr>
-													<td height="20" colspan="14" align="center" bgcolor="#EEEEEE" class="tablestyle_title">
-														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色详细列表
-														&nbsp;</td>
+													<td width="5%" align="center" bgcolor="#EEEEEE">员工编号</td>
+													<td width="8%" height="20" align="center" bgcolor="#EEEEEE">员工姓名</td>
+													<td width="10%" align="center" bgcolor="#EEEEEE">年份</td>
+													<td width="10%" align="center" bgcolor="#EEEEEE">月份</td>
+													<td width="10%" align="center" bgcolor="#EEEEEE">总工资</td>
+													<td width="10%" align="center" bgcolor="#EEEEEE">扣除工资</td>
+													<td width="10%" align="center" bgcolor="#EEEEEE">实发工资</td>
+													<td width="8%" align="center" bgcolor="#EEEEEE">状态</td>
+													<td width="13%" align="center" bgcolor="#EEEEEE">发款人id</td>
+													<td width="16%" align="center" bgcolor="#EEEEEE">操作</td>
 												</tr>
-												<tr>
-													<td width="10%" align="center" bgcolor="#EEEEEE">选择</td>
-													<td width="30%" height="20" align="center" bgcolor="#EEEEEE">角色名称</td>
-													<td width="10%" align="center" bgcolor="#EEEEEE">角色编号</td>
-													<td width="30%" align="center" bgcolor="#EEEEEE">角色描述</td>
-													<td width="20%" align="center" bgcolor="#EEEEEE">操作</td>
-												</tr>
-												<s:iterator value="list" id="role">
+												<s:iterator value="list" id="salary">
 													<tr>
-														<td bgcolor="#FFFFFF"><input type="checkbox" name="delid" value="${role.roleid}" /></td>
-														<td height="20" bgcolor="#FFFFFF">${role.rolename }</td>
-														<td bgcolor="#FFFFFF">${role.roleid }</td>
-														<td bgcolor="#FFFFFF">${role.roledesc }</td>
-														<td bgcolor="#FFFFFF">&nbsp;&nbsp;<a
-															href="role_updateFind.action?role.roleid=${role.roleid }">编辑</a>&nbsp;|&nbsp;<a
-															href="role_msg.action?id=${role.roleid }">查看</a>&nbsp;|&nbsp;<a
-															href="right_list.action?role.roleid=${role.roleid }">权限管理</a></td>
+														<td bgcolor="#FFFFFF"><div align="center">${salary.empid }</div></td>
+														<td height="20" bgcolor="#FFFFFF"><div align="center">${salary.empname }</div></td>
+														<td bgcolor="#FFFFFF"><div align="center">${salary.year }</div></td>
+														<td bgcolor="#FFFFFF"><div align="center">${salary.month }</div></td>
+														<td bgcolor="#FFFFFF"><div align="center">${salary.sal }</div></td>
+														<td bgcolor="#FFFFFF"><div align="center">${salary.deductsum }</div></td>
+														<td bgcolor="#FFFFFF"><div align="center">${salary.comm }</div></td>
+														<td bgcolor="#FFFFFF"><s:if test="#salary.zhuangtai!=1">
+																<div align="center" class="STYLE1">未发放</div>
+															</s:if> <s:if test="#salary.zhuangtai==1">
+																<div align="center" class="top-font01">已发放</div>
+															</s:if></td>
+														<td bgcolor="#FFFFFF"><div align="center">${salary.payname }</div></td>
+														<td bgcolor="#FFFFFF"><div align="center">
+																<a
+																	href="salary_findSalary.action?salary.empid=${salary.empid }&salary.year=${salary.year }&salary.month=${salary.month }">查看</a>&nbsp;|&nbsp;
+																<s:if test="#salary.zhuangtai!=1">
+																	<a
+																		href="salary_change.action?salary.empid=${salary.empid }&salary.year=${salary.year }&salary.month=${salary.month }&salary.payid=${cemp.empid}"
+																		style="color: red;">发放工资</a>
+																</s:if>
+																<s:if test="#salary.zhuangtai==1">已发放</s:if>
+															</div></td>
 													</tr>
 												</s:iterator>
 											</table></td>
